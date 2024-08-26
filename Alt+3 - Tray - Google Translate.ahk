@@ -5,8 +5,8 @@ DetectHiddenWindows, On
 global TargetWindow := ""
 global TrayIconHwnd := ""
 
-; Hotkey: Alt + 1
-!2::
+; Hotkey: Alt + 3
+!3::
   ; If no window has been locked yet, lock onto the current window
   if (TargetWindow = "") {
     TargetWindow := WinExist("A")

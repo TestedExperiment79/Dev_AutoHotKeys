@@ -1,2 +1,2 @@
-#NoTrayIcon
+; #NoTrayIcon
 F1::MButton

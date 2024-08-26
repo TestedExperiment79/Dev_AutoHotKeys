@@ -1,4 +1,4 @@
-#NoTrayIcon
+; #NoTrayIcon
 +F4:: pinWindow()
 
 pinWindow(targetWindow := "A")

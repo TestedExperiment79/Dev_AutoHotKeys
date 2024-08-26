@@ -1,4 +1,4 @@
-#NoTrayIcon
+; #NoTrayIcon
 global isEnabled:=False
 
 return
