@@ -3,19 +3,19 @@ DetectHiddenWindows, On
 
 ; Global variable to store the window handle
 global TargetWindow := ""
+global TrayIconHwnd := ""
 
 ; Hotkey: Alt + 1
 !1::
-  ; Get the handle of the currently active window
-  hWnd := WinExist("A")
-
   ; If no window has been locked yet, lock onto the current window
   if (TargetWindow = "") {
-    TargetWindow := hWnd
-    MinimizeToTray(TargetWindow)
+    TargetWindow := WinExist("A")
+    if (TargetWindow) {
+      MinimizeToTray(TargetWindow)
+    }
   }
   ; If already locked onto a window, toggle minimize/restore
-  else if (TargetWindow = hWnd) {
+  else {
     ToggleWindow(TargetWindow)
   }
 return
@@ -23,7 +23,6 @@ return
 ; Function to minimize the window to the tray
 MinimizeToTray(hWnd) {
   WinGetTitle, title, ahk_id %hWnd%
-  WinGet, exeName, ProcessPath, ahk_id %hWnd%
 
   ; Add the window to the system tray
   hIcon := GetWindowIcon(hWnd)
@@ -36,12 +35,14 @@ MinimizeToTray(hWnd) {
 
 ; Function to restore the window from the tray
 RestoreWindow() {
-  global TargetWindow
-  WinShow, ahk_id %TargetWindow%
-  WinActivate, ahk_id %TargetWindow%
-  Gui, Destroy
-  Menu, Tray, Icon
-  TargetWindow := "" ; Clear the locked window
+  global TargetWindow, TrayIconHwnd
+  if (TargetWindow) {
+    WinShow, ahk_id %TargetWindow%
+    WinActivate, ahk_id %TargetWindow%
+    Gui, Destroy
+    Menu, Tray, Icon
+    TargetWindow := "" ; Clear the locked window
+  }
 }
 
 ; Function to toggle minimize/restore
@@ -60,7 +61,6 @@ GetWindowIcon(hWnd) {
   GCLP_HICONSM := -34
   GetClassLong := "GetClassLong" . (A_PtrSize = 4 ? "" : "Ptr")
 
-  ; SendMessage, WM_GETICON, ICON_SMALL, A_ScreenDPI,, ahk_id %hWnd%
   SendMessage, WM_GETICON, ICON_SMALL, 0,, ahk_id %hWnd%
   if !ErrorLevel
     smallIcon := DllCall(GetClassLong, "Ptr", hWnd, "Int", GCLP_HICONSM, "Ptr")
@@ -70,6 +70,5 @@ return smallIcon
 }
 
 ; Ensure all windows are restored when the script exits
-; OnExit, RestoreWindow
 OnExit("RestoreWindow")
 return
