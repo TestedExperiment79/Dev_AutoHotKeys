@@ -37,7 +37,7 @@ MinimizeToTray(hWnd) {
 RestoreWindow() {
   global TargetWindow, TrayIconHwnd
   if (TargetWindow) {
-    ; WinShow, ahk_id %TargetWindow%
+    WinShow, ahk_id %TargetWindow%
     WinActivate, ahk_id %TargetWindow%
     Gui, Destroy
     Menu, Tray, Icon
