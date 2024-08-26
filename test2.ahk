@@ -6,7 +6,7 @@ global TargetWindow := ""
 global TrayIconHwnd := ""
 
 ; Hotkey: Alt + 1
-!1::
+!2::
   ; If no window has been locked yet, lock onto the current window
   if (TargetWindow = "") {
     TargetWindow := WinExist("A")
