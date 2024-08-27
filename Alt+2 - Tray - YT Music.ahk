@@ -1,6 +1,11 @@
 ; Enable hidden window detection
 DetectHiddenWindows, On
 
+
+I_Icon = %A_ScriptDir%\assets\icon_yt_music_1.ico
+IfExist, %I_Icon%
+Menu, Tray, Icon, %I_Icon%
+
 ; Global variable to store the locked window handle
 global TargetWindow := ""
 global TrayIconHwnd := ""
