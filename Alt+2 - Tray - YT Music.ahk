@@ -33,7 +33,7 @@ MinimizeToTray(hWnd) {
   hIcon := GetWindowIcon(hWnd)
   Gui, +ToolWindow +AlwaysOnTop +HwndTrayIconHwnd
   Menu, Tray, Add, %title%, RestoreWindow
-  Menu, Tray, Icon, %title%, % "HICON:*" . hIcon
+  Menu, Tray, Icon, %I_Icon%
   Menu, Tray, NoStandard
   WinHide, ahk_id %hWnd%
 }
@@ -45,7 +45,7 @@ RestoreWindow() {
     WinShow, ahk_id %TargetWindow%
     WinActivate, ahk_id %TargetWindow%
     Gui, Destroy
-    Menu, Tray, Icon
+    Menu, Tray, Icon, %I_Icon%
   }
 }
 
