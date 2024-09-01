@@ -2,7 +2,7 @@
 DetectHiddenWindows, On
 
 
-I_Icon = %A_ScriptDir%\assets\icon_yt_music_1.ico
+I_Icon = %A_ScriptDir%\assets\icon_google_translate_1.ico
 IfExist, %I_Icon%
 Menu, Tray, Icon, %I_Icon%
 
@@ -11,7 +11,7 @@ global TargetWindow := ""
 global TrayIconHwnd := ""
 
 ; Hotkey: Alt + 2
-!2::
+>^1::
   ; If no window has been locked yet, lock onto the current window
   if (TargetWindow = "") {
     TargetWindow := WinExist("A")
