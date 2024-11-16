@@ -1,2 +1,2 @@
 ; #NoTrayIcon
-F1::MButton
+F7::MButton

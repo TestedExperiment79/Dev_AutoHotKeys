@@ -2,7 +2,7 @@
 DetectHiddenWindows, On
 
 
-I_Icon = %A_ScriptDir%\assets\icon_discord_1.ico
+I_Icon = %A_ScriptDir%\assets\icon_trello_1.ico
 IfExist, %I_Icon%
 Menu, Tray, Icon, %I_Icon%
 
@@ -10,8 +10,8 @@ Menu, Tray, Icon, %I_Icon%
 global TargetWindow := ""
 global TrayIconHwnd := ""
 
-; Hotkey: Alt + 2
->^2::
+; Hotkey: Down Here
+!Delete::
   ; If no window has been locked yet, lock onto the current window
   if (TargetWindow = "") {
     TargetWindow := WinExist("A")

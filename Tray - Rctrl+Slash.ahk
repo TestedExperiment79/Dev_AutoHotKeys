@@ -1,8 +1,10 @@
 ; Enable hidden window detection
 DetectHiddenWindows, On
 
+global WindowChosen := false
 
-I_Icon = %A_ScriptDir%\assets\icon_notepad_1.ico
+
+I_Icon = %A_ScriptDir%\assets\icon_google_translate_1.ico
 IfExist, %I_Icon%
 Menu, Tray, Icon, %I_Icon%
 
@@ -10,8 +12,20 @@ Menu, Tray, Icon, %I_Icon%
 global TargetWindow := ""
 global TrayIconHwnd := ""
 
-; Hotkey: Alt + 1
-!1::
+
+; Special Keys
+>^\::
+  if (WindowChosen = False) {
+    ; Disable Closing of Window
+    WindowChosen := True
+    WinGet, Id, Id, A
+    disableClosing(id)
+
+    ; Window Across Desktops
+    Winget, id, id, A
+    WinSet, ExStyle, ^0x80,  ahk_id %id% ; 0x80 is
+  }
+
   ; If no window has been locked yet, lock onto the current window
   if (TargetWindow = "") {
     TargetWindow := WinExist("A")
@@ -24,6 +38,23 @@ global TrayIconHwnd := ""
     ToggleWindow(TargetWindow)
   }
 return
+
+
+disableClosing(id) ;By RealityRipple at http://www.xtremevbtalk.com/archive/index.php/t-258725.html
+{
+  Static isEnabled:=False
+  menu:=DllCall("user32\GetSystemMenu","UInt",id,"UInt",0)
+
+  DllCall("user32\DeleteMenu","UInt",menu,"UInt",0xF060,"UInt",0x0)
+
+  WinGetPos,x,y,w,h,ahk_id %id%
+
+  WinMove,ahk_id %id%,,%x%,%y%,%w%,% h-1
+
+  WinMove,ahk_id %id%,,%x%,%y%,%w%,% h+1
+
+}
+
 
 ; Function to minimize the window to the tray
 MinimizeToTray(hWnd) {

@@ -4,18 +4,11 @@ global isEnabled:=False
 return
 
 
-F6::
-
+!F6::
 WinGet, Id, Id, A
-
 execute(id)
-
 Return
 
-!F4::
-WinGet, Id, Id, A
-closeWindow(A)
-Return
 
 
 
