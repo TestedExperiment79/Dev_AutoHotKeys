@@ -15,6 +15,14 @@ global TrayIconHwnd := ""
 
 ; Special Keys
 >^F1::
+  ; Detect if window was closed
+  if !WinExist(TargetWindow) ; Confirm the previous window no longer exists
+  {
+    WindowChosen = False
+    TargetWindow = ""
+  }
+
+  ; Disable Closing Window + Window Across Desktops
   if (WindowChosen = False) {
     ; Disable Closing of Window
     WindowChosen := True
