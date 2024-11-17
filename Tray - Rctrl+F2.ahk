@@ -15,37 +15,37 @@ global TrayIconHwnd := ""
 
 ; Special Keys
 >^F2::
-    ; MsgBox, 64, Alert, Clicked ; TESTING
+  ; MsgBox, 64, Alert, Clicked ; TESTING
 
-    ; Detect if window was closed
-    if (WindowChosen = True) && !WinExist("ahk_id " . TargetWindow) {
-        ; MsgBox, 64, Alert, The chosen window has been closed! ; TESTING
-        WindowChosen := False
-        TargetWindow := ""
-    }
+  ; Detect if window was closed
+  if (WindowChosen = True) && !WinExist("ahk_id " . TargetWindow) {
+      ; MsgBox, 64, Alert, The chosen window has been closed! ; TESTING
+      WindowChosen := False
+      TargetWindow := ""
+  }
 
-    ; If no window has been locked, lock onto the current window
-    if (WindowChosen = False) {
-        ; MsgBox, 64, Alert, Locking the current window ; TESTING
-        WinGet, Id, Id, A
-        disableClosing(Id)
-        TargetWindow := WinExist("A")
-        WindowChosen := True
+  ; If no window has been locked, lock onto the current window
+  if (WindowChosen = False) {
+      ; MsgBox, 64, Alert, Locking the current window ; TESTING
+      WinGet, Id, Id, A
+      disableClosing(Id)
+      TargetWindow := WinExist("A")
+      WindowChosen := True
 
 
-        ; Window Across Desktops
-        Winget, id, id, A
-        WinSet, ExStyle, ^0x80,  ahk_id %id% ; 0x80 is
-        if (TargetWindow) {
-            MinimizeToTray(TargetWindow)
-        }
-    } else {
-        ; Toggle the target window (minimize/restore)
-        ; MsgBox, 64, Alert, Toggling the window ; TESTING
-        ToggleWindow(TargetWindow)
-    }
+      ; Window Across Desktops
+      Winget, id, id, A
+      WinSet, ExStyle, ^0x80,  ahk_id %id% ; 0x80 is
+      if (TargetWindow) {
+          MinimizeToTray(TargetWindow)
+      }
+  } else {
+      ; Toggle the target window (minimize/restore)
+      ; MsgBox, 64, Alert, Toggling the window ; TESTING
+      ToggleWindow(TargetWindow)
+  }
 return
-; Adjust this part of your code
+
 
 if (WindowChosen = False) {
   ; Disable Closing of Window
