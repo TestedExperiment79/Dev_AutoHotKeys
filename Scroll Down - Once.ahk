@@ -37,7 +37,7 @@ return
 
 ; Function to handle the scroll down action with cooldown
 HandleScrollDown() {
-    global scrollCooldown, featureEnabled
+    global scrollCooldown, featureEnabled, waitingTime
 
     if (featureEnabled && !scrollCooldown) {
         ; Execute the scroll down action
