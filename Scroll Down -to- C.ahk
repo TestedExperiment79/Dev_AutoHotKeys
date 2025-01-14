@@ -28,7 +28,7 @@ HandleScrollDown()
 return
 
 
-<^F1::
+<^Esc::
 featureEnabled := !featureEnabled
 if (featureEnabled) {
     Tooltip, Scroll Cooldown: ON
