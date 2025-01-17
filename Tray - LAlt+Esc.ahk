@@ -11,7 +11,7 @@ global TargetWindow := ""
 global TrayIconHwnd := ""
 
 ; Hotkey: Down Here
-!Esc::
+<!Esc::
   ; If no window has been locked yet, lock onto the current window
   if (TargetWindow = "") {
     TargetWindow := WinExist("A")
