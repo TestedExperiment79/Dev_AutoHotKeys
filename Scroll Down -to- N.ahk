@@ -43,7 +43,7 @@ FeatureScroll() {
     } else {
         ; Start sending scroll down repeatedly
         scrollActive := true
-        SendEvent {c Down}
+        SendEvent {n Down}
     }
     ; Reset stop timer on each scroll
     SetTimer, StopScrollDown, -%scrollStopTimer%
@@ -52,7 +52,7 @@ FeatureScroll() {
 ; Function to stop sending WheelDown after 500 ms of no scroll
 StopScrollDown:
 scrollActive := false
-SendEvent {c Up}
+SendEvent {n Up}
 return
 
 ; Function to remove the tooltip
