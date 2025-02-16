@@ -40,11 +40,14 @@ F1::
 ; GetKeyState("LWin", "P") || GetKeyState("RWin", "P")
 ;
 ;* Whenever "U" is Pressed
-~*U::
+*U::
 if (currentGame = "warframe"
     && GetKeyState("CapsLock", "P"))
 {
     SendEvent, h
+} else {
+    SendEvent, {Blind}{u}
 }
+; Otherwise, do nothing and let Windows handle "U" normally
 return
 
