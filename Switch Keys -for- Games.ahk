@@ -42,7 +42,7 @@ F1::
 ;* Whenever "U" is Pressed
 *U::
 if (currentGame = "warframe"
-    && GetKeyState("CapsLock", "P"))
+    && (GetKeyState("CapsLock", "P") || GetKeyState("RControl", "P")))
 {
     SendEvent, h
 } else {
