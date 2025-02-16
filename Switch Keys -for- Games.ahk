@@ -1,12 +1,14 @@
 global currentGame := ""
 
+RemoveToolTip:
+ToolTip
+return
+
 Alt & F5::
 {
     InputBox, userInput, Enter Text, Please enter the text:
     if (!ErrorLevel) ; Check if user didn't cancel the input box
     {
-        StringTrimLeft, userInput, userInput, 0
-        StringTrimRight, userInput, userInput, 0
         StringLower, userInput, userInput
         currentGame := userInput
         ToolTip, %currentGame%
@@ -26,15 +28,23 @@ F1::
     return
 }
 
-Alt & U::
-{
-    if (currentGame = "warframe")
-        SendEvent, h
-    else
-        SendEvent, !u
-    return
-}
 
-RemoveToolTip:
-ToolTip
+;! Possible Key Detection:
+; the "P" in GetKeyState("LControl", "P") or whatever
+; is not the "P" key, is just part of the command
+; ---
+; GetKeyState("LControl", "P") || GetKeyState("RControl", "P")
+; GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P")
+; GetKeyState("LShift", "P") || GetKeyState("RShift", "P")
+; GetKeyState("CapsLock", "P")
+; GetKeyState("LWin", "P") || GetKeyState("RWin", "P")
+;
+;* Whenever "U" is Pressed
+~*U::
+if (currentGame = "warframe"
+    && GetKeyState("CapsLock", "P"))
+{
+    SendEvent, h
+}
 return
+
