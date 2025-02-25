@@ -65,7 +65,7 @@ if (currentGame = "warframe")
     SendEvent, {Blind}{u down}
 } ; Otherwise, do nothing and let Windows handle "U" normally
 SetTimer, u_StopKey, -%keyTimer%
-
+;
 return
 ;
 ;
@@ -77,3 +77,27 @@ if (!GetKeyState("U", "P")) {
 }
 return
 
+
+
+; Shift + Scroll Down (Ctrl + Shift + WheelDown)
+global scrollD_keyActive := false
++WheelDown::  ; ">" represents Shift, "^" represents Ctrl
+if (currentGame = "warframe"
+    && scrollD_keyActive == false)
+{
+    scrollActive := true
+    SendEvent {n Down}
+} else {
+    SendEvent {Blind}{WheelDown}
+}
+SetTimer, sh_scrollD_StopKey, -2000
+return
+;
+;
+sh_scrollD_StopKey:
+if (!GetKeyState("U", "P")) {
+    scrollD_keyActive := false
+    SendEvent, {n Up}
+    SetTimer, u_StopKey, Off
+}
+return
