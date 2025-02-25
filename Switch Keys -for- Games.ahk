@@ -119,7 +119,7 @@ if (currentGame = "warframe"
 } else {
     SendEvent {Blind}{WheelDown}
 }
-SetTimer, sh_scrollD_StopKey, -2000
+SetTimer, sh_scrollD_StopKey, -400
 return
 ;
 ;
