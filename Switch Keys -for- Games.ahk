@@ -111,23 +111,24 @@ return
 ;
 global scrollD_keyActive := false
 +WheelDown::  ; ">" represents Shift, "^" represents Ctrl
-if (currentGame = "warframe"
-    && scrollD_keyActive == false)
+if (currentGame = "warframe")
 {
-    scrollActive := true
-    SendEvent {n Down}
+    if (scrollD_keyActive)
+        SetTimer, sh_scrollD_StopKey, Off
+    else {
+        scrollD_keyActive := true
+        SendEvent {n Down}
+    }
+    SetTimer, sh_scrollD_StopKey, -400
 } else {
     SendEvent {Blind}{WheelDown}
 }
-SetTimer, sh_scrollD_StopKey, -400
 return
 ;
 ;
 sh_scrollD_StopKey:
-if (!GetKeyState("U", "P")) {
-    scrollD_keyActive := false
-    SendEvent, {n Up}
-    SetTimer, u_StopKey, Off
-}
+scrollD_keyActive := false
+SendEvent, {n Up}
+SetTimer, sh_scrollD_StopKey, Off
 return
 
