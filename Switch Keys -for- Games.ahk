@@ -105,8 +105,9 @@ return
 ;     SendEvent, {u Up}
 ;     SetTimer, u_StopKey, Off
 ; }
-u up::
-    SendEvent, {u Up}
+*u up::
+    ; SendEvent, {u Up}
+    SendEvent, {Blind}{u Up}
     u_keyActive := false
 return
 
