@@ -86,25 +86,30 @@ if (currentGame = "warframe")
     else if (u_keyActive == false) {
         u_keyActive := true
         SendEvent, {Blind}{u down}
+        ; SetTimer, u_StopKey, Off
     }
 } else {
     SendEvent, {Blind}{u down}
+    u_keyActive := true
+    ; SetTimer, u_StopKey, Off
 } ; Otherwise, do nothing and let Windows handle "U" normally
-SetTimer, u_StopKey, -%keyTimer%
+; SetTimer, u_StopKey, -%keyTimer%
 ;
 return
 ;
 ;
-u_StopKey:
-if (!GetKeyState("U", "P")) {
-    u_keyActive := false
-    SendEvent, {u Up}
-    SetTimer, u_StopKey, Off
 
-    ; confirm it went down
-    Sleep, 200
+; u_StopKey:
+; if (!GetKeyState("U", "P")) {
+;     u_keyActive := false
+;     SendEvent, {u Up}
+;     SetTimer, u_StopKey, Off
+; }
+return
+
+u up::
     SendEvent, {u Up}
-}
+    u_keyActive := false
 return
 
 
