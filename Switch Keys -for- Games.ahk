@@ -89,8 +89,11 @@ if (currentGame = "warframe")
         ; SetTimer, u_StopKey, Off
     }
 } else {
-    SendEvent, {Blind}{u down}
-    u_keyActive := true
+    if (u_keyActive == false) {
+        u_keyActive := true
+        SendEvent, {Blind}{u down}
+        ; SetTimer, u_StopKey, Off
+    }
     ; SetTimer, u_StopKey, Off
 } ; Otherwise, do nothing and let Windows handle "U" normally
 ; SetTimer, u_StopKey, -%keyTimer%
