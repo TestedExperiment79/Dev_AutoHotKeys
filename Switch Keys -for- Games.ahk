@@ -102,7 +102,7 @@ if (!GetKeyState("U", "P")) {
     SetTimer, u_StopKey, Off
 
     ; confirm it went down
-    Sleep, 50
+    Sleep, 200
     SendEvent, {u Up}
 }
 return
