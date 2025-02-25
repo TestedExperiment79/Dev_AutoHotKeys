@@ -25,6 +25,7 @@ Alt & F5::
 
 MakeChanges:
 if (currentGame = "poe") {
+    ; Path OF Exiles
     Hotkey, LButton, RightClick, On
     Hotkey, RButton, LeftClick, On
 } else {
