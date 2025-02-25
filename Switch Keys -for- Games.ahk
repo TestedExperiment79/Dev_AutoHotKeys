@@ -23,6 +23,7 @@ Alt & F5::
     return
 }
 
+
 MakeChanges:
 if (currentGame = "poe") {
     ; Path OF Exiles
