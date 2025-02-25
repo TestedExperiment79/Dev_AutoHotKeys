@@ -1,5 +1,5 @@
 global currentGame := ""
-global keyTimer := 300
+global keyTimer := 100
 
 RemoveToolTip:
 ToolTip
@@ -47,18 +47,22 @@ F1::
 ;* Whenever "U" is Pressed
 global u_keyActive := false
 *U::
-if (currentGame = "warframe"
-    && (GetKeyState("CapsLock", "P") || GetKeyState("RControl", "P")))
+; else:
+; Just Keeps it pressed
+if (currentGame = "warframe")
 {
-    SendEvent, h
+    if (GetKeyState("CapsLock", "P") || GetKeyState("RControl", "P"))
+        SendEvent, h
 
-} else if (currentGame = "warframe"
-    && GetKeyState("LControl", "P"))
-{
-    SendEvent, j
+    else if (GetKeyState("LControl", "P"))
+        SendEvent, j
+
+    else if (u_keyActive == false) {
+        u_keyActive := true
+        SendEvent, {Blind}{u down}
+    }
 } else {
     SendEvent, {Blind}{u down}
-    SetTimer, u_StopKey, Off
 } ; Otherwise, do nothing and let Windows handle "U" normally
 SetTimer, u_StopKey, -%keyTimer%
 
@@ -66,6 +70,10 @@ return
 ;
 ;
 u_StopKey:
-SendEvent {u Up}
+if (!GetKeyState("U", "P")) {
+    u_keyActive := false
+    SendEvent, {u Up}
+    SetTimer, u_StopKey, Off
+}
 return
 
