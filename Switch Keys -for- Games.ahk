@@ -51,6 +51,11 @@ if (currentGame = "warframe"
     && (GetKeyState("CapsLock", "P") || GetKeyState("RControl", "P")))
 {
     SendEvent, h
+
+} else if (currentGame = "warframe"
+    && GetKeyState("LControl", "P"))
+{
+    SendEvent, j
 } else {
     SendEvent, {Blind}{u down}
     SetTimer, u_StopKey, Off
