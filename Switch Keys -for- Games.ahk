@@ -19,8 +19,29 @@ Alt & F5::
         ToolTip, %currentGame%
         SetTimer, RemoveToolTip, -2000 ; Tooltip disappears after 2 seconds
     }
+    Gosub, MakeChanges
     return
 }
+
+MakeChanges:
+if (currentGame = "poe") {
+    Hotkey, LButton, RightClick, On
+    Hotkey, RButton, LeftClick, On
+} else {
+    Hotkey, LButton, RightClick, Off
+    Hotkey, RButton, LeftClick, Off
+}
+
+; Swapped functionality
+RightClick:
+Click Right
+return
+
+LeftClick:
+Click Left
+return
+
+
 
 F1::
 {
@@ -44,7 +65,10 @@ F1::
 ; GetKeyState("CapsLock", "P")
 ; GetKeyState("LWin", "P") || GetKeyState("RWin", "P")
 ;
-;* Whenever "U" is Pressed
+;
+;* WHEN:
+;? "U"
+;
 global u_keyActive := false
 *U::
 ; else:
@@ -79,7 +103,10 @@ return
 
 
 
+;* WHEN:
+;? "Shift + Scroll Down"
 ; Shift + Scroll Down (Ctrl + Shift + WheelDown)
+;
 global scrollD_keyActive := false
 +WheelDown::  ; ">" represents Shift, "^" represents Ctrl
 if (currentGame = "warframe"
@@ -101,3 +128,4 @@ if (!GetKeyState("U", "P")) {
     SetTimer, u_StopKey, Off
 }
 return
+
