@@ -1,11 +1,64 @@
-WinGet, wowid, List, i)\QWow\E
 
 
-~2::
-KeyWait 2
-IfWinActive, i)\QWow\E
-{
-  ControlSend,, 2, ahk_id %wowid1%
-  ControlSend,, 2, ahk_id %wowid2%
-  Return
+
+; Initialize variables
+scrollActive := false
+scrollStopTimer := 400 ; Stop scrolling after 500 milliseconds of no scroll
+featureEnabled := false ; Tracks whether the feature is toggled on
+
+
+; Shift + Scroll Down (Ctrl + Shift + WheelDown)
++WheelDown::  ; ">" represents Shift, "^" represents Ctrl
+HandleScrollDown()
+return
+
+
+<^Esc::
+featureEnabled := !featureEnabled
+if (featureEnabled) {
+    Tooltip, Scroll Cooldown: ON
+} else {
+    Tooltip, Scroll Cooldown: OFF
 }
+SetTimer, RemoveTooltip, -2000 ; Tooltip disappears after seconds
+return
+
+
+HandleScrollDown() {
+    global featureEnabled
+
+    if (featureEnabled) {
+        FeatureScroll()
+    } else {
+        SendEvent {WheelDown}
+    }
+}
+
+FeatureScroll() {
+    global scrollActive, scrollStopTimer
+
+    if (scrollActive) {
+        SetTimer, StopScrollDown, Off
+
+    } else {
+        ; Start sending scroll down repeatedly
+        scrollActive := true
+        SendEvent {n Down}
+    }
+    ; Reset stop timer on each scroll
+    SetTimer, StopScrollDown, -%scrollStopTimer%
+}
+
+; Function to stop sending WheelDown after 500 ms of no scroll
+StopScrollDown:
+scrollActive := false
+SendEvent {n Up}
+return
+
+; Function to remove the tooltip
+RemoveTooltip:
+Tooltip
+return
+
+
+

@@ -4,6 +4,10 @@ RemoveToolTip:
 ToolTip
 return
 
+; Basic Window in Black
+^+z::SendEvent, ^{y}
+
+
 Alt & F5::
 {
     InputBox, userInput, Enter Text, Please enter the text:
