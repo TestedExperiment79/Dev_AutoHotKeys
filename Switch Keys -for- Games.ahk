@@ -83,6 +83,9 @@ if (currentGame = "warframe")
     else if (GetKeyState("LControl", "P"))
         SendEvent, j
 
+    else if (GetKeyState("LWin", "P") || GetKeyState("RControl", "P"))
+        SendEvent, b
+
     else if (u_keyActive == false) {
         u_keyActive := true
         SendEvent, {Blind}{u down}
