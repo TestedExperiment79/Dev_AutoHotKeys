@@ -146,3 +146,14 @@ SendEvent, {n Up}
 SetTimer, sh_scrollD_StopKey, Off
 return
 
+
+
+~Shift Up::
+if (currentGame = "warframe")
+    {
+        if (A_PriorHotkey = "~Shift Up" && A_TimeSincePriorHotkey < 300) {
+            SendEvent {m}
+        }
+    }
+return
+
