@@ -2,7 +2,7 @@
 #InstallKeybdHook
 SetTimer, RemoveToolTip, -2000  ; Auto-remove tooltip after 2 seconds
 
-~*U::ShowPressedKeys()  ; Detect "U" with any combination
+~*WheelUp::ShowPressedKeys()  ; Detect "U" with any combination
 
 ShowPressedKeys() {
     keys := GetPressedKeys()

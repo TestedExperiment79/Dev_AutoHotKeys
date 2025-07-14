@@ -134,6 +134,14 @@ if (currentGame = "warframe")
         SendEvent {n Down}
     }
     SetTimer, sh_scrollD_StopKey, -400
+} else if (currentGame = "warcraft")
+{
+    if (!scrollD_keyActive) {
+        scrollD_keyActive := true
+
+        SendEvent {Blind}{WheelDown}
+        SetTimer, sh_scrollD_StopKey, -400
+    }
 } else {
     SendEvent {Blind}{WheelDown}
 }
@@ -144,6 +152,33 @@ sh_scrollD_StopKey:
 scrollD_keyActive := false
 SendEvent, {n Up}
 SetTimer, sh_scrollD_StopKey, Off
+return
+
+
+
+;* WHEN:
+;? "Shift + Scroll Up"
+; Shift + Scroll Up (Ctrl + Shift + Up)
+;
+global scrollUp_keyActive := false
++WheelUp::  ; ">" represents Shift, "^" represents Ctrl
+if (currentGame = "warcraft")
+{
+    if (!scrollUp_keyActive) {
+        scrollUp_keyActive := true
+
+        SendEvent {Blind}{WheelUp}
+        SetTimer, sh_scrollUp_StopKey, -400
+    }
+} else {
+    SendEvent {Blind}{WheelUp}
+}
+return
+;
+;
+sh_scrollUp_StopKey:
+scrollUp_keyActive := false
+SetTimer, sh_scrollUp_StopKey, Off
 return
 
 
