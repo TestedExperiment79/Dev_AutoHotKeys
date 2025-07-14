@@ -1,3 +1,14 @@
+; Start as ADMIN
+if not A_IsAdmin
+{
+    ; Run the script again as admin
+    Run *RunAs "%A_ScriptFullPath%"
+    ExitApp ; Exit the current instance
+}
+
+; --- ---
+
+
 global currentGame := ""
 global keyTimer := 100
 
