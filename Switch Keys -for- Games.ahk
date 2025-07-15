@@ -60,7 +60,7 @@ F1::
 {
     if (currentGame = "warframe")
         SendEvent, y
-    else if (currentGame = "warcraft")
+    else if (SubStr(currentGame, 1, 3) = "wow")
         SendEvent, {F1}
     else
         SendEvent, {F1}
@@ -83,7 +83,7 @@ F1::
 ;? "U"
 ;
 global u_keyActive := false
-*U::
+~*U::
 ; else:
 ; Just Keeps it pressed
 if (currentGame = "warframe")
@@ -102,6 +102,8 @@ if (currentGame = "warframe")
         SendEvent, {Blind}{u down}
         ; SetTimer, u_StopKey, Off
     }
+} else if (SubStr(currentGame, 1, 3) = "wow") {
+    return
 } else {
     if (u_keyActive == false) {
         u_keyActive := true
@@ -129,13 +131,79 @@ return
 return
 
 
+;* WHEN:
+$i:: ; ATTACK
+if (SubStr(currentGame, 1, 3) = "wow")
+{
+    if (currentGame = "wow-dh") {
+        ; 1.5m - The Hunt
+        SendEvent {Ctrl down}{WheelUp}{Ctrl up}
+        ; 1m - Elysian Decree
+        SendEvent {p}
+        ; 30s - Sigil of Flame
+        SendEvent {Ctrl down}i{Ctrl up}
+        ; 14s - Immolation Aura
+        SendEvent {o}
+        ; 4.3s - Fracture
+        SendEvent {i}
+        ; 0s - Soul Cleave - (Life Steal)
+        SendEvent {5}
+
+    } else if (currentGame = "wow-war") {
+        ; 1.5m - Champion's Spear
+        SendEvent {Shift down}{i}{Shift up}
+        ; 1.5m - Ravager
+        SendEvent {Ctrl down}{p}{Ctrl up}
+        ; 45s - Odyn's Fury
+        SendEvent {Ctrl down}{o}{Ctrl up}
+        ; 4s-Spend - Execute
+        SendEvent {Ctrl down}{i}{Ctrl up}
+        ; 4s-Spend - Rampage
+        SendEvent {p}
+        ; 4s - Bloodthirst
+        SendEvent {5}
+        ; 6s - Raging Blow
+        SendEvent {i}
+        ; 0s - Whirlwind
+        SendEvent {o}
+    }
+} else {
+    SendEvent {i}
+}
+return
+
+;* WHEN:
+$4:: ;
+if (SubStr(currentGame, 1, 3) = "wow")
+{
+    if (currentGame = "wow-dh") {
+        ; 45s - Fiery Brand
+        SendEvent {Ctrl down}4{Ctrl up}
+        ; 20s - Demon Spikes
+        SendEvent {4}
+    }
+} else {
+    SendEvent {Blind}{4}
+}
+return
+
+
+
+
+
+; !+WheelDown::SendEvent {Blind}{WheelDown}
+; !+WheelUp::SendEvent {Blind}{WheelUp}
+
 
 ;* WHEN:
 ;? "Shift + Scroll Down"
 ; Shift + Scroll Down (Ctrl + Shift + WheelDown)
 ;
 global scrollD_keyActive := false
-+WheelDown::  ; ">" represents Shift, "^" represents Ctrl
+~+WheelDown::  ; ">" represents Shift, "^" represents Ctrl
+if (GetKeyState("Alt", "P")) {
+    return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
+}
 if (currentGame = "warframe")
 {
     if (scrollD_keyActive)
@@ -145,7 +213,7 @@ if (currentGame = "warframe")
         SendEvent {n Down}
     }
     SetTimer, sh_scrollD_StopKey, -400
-} else if (currentGame = "warcraft")
+} else if (SubStr(currentGame, 1, 3) = "wow")
 {
     if (!scrollD_keyActive) {
         scrollD_keyActive := true
@@ -172,8 +240,11 @@ return
 ; Shift + Scroll Up (Ctrl + Shift + Up)
 ;
 global scrollUp_keyActive := false
-+WheelUp::  ; ">" represents Shift, "^" represents Ctrl
-if (currentGame = "warcraft")
+~+WheelUp::  ; ">" represents Shift, "^" represents Ctrl
+if (GetKeyState("Alt", "P")) {
+    return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
+}
+if (SubStr(currentGame, 1, 3) = "wow")
 {
     if (!scrollUp_keyActive) {
         scrollUp_keyActive := true
@@ -191,7 +262,6 @@ sh_scrollUp_StopKey:
 scrollUp_keyActive := false
 SetTimer, sh_scrollUp_StopKey, Off
 return
-
 
 
 ~Shift Up::
