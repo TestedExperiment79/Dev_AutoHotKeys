@@ -88,65 +88,6 @@ F1::
 ; `~` (don't block the native key event)
 ; `*` (fire the hotkey even if extra modifiers are held)
 ; `U` (the u key)
-global u_keyActive := false
-; ~*U::
-; ; else:
-; ; Just Keeps it pressed
-; if (currentGame = "warframe")
-; {
-;     if (GetKeyState("CapsLock", "P") || GetKeyState("RControl", "P"))
-;         SendEvent, h
-
-;     else if (GetKeyState("LControl", "P"))
-;         SendEvent, j
-
-;     else if (GetKeyState("LWin", "P") || GetKeyState("RControl", "P") || GetKeyState("LControl", "P"))
-;         SendEvent, b
-
-;     ; else if (u_keyActive == false) {
-;     ;     u_keyActive := true
-;     ;     SendEvent, {Blind}{u down}
-;     ;     ; SetTimer, u_StopKey, Off
-;     ; }
-; }
-; ;
-; return
-;a
-;
-; u_StopKey:
-; if (!GetKeyState("U", "P")) {
-;     u_keyActive := false
-;     SendEvent, {u Up}
-;     SetTimer, u_StopKey, Off
-; }
-; *u up::
-;     SendEvent, {Blind}{u up}
-;     ; SendEvent, {Blind}{u Up}
-;     u_keyActive := false
-; return
-
-; ; LCtrl + U
-; <^u up::SendEvent, j
-; ; ---
-; ; RCtrl + U
-; >^u::SendEvent, b
-; ; RAlt + U
-; >!u up::SendEvent, h
-
-; *u::
-; if (GetKeyState("RControl", "P")) {
-;     SendEvent, b
-; }
-; SendEvent, {LWin Up}
-; SendEvent, {RWin Up}
-; SendEvent, {LControl Up}
-; SendEvent, {RControl Up}
-; SendEvent, {LAlt Up}
-; SendEvent, {RAlt Up}
-; return
-;         SendEvent, j
-
-
 ; Remove individual modifier hotkeys and handle everything in main U hotkey
 global u_keyActive := false
 *U::
