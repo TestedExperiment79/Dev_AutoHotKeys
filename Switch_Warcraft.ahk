@@ -55,6 +55,9 @@ keys_warcraft(key) {
     SendEvent {Ctrl down}5{Ctrl up}
     ; 0s - Heal 1
     SendEvent 5
+    ; 15s - Heal 2
+    SendEvent {Shift down}5{Shift up}
+    SendEvent {Alt down}5{Alt up}
   }
 
   ; ENRAGE
@@ -63,8 +66,14 @@ keys_warcraft(key) {
     SendEvent {0}
   }
 
-  ; SLOW/STUN
+  ; Weaken Enemy
   wow_priest_7() {
+    ; Helper 1
+    SendEvent {0}
+  }
+
+  ; SLOW/STUN
+  wow_priest_8() {
     ; Slow 1
     SendEvent {8}
     ; Slow 2
@@ -73,12 +82,6 @@ keys_warcraft(key) {
     SendEvent {7}
     ; Stun 2
     SendEvent {Ctrl down}7{Ctrl up}
-  }
-
-  ; Weaken Enemy
-  wow_priest_8() {
-    ; Helper 1
-    SendEvent {0}
   }
 
   ; INTERRUPT/STUN
