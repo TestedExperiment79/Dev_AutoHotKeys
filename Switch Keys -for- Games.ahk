@@ -8,6 +8,9 @@ if not A_IsAdmin
 
 ; --- ---
 
+#Include %A_ScriptDir%\Switch_Warcraft.ahk
+
+; --- ---
 
 global currentGame := ""
 global keyTimer := 100
@@ -30,12 +33,12 @@ Alt & F5::
         ToolTip, %currentGame%
         SetTimer, RemoveToolTip, -2000 ; Tooltip disappears after 2 seconds
     }
-    Gosub, MakeChanges
+    Gosub, SwitchMouseButtons
     return
 }
 
 
-MakeChanges:
+SwitchMouseButtons:
 if (currentGame = "poe") {
     ; Path OF Exiles
     Hotkey, LButton, RightClick, On
@@ -135,42 +138,21 @@ return
 $i:: ; ATTACK
 if (SubStr(currentGame, 1, 3) = "wow")
 {
-    if (currentGame = "wow-dh") {
-        ; 1.5m - The Hunt
-        SendEvent {Ctrl down}{WheelUp}{Ctrl up}
-        ; 1m - Elysian Decree
-        SendEvent {p}
-        ; 30s - Sigil of Flame
-        SendEvent {Ctrl down}i{Ctrl up}
-        ; 14s - Immolation Aura
-        SendEvent {o}
-        ; 4.3s - Fracture
+    ; In Case -Of- General "WOW"
+    if (currentGame = "wow") {
         SendEvent {i}
-        ; 0s - Soul Cleave - (Life Steal)
-        SendEvent {5}
-
-    } else if (currentGame = "wow-war") {
-        ; 1.5m - Champion's Spear
-        SendEvent {Shift down}{i}{Shift up}
-        ; 1.5m - Ravager
-        SendEvent {Ctrl down}{p}{Ctrl up}
-        ; 45s - Odyn's Fury
-        SendEvent {Ctrl down}{o}{Ctrl up}
-        ; 4s-Spend - Execute
-        SendEvent {Ctrl down}{i}{Ctrl up}
-        ; 4s-Spend - Rampage
-        SendEvent {p}
-        ; 4s - Bloodthirst
-        SendEvent {5}
-        ; 6s - Raging Blow
-        SendEvent {i}
-        ; 0s - Whirlwind
-        SendEvent {o}
+    } else { ; In Case -Of- Class/Spec "WOW"
+        ; wow_dh_i()
+        ; wow_war_i()
+        func_to_execute := Func(currentGame . "_i")
+        func_to_execute.Call()
     }
 } else {
     SendEvent {i}
 }
 return
+
+
 
 ;* WHEN:
 $4:: ;
