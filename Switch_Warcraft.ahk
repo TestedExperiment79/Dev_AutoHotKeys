@@ -26,17 +26,12 @@ keys_warcraft(key) {
 
   ; ROTATION
   wow_priest_i() {
-    ; 1.5m - The Hunt
-    SendEvent {Ctrl down}{WheelUp}{Ctrl up}
-    ; 1m - Elysian Decree
+    SendEvent {Alt down}o{Ctrl up}
+    SendEvent {Alt down}i{Ctrl up}
     SendEvent {p}
-    ; 30s - Sigil of Flame
     SendEvent {Ctrl down}i{Ctrl up}
-    ; 14s - Immolation Aura
     SendEvent {o}
-    ; 4.3s - Fracture
     SendEvent {i}
-    ; 0s - Soul Cleave - (Life Steal)
     SendEvent {5}
   }
 

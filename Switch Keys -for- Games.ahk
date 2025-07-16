@@ -84,22 +84,22 @@ F1::
 ;
 ;* WHEN:
 ;? "U"
-;
-; `~` (don't block the native key event)
-; `*` (fire the hotkey even if extra modifiers are held)
-; `U` (the u key)
-; Remove individual modifier hotkeys and handle everything in main U hotkey
 global u_keyActive := false
 ; ???
 ; *$U::
 ; $*U::
 
-*U::
-; else:
-; Just Keeps it pressed
+; Good for "Warframe" + "General"
+; *U::
+; Good for "Warcraft"
+~*U::
+; `~` (don't block the native key event)
+; `*` (fire the hotkey even if extra modifiers are held)
+; `U` (the u key)
+; Remove individual modifier hotkeys and handle everything in main U hotkey
 if (currentGame = "warframe")
 {
-    if (GetKeyState("CapsLock", "P") || GetKeyState("RControl", "P")) {
+    if (GetKeyState("CapsLock", "P") || GetKeyState("RAlt", "P")) {
         SendEvent, {CapsLock up}
         SendEvent, {RControl up}
         SendEvent, h
