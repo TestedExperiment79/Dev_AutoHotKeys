@@ -90,6 +90,10 @@ F1::
 ; `U` (the u key)
 ; Remove individual modifier hotkeys and handle everything in main U hotkey
 global u_keyActive := false
+; ???
+; *$U::
+; $*U::
+
 *U::
 ; else:
 ; Just Keeps it pressed
