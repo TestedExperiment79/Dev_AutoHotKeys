@@ -134,85 +134,20 @@ return
 return
 
 
-
-;* WHEN:
-$i:: ; ATTACK
-if (SubStr(currentGame, 1, 3) = "wow")
-    keys_warcraft("i")
-else {
-    SendEvent {i}
+handleKey(key) {
+    if (SubStr(currentGame, 1, 3) = "wow")
+        keys_warcraft(key)
+    else
+        SendEvent {%key%}
 }
-return
 
-;* WHEN:
-$o:: ; ATTACK
-if (SubStr(currentGame, 1, 3) = "wow")
-    keys_warcraft("o")
-else {
-    SendEvent {o}
-}
-return
-
-;* WHEN:
-$p:: ; ATTACK
-if (SubStr(currentGame, 1, 3) = "wow")
-    keys_warcraft("p")
-else {
-    SendEvent {p}
-}
-return
-
-
-;* WHEN:
-$4:: ; DEFENSE
-if (SubStr(currentGame, 1, 3) = "wow")
-{
-    keys_warcraft("4")
-} else {
-    SendEvent {4}
-}
-return
-
-;* WHEN:
-$5:: ; DEFENSE
-if (SubStr(currentGame, 1, 3) = "wow")
-{
-    keys_warcraft("5")
-} else {
-    SendEvent {5}
-}
-return
-
-;* WHEN:
-$6:: ; DEFENSE
-if (SubStr(currentGame, 1, 3) = "wow")
-{
-    keys_warcraft("6")
-} else {
-    SendEvent {6}
-}
-return
-
-;* WHEN:
-$7:: ; DEFENSE
-if (SubStr(currentGame, 1, 3) = "wow")
-{
-    keys_warcraft("7")
-} else {
-    SendEvent {7}
-}
-return
-
-;* WHEN:
-$9:: ; DEFENSE
-if (SubStr(currentGame, 1, 3) = "wow")
-{
-    keys_warcraft("9")
-} else {
-    SendEvent {9}
-}
-return
-
+$i:: handleKey("i")  ; ATTACK
+$4:: handleKey("4")  ; DEFENSE
+$5:: handleKey("5")  ; HEAL
+$6:: handleKey("6")  ; HEAL
+$7:: handleKey("7")  ; Slow/Stun
+$8:: handleKey("8")  ; Weaken-Enemy
+$9:: handleKey("9")  ; Interrupt/Stun
 
 
 ; !+WheelDown::SendEvent {Blind}{WheelDown}
