@@ -26,17 +26,14 @@ keys_warcraft(key) {
 
   ; ROTATION
   wow_priest_i() {
-    SendEvent {Alt down}o{Ctrl up}
     SendEvent {Alt down}i{Ctrl up}
-    SendEvent {p}
-    SendEvent {Ctrl down}i{Ctrl up}
     SendEvent {o}
     SendEvent {i}
-    SendEvent {5}
   }
 
   ; POISON
   wow_priest_o() {
+    SendEvent {Shift down}9{Shift up}
     SendEvent o
     SendEvent {Shift down}i{Shift up}
   }
