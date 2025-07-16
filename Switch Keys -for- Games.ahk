@@ -149,12 +149,7 @@ return
 $4:: ;
 if (SubStr(currentGame, 1, 3) = "wow")
 {
-    if (currentGame = "wow-dh") {
-        ; 45s - Fiery Brand
-        SendEvent {Ctrl down}4{Ctrl up}
-        ; 20s - Demon Spikes
-        SendEvent {4}
-    }
+    keys_warcraft("4")
 } else {
     SendEvent {Blind}{4}
 }

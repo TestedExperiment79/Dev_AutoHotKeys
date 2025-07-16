@@ -15,6 +15,7 @@ keys_warcraft(key) {
       func_to_execute.Call()  ; Call without parameters
     } else {
       MsgBox Function '%func_name%' not found!
+      SendEvent {%key%}
     }
   }
 }
@@ -34,6 +35,13 @@ keys_warcraft(key) {
     SendEvent {i}
     ; 0s - Soul Cleave - (Life Steal)
     SendEvent {5}
+  }
+
+  wow_dh_4() {
+    ; 45s - Fiery Brand
+    SendEvent {Ctrl down}4{Ctrl up}
+    ; 20s - Demon Spikes
+    SendEvent {4}
   }
 
 ; 🏁 - [ DH - Havoc ]
