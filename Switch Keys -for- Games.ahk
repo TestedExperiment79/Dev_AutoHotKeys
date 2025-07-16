@@ -141,10 +141,12 @@ handleKey(key) {
         SendEvent {%key%}
 }
 
-$i:: handleKey("i")  ; ATTACK
+$i:: handleKey("i")  ; Rotation
+$o:: handleKey("o")  ; Poison
+$p:: handleKey("p")  ; AOE
 $4:: handleKey("4")  ; DEFENSE
 $5:: handleKey("5")  ; HEAL
-$6:: handleKey("6")  ; HEAL
+$6:: handleKey("6")  ; Enrage
 $7:: handleKey("7")  ; Slow/Stun
 $8:: handleKey("8")  ; Weaken-Enemy
 $9:: handleKey("9")  ; Interrupt/Stun
