@@ -146,7 +146,7 @@ return
 
 
 ;* WHEN:
-$4:: ;
+$4:: ; DEFENSE
 if (SubStr(currentGame, 1, 3) = "wow")
 {
     keys_warcraft("4")
