@@ -134,6 +134,7 @@ return
 return
 
 
+
 ;* WHEN:
 $i:: ; ATTACK
 if (SubStr(currentGame, 1, 3) = "wow")
@@ -143,6 +144,23 @@ else {
 }
 return
 
+;* WHEN:
+$o:: ; ATTACK
+if (SubStr(currentGame, 1, 3) = "wow")
+    keys_warcraft("o")
+else {
+    SendEvent {o}
+}
+return
+
+;* WHEN:
+$p:: ; ATTACK
+if (SubStr(currentGame, 1, 3) = "wow")
+    keys_warcraft("p")
+else {
+    SendEvent {p}
+}
+return
 
 
 ;* WHEN:
@@ -155,7 +173,45 @@ if (SubStr(currentGame, 1, 3) = "wow")
 }
 return
 
+;* WHEN:
+$5:: ; DEFENSE
+if (SubStr(currentGame, 1, 3) = "wow")
+{
+    keys_warcraft("5")
+} else {
+    SendEvent {5}
+}
+return
 
+;* WHEN:
+$6:: ; DEFENSE
+if (SubStr(currentGame, 1, 3) = "wow")
+{
+    keys_warcraft("6")
+} else {
+    SendEvent {6}
+}
+return
+
+;* WHEN:
+$7:: ; DEFENSE
+if (SubStr(currentGame, 1, 3) = "wow")
+{
+    keys_warcraft("7")
+} else {
+    SendEvent {7}
+}
+return
+
+;* WHEN:
+$9:: ; DEFENSE
+if (SubStr(currentGame, 1, 3) = "wow")
+{
+    keys_warcraft("9")
+} else {
+    SendEvent {9}
+}
+return
 
 
 
