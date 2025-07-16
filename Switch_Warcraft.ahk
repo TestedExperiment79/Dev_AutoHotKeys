@@ -12,13 +12,102 @@ keys_warcraft(key) {
 
     ; Check Exists + Execute()
     if (func_to_execute) {
+      ; Execute function_key()
       func_to_execute.Call()  ; Call without parameters
     } else {
-      MsgBox Function '%func_name%' not found!
+      ; Default to "Original Keystroke" since function does not Exist
+      ; MsgBox Function '%func_name%' not found!
       SendEvent {%key%}
     }
   }
 }
+
+; ✅ - [ PRIEST - Shadow ]
+
+  ; ROTATION
+  wow_priest_i() {
+    ; 1.5m - The Hunt
+    SendEvent {Ctrl down}{WheelUp}{Ctrl up}
+    ; 1m - Elysian Decree
+    SendEvent {p}
+    ; 30s - Sigil of Flame
+    SendEvent {Ctrl down}i{Ctrl up}
+    ; 14s - Immolation Aura
+    SendEvent {o}
+    ; 4.3s - Fracture
+    SendEvent {i}
+    ; 0s - Soul Cleave - (Life Steal)
+    SendEvent {5}
+  }
+
+  ; POISON
+  wow_priest_o() {
+    SendEvent o
+    SendEvent {Shift down}i{Shift up}
+  }
+
+  ; AOE
+  wow_priest_p() {
+    SendEvent 8
+  }
+
+  ; DEFEND
+  wow_priest_4() {
+    ; 6s - Defense 1
+    SendEvent {4}
+  }
+
+  ; HEAL
+  wow_priest_5() {
+    ; 15s - Heal 2
+    SendEvent {Ctrl down}5{Ctrl up}
+    ; 0s - Heal 1
+    SendEvent 5
+  }
+
+  ; ENRAGE
+  wow_priest_6() {
+    ; Helper 1
+    SendEvent {0}
+  }
+
+  ; SLOW/STUN
+  wow_priest_7() {
+    ; Slow 1
+    SendEvent {8}
+    ; Slow 2
+    SendEvent {Ctrl down}8{Ctrl up}
+    ; Stun 1
+    SendEvent {7}
+    ; Stun 2
+    SendEvent {Ctrl down}7{Ctrl up}
+  }
+
+  ; Weaken Enemy
+  wow_priest_8() {
+    ; Helper 1
+    SendEvent {0}
+  }
+
+  ; INTERRUPT/STUN
+  wow_priest_9() {
+    ; Interrupt 1
+    SendEvent {9}
+    ; Interrupt 2
+    SendEvent {Ctrl down}9{Ctrl up}
+    ; Stun 1
+    SendEvent 8
+    ; Stun 2
+    SendEvent {Ctrl down}8{Ctrl up}
+    ; Magic-Defense 1
+    SendEvent {Shift down}4{Shift up}
+    ; Magic-Defense 2
+    SendEvent {Alt down}4{Alt up}
+    ; Defense 1
+    SendEvent 4
+  }
+
+; 🏁 - [ DH - Havoc ]
 
 ; ✅ - [ DH - Havoc ]
 
