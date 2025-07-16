@@ -26,7 +26,7 @@ keys_warcraft(key) {
 
   ; ROTATION
   wow_priest_i() {
-    SendEvent {Alt down}i{Ctrl up}
+    SendEvent {Alt down}i{Alt up}
     SendEvent {o}
     SendEvent {i}
   }
