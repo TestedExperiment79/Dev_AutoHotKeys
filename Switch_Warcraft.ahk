@@ -10,10 +10,11 @@ keys_warcraft(key) {
     func_name := currentGame . "_" . key
     func_to_execute := Func(func_name)
 
+    ; Check Exists + Execute()
     if (func_to_execute) {
       func_to_execute.Call()  ; Call without parameters
     } else {
-      MsgBox Function %func_name% not found!
+      MsgBox Function '%func_name%' not found!
     }
   }
 }
