@@ -151,7 +151,7 @@ if (SubStr(currentGame, 1, 3) = "wow")
 {
     keys_warcraft("4")
 } else {
-    SendEvent {Blind}{4}
+    SendEvent {4}
 }
 return
 
