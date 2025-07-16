@@ -137,17 +137,8 @@ return
 ;* WHEN:
 $i:: ; ATTACK
 if (SubStr(currentGame, 1, 3) = "wow")
-{
-    ; In Case -Of- General "WOW"
-    if (currentGame = "wow") {
-        SendEvent {i}
-    } else { ; In Case -Of- Class/Spec "WOW"
-        ; wow_dh_i()
-        ; wow_war_i()
-        func_to_execute := Func(currentGame . "_i")
-        func_to_execute.Call()
-    }
-} else {
+    keys_warcraft("i")
+else {
     SendEvent {i}
 }
 return

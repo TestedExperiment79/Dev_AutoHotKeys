@@ -1,33 +1,21 @@
 
 
 keys_warcraft(key) {
-
   ; In Case -Of- General "WOW"
   if (currentGame = "wow") {
     SendEvent {%key%}
-  } if (currentGame = "wow-dh") {
-    to_execute := Func("wow_dh_" . key)
-    to_execute.Call()
+  } else { ; In Case -Of- Class/Spec "WOW"
+    ; wow_dh_i()
+    ; wow_war_i()
+    func_name := currentGame . "_" . key
+    func_to_execute := Func(func_name)
 
-  } else if (currentGame = "wow-war") {
-    ; 1.5m - Champion's Spear
-    SendEvent {Shift down}{i}{Shift up}
-    ; 1.5m - Ravager
-    SendEvent {Ctrl down}{p}{Ctrl up}
-    ; 45s - Odyn's Fury
-    SendEvent {Ctrl down}{o}{Ctrl up}
-    ; 4s-Spend - Execute
-    SendEvent {Ctrl down}{i}{Ctrl up}
-    ; 4s-Spend - Rampage
-    SendEvent {p}
-    ; 4s - Bloodthirst
-    SendEvent {5}
-    ; 6s - Raging Blow
-    SendEvent {i}
-    ; 0s - Whirlwind
-    SendEvent {o}
+    if (func_to_execute) {
+      func_to_execute.Call()  ; Call without parameters
+    } else {
+      MsgBox Function %func_name% not found!
+    }
   }
-  return
 }
 
 ; ✅ - [ DH - Havoc ]
