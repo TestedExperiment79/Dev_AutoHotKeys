@@ -23,6 +23,26 @@ return
 ^+z::SendEvent, ^{y}
 
 
+~F4::  ; Press Ctrl+Alt+R to reset keyboard state
+{
+    ; Release modifiers
+    Send, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}
+    ; Add other keys that get stuck (e.g., CapsLock, Enter, Space)
+    Send, {CapsLock up}{Enter up}{Space up}
+
+    ; Release all other keys (VK 1-254)
+    Loop 254 {
+        vk := Format("VK{:02X}", A_Index)
+        if GetKeyState(vk)  ; Key is logically down
+        {
+            Send, {%vk% up}  ; Release it
+        }
+    }
+    TrayTip, Keyboard Reset, All keys released., 1, 17
+    MsgBox KEYS have been reset
+}
+
+
 Alt & F5::
 {
     InputBox, userInput, Enter Text, Please enter the text:
@@ -121,11 +141,12 @@ if (currentGame = "warframe")
 } else if (SubStr(currentGame, 1, 3) = "wow") {
     return
 } else {
-    if (u_keyActive == false) {
-        u_keyActive := true
-        SendEvent, {Blind}{u down}
-        ; SetTimer, u_StopKey, Off
-    }
+    ; if (u_keyActive == false) {
+    ;     u_keyActive := true
+    ;     SendEvent, {Blind}{u down}
+    ;     ; SetTimer, u_StopKey, Off
+    ; }
+    return
     ; SetTimer, u_StopKey, Off
 } ; Otherwise, do nothing and let Windows handle "U" normally
 ; SetTimer, u_StopKey, -%keyTimer%

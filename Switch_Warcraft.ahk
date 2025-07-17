@@ -39,9 +39,9 @@ keys_warcraft(key) {
   }
 
   ; AOE
-  wow_priest_p() {
-    SendEvent 8
-  }
+  ; wow_priest_p() {
+  ;   SendEvent 8
+  ; }
 
   ; DEFEND
   wow_priest_4() {
