@@ -39,7 +39,8 @@ return
         }
     }
     TrayTip, Keyboard Reset, All keys released., 1, 17
-    MsgBox KEYS have been reset
+    ToolTip, KEYS have been reset
+    SetTimer, RemoveToolTip, -1000 ; Tooltip disappears after 2 seconds
 }
 return
 
