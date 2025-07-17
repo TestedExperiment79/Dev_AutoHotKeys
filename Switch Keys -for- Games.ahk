@@ -23,7 +23,7 @@ return
 ^+z::SendEvent, ^{y}
 
 
-~F4::  ; Press Ctrl+Alt+R to reset keyboard state
+~F4::  ; RESET Keyboard State
 {
     ; Release modifiers
     Send, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}
@@ -41,6 +41,7 @@ return
     TrayTip, Keyboard Reset, All keys released., 1, 17
     MsgBox KEYS have been reset
 }
+return
 
 
 Alt & F5::
@@ -56,6 +57,7 @@ Alt & F5::
     Gosub, SwitchMouseButtons
     return
 }
+return
 
 
 SwitchMouseButtons:
@@ -67,6 +69,7 @@ if (currentGame = "poe") {
     Hotkey, LButton, RightClick, Off
     Hotkey, RButton, LeftClick, Off
 }
+return
 
 ; Swapped functionality
 RightClick:
@@ -87,8 +90,8 @@ F1::
         SendEvent, {F1}
     else
         SendEvent, {F1}
-    return
 }
+return
 
 
 ;! Possible Key Detection:
@@ -178,6 +181,7 @@ handleKey(key) {
     else
         SendEvent {%key%}
 }
+return
 
 $i:: handleKey("i")  ; Rotation
 $o:: handleKey("o")  ; Poison
@@ -188,7 +192,7 @@ $6:: handleKey("6")  ; Enrage
 $7:: handleKey("7")  ; Slow/Stun
 $8:: handleKey("8")  ; Weaken-Enemy
 $9:: handleKey("9")  ; Interrupt/Stun
-
+return
 
 ; !+WheelDown::SendEvent {Blind}{WheelDown}
 ; !+WheelUp::SendEvent {Blind}{WheelUp}
