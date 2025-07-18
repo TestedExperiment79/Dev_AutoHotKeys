@@ -9,15 +9,12 @@ if not A_IsAdmin
 ; --- ---
 
 #Include %A_ScriptDir%\Switch_Warcraft.ahk
+#Include %A_ScriptDir%\Helpers.ahk
 
 ; --- ---
 
 global currentGame := ""
 global keyTimer := 100
-
-RemoveToolTip:
-ToolTip
-return
 
 ; Basic Window in Black
 ^+z::SendEvent, ^{y}
@@ -39,8 +36,7 @@ return
         }
     }
     TrayTip, Keyboard Reset, All keys released., 1, 17
-    ToolTip, KEYS have been reset
-    SetTimer, RemoveToolTip, -1000 ; Tooltip disappears after 2 seconds
+    tooltip("KEYS have been reset", 1000)
 }
 return
 
@@ -52,8 +48,7 @@ Alt & F5::
     {
         StringLower, userInput, userInput
         currentGame := userInput
-        ToolTip, %currentGame%
-        SetTimer, RemoveToolTip, -2000 ; Tooltip disappears after 2 seconds
+        tooltip(%currentGame%, 2000)
     }
     Gosub, SwitchMouseButtons
     return
@@ -119,6 +114,7 @@ global u_keyActive := false
 ~*U::
 ; `~` (don't block the native key event)
 ; `*` (fire the hotkey even if extra modifiers are held)
+; `$` (block script-loops of this key / block script from triggering itself)
 ; `U` (the u key)
 ; Remove individual modifier hotkeys and handle everything in main U hotkey
 if (currentGame = "warframe")
@@ -177,23 +173,27 @@ return
 
 
 handleKey(key) {
-    if (SubStr(currentGame, 1, 3) = "wow")
+    if (InStr(currentGame, "wow"))
         keys_warcraft(key)
     else
-        SendEvent {%key%}
+        send_keystroke(key)
 }
 return
 
 $i:: handleKey("i")  ; Rotation
-$+i:: handleKey("si")  ; BIG-DICK - Rotation
+$+i:: handleKey("si")  ; BIG-Rotation
 $o:: handleKey("o")  ; Poison
 $p:: handleKey("p")  ; AOE
-$4:: handleKey("4")  ; DEFENSE
-$5:: handleKey("5")  ; HEAL
-$6:: handleKey("6")  ; Enrage
-$7:: handleKey("7")  ; Slow/Stun
-$8:: handleKey("8")  ; Weaken-Enemy
-$9:: handleKey("9")  ; Interrupt/Stun
+
+$4:: handleKey(4)  ; DEFENSE
+$+4:: handleKey("s4")  ; BIG-DEFENSE
+$5:: handleKey(5)  ; HEAL
+$+5:: handleKey("s5")  ; BIG-Heal
+$6:: handleKey(6)  ; Enrage
+
+$7:: handleKey(7)  ; Slow/Stun
+$8:: handleKey(8)  ; Weaken-Enemy
+$9:: handleKey(9)  ; Interrupt/Stun
 return
 
 ; !+WheelDown::SendEvent {Blind}{WheelDown}

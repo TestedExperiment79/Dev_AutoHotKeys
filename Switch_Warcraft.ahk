@@ -1,6 +1,24 @@
 
 
 global on_global_cooldown := false
+global time_gcd := 650
+
+
+
+global priest := {}
+priest["i"] := "ai;o;i"
+priest["o"] := "s9;si"
+
+priest[4] := "4"
+priest["s4"] := "s4;a4"
+priest[5] := "c5;5;s5;a5"
+priest["s5"] := "s5;a5"
+priest[6] := "ai;o;i"
+
+priest[8] := "8;c8;7;c7"
+priest[9] := "9;c9;8;c8;s4;a4;4"
+
+
 keys_warcraft(key) {
   ; ignore key, if ON global cooldown
   if (on_global_cooldown) {
@@ -11,28 +29,42 @@ keys_warcraft(key) {
   }
 
 
-  ; In Case -Of- General "WOW"
-  if (currentGame = "wow") {
-    SendEvent {%key%}
-  } else { ; In Case -Of- Class/Spec "WOW"
-    ; wow_dh_i()
-    ; wow_war_i()
-    func_name := currentGame . "_" . key
-    func_to_execute := Func(func_name)
+  ; ; In Case -Of- General "WOW"
+  ; if (currentGame = "wow") {
+  ;   send_keystroke(key)
+  ; } else { ; In Case -Of- Class/Spec "WOW"
+  ; wow_dh_i()
+  ; wow_war_i()
 
-    ; Check Exists + Execute()
-    if (func_to_execute) {
-      ; Execute function_key()
-      func_to_execute.Call()  ; Call without parameters
-    } else {
-      ; Default to "Original Keystroke" since function does not Exist
-      ; MsgBox Function '%func_name%' not found!
-      SendEvent {%key%}
-    }
+
+  ; tooltip(StrLen(key), 2000)
+  ; tooltip(key, 2000)
+  temp1 := priest[key]
+  tooltip(temp1, 2000)
+
+  if (InStr(currentGame, "priest")) {
+    send_listOf_keystrokes(priest[key])
+  } else {
+    send_keystroke(key)
   }
 
-  ; Sync - Global Cooldown
-  SetTimer, timer_global_cooldown, -400
+
+  ; func_name := currentGame . "_" . key
+  ; func_to_execute := Func(func_name)
+
+  ; ; Check Exists + Execute()
+  ; if (func_to_execute) {
+  ;   ; Execute function_key()
+  ;   func_to_execute.Call()  ; Call without parameters
+  ; } else {
+  ;   ; Default to "Original Keystroke" since function does not Exist
+  ;   ; MsgBox Function '%func_name%' not found!
+  ;   send_keystroke(key)
+  ; }
+
+
+  ; Sync - Wait-for - Global Cooldown
+  SetTimer, timer_global_cooldown, -%time_gcd%
 }
 ;
 ;
@@ -40,6 +72,10 @@ timer_global_cooldown:
 on_global_cooldown := false
 SetTimer, timer_global_cooldown, Off
 return
+
+
+
+; --- ---
 
 
 ; ✅ - [ PRIEST - Shadow ]
@@ -53,17 +89,19 @@ return
 
   ; BIG-DICK - ROTATION
   wow_priest_si() {
-    SendEvent {Ctrl down}6{Ctrl up}
+    ; NO-STOP-Casting
+    ; --- Empower
+    wow_priest_6()
+    ; --- Actual BIG-DICK - ROTATION ---
+    SendEvent 0
     SendEvent 6
-    SendEvent {Alt down}i{Alt up}
-    SendEvent {o}
-    SendEvent {i}
+    ; --- basic rotation ---
+    wow_priest_i()
   }
 
   ; POISON
   wow_priest_o() {
     SendEvent {Shift down}9{Shift up}
-    SendEvent o
     SendEvent {Shift down}i{Shift up}
   }
 
@@ -91,8 +129,8 @@ return
 
   ; ENRAGE
   wow_priest_6() {
-    ; Helper 1
-    SendEvent {0}
+    SendEvent {Ctrl down}6{Ctrl up}
+    SendEvent {Shift down}6{Shift up}
   }
 
   ; Weaken Enemy
