@@ -51,13 +51,6 @@ return
     SendEvent {i}
   }
 
-  ; POISON
-  wow_priest_o() {
-    SendEvent {Shift down}9{Shift up}
-    SendEvent o
-    SendEvent {Shift down}i{Shift up}
-  }
-
   ; BIG-DICK - ROTATION
   wow_priest_si() {
     SendEvent {Ctrl down}6{Ctrl up}
@@ -65,6 +58,13 @@ return
     SendEvent {Alt down}i{Alt up}
     SendEvent {o}
     SendEvent {i}
+  }
+
+  ; POISON
+  wow_priest_o() {
+    SendEvent {Shift down}9{Shift up}
+    SendEvent o
+    SendEvent {Shift down}i{Shift up}
   }
 
   ; AOE

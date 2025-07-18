@@ -185,7 +185,7 @@ handleKey(key) {
 return
 
 $i:: handleKey("i")  ; Rotation
-+i:: handleKey("si")  ; BIG-DICK - Rotation
+$+i:: handleKey("si")  ; BIG-DICK - Rotation
 $o:: handleKey("o")  ; Poison
 $p:: handleKey("p")  ; AOE
 $4:: handleKey("4")  ; DEFENSE
