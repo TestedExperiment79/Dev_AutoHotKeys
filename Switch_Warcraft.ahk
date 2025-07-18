@@ -1,6 +1,16 @@
 
 
+global on_global_cooldown := false
 keys_warcraft(key) {
+  ; ignore key, if ON global cooldown
+  if (on_global_cooldown) {
+    return
+  } else {
+    ; start global cooldown
+    on_global_cooldown := true
+  }
+
+
   ; In Case -Of- General "WOW"
   if (currentGame = "wow") {
     SendEvent {%key%}
@@ -20,7 +30,17 @@ keys_warcraft(key) {
       SendEvent {%key%}
     }
   }
+
+  ; Sync - Global Cooldown
+  SetTimer, timer_global_cooldown, -400
 }
+;
+;
+timer_global_cooldown:
+on_global_cooldown := false
+SetTimer, timer_global_cooldown, Off
+return
+
 
 ; ✅ - [ PRIEST - Shadow ]
 
@@ -36,6 +56,15 @@ keys_warcraft(key) {
     SendEvent {Shift down}9{Shift up}
     SendEvent o
     SendEvent {Shift down}i{Shift up}
+  }
+
+  ; BIG-DICK - ROTATION
+  wow_priest_si() {
+    SendEvent {Ctrl down}6{Ctrl up}
+    SendEvent 6
+    SendEvent {Alt down}i{Alt up}
+    SendEvent {o}
+    SendEvent {i}
   }
 
   ; AOE
