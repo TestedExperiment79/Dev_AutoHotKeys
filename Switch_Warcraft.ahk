@@ -15,10 +15,14 @@ shadow[4] := "4"
 shadow["s4"] := "s4;a4"
 shadow[5] := "c5;5;s5;a5"
 shadow["s5"] := "s5;a5"
-shadow[6] := "ai;o;i"
+shadow[6] := "c6;a6;6"
 
 shadow[8] := "8;c8;7;c7"
 shadow[9] := "9;c9;8;c8;s4;a4;4"
+
+; Needs "shadow[6]" to be created first
+shadow["si"] := shadow[6] . ";0;" . shadow["i"]
+
 
 
 global havoc := {}

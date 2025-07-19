@@ -73,6 +73,7 @@ send_keystroke(key) {
 
 
 send_listOf_keystrokes(list_keys) {
+  tooltip(list_keys, 2000)
   ; Check if Only one Keystroke
   if (!InStr(list_keys, ";")) {
     send_keystroke(list_keys)
