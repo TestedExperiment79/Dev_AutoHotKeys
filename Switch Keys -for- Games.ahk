@@ -180,6 +180,18 @@ handleKey(key) {
 }
 return
 
+
+; lastChar := {WheelUp}
+; command1 := "{Shift down}" . lastChar . "{Shift up}"
+$+p::
+    Send {Shift down}
+    SendEvent 4
+    Send {Shift up}
+    return
+
+; SendEvent, {WheelUp}
+; return
+
 $i:: handleKey("i")  ; Rotation
 $+i:: handleKey("si")  ; BIG-Rotation
 $o:: handleKey("o")  ; Poison
