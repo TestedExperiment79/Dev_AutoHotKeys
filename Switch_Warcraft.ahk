@@ -9,7 +9,7 @@ global time_gcd := 650
 
 global shadow := {}
 shadow["i"] := "ai;o;i"
-shadow["o"] := "s9;si"
+shadow["o"] := "s9;sp;si"
 
 shadow[4] := "4"
 shadow["s4"] := "s4;a4"
