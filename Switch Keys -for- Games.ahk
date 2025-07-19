@@ -37,6 +37,8 @@ global keyTimer := 100
     }
     TrayTip, Keyboard Reset, All keys released., 1, 17
     tooltip("KEYS have been reset", 1000)
+
+    ;$ Reloads the ENTIRE Script
     Reload
 }
 return
