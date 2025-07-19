@@ -33,7 +33,7 @@ fury["i"] := "si;cp;co;ci;p;5;i;o"
 
 
 global frost_dk := {}
-frost_dk["i"] := "p;o;i;c2"
+frost_dk["i"] := "p;o;i;co"
 frost_dk["o"] := "👆"
 
 
