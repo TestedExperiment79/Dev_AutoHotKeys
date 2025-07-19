@@ -32,6 +32,11 @@ global fury := {}
 fury["i"] := "si;cp;co;ci;p;5;i;o"
 
 
+global frost_dk := {}
+frost_dk["i"] := "p;o;i;c2"
+frost_dk["o"] := "👆"
+
+
 ; --- ---
 
 
@@ -64,6 +69,9 @@ keys_warcraft(key) {
 
   } else if (InStr(currentGame, "fury")) {
     temp_listKeystrokes := fury[key]
+
+  } else if (InStr(currentGame, "frost_dk")) {
+    temp_listKeystrokes := frost_dk[key]
 
   } else {
     send_keystroke(key)
