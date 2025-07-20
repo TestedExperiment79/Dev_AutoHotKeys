@@ -44,7 +44,8 @@ global keyTimer := 100
 return
 
 
-Alt & F5::
+; Alt & F5::
+Alt & Delete::
 {
     InputBox, userInput, Enter Text, Please enter the text:
     if (!ErrorLevel) ; Check if user didn't cancel the input box
