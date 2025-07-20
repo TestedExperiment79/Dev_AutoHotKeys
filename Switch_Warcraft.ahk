@@ -28,10 +28,13 @@ shadow["si"] := shadow[6] . ";0;" . shadow["i"]
 
 
 global havoc := {}
-havoc["i"] := "c👆;p;ci;o;i;5"
-; havoc["o"] := "👆;s👇;s👇;👆"
+havoc["i"] := "co;ci;p;o;i"
 
 havoc[4] := "c4;4"
+havoc[5] := "5;c5"
+havoc[6] := "6"
+
+havoc["si"] := havoc[6] . ";" . havoc["i"]
 
 
 global fury := {}
