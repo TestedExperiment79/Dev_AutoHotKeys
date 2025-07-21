@@ -18,7 +18,7 @@ send_keystroke(key) {
     SendEvent, % key
     return
   }
-  tooltip(key, 2000)
+  ; tooltip(key, 2000)
 
 
   ; cmd_start := ""
