@@ -296,7 +296,8 @@ $WheelUp::  ; ">" represents Shift, "^" represents Ctrl
 ;     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
 ; }
 if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
-    SendEvent {Alt}{WheelUp}
+    ; SendEvent {Alt}{WheelUp}
+    handleKey("a👆")
     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
 }
 if (InStr(currentGame, "wow"))
