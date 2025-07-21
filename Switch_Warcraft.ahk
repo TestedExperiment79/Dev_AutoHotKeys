@@ -46,16 +46,24 @@ frost_dk["i"] := "p;o;i;co"
 frost_dk["o"] := "👆"
 
 
+global shaman := {}
+; shaman["i"] := "p;o;i;co"
+shaman["👆"] := "o;p"
+
+
 ; --- ---
 
 
 keys_warcraft(key) {
   ; ignore key, if ON global cooldown
+  ; tooltip(key, 2000)
   if (on_global_cooldown) {
     return
   } else {
     ; start global cooldown
     on_global_cooldown := true
+    ; Sync - Wait-for - Global Cooldown
+    SetTimer, timer_global_cooldown, -%time_gcd%
   }
 
 
@@ -82,6 +90,9 @@ keys_warcraft(key) {
   } else if (InStr(currentGame, "frost_dk")) {
     temp_listKeystrokes := frost_dk[key]
 
+  } else if (InStr(currentGame, "shaman")) {
+    temp_listKeystrokes := shaman[key]
+
   } else {
     send_keystroke(key)
     return
@@ -104,10 +115,6 @@ keys_warcraft(key) {
   ;   ; MsgBox Function '%func_name%' not found!
   ;   send_keystroke(key)
   ; }
-
-
-  ; Sync - Wait-for - Global Cooldown
-  SetTimer, timer_global_cooldown, -%time_gcd%
 }
 ;
 ;

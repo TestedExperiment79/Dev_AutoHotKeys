@@ -222,7 +222,7 @@ return
 ;
 global scrollD_keyActive := false
 ~+WheelDown::  ; ">" represents Shift, "^" represents Ctrl
-if (GetKeyState("Alt", "P")) {
+if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
 }
 if (currentGame = "warframe")
@@ -234,7 +234,7 @@ if (currentGame = "warframe")
         SendEvent {n Down}
     }
     SetTimer, sh_scrollD_StopKey, -400
-} else if (SubStr(currentGame, 1, 3) = "wow")
+} else if (InStr(currentGame, "wow"))
 {
     if (!scrollD_keyActive) {
         scrollD_keyActive := true
@@ -260,17 +260,52 @@ return
 ;? "Shift + Scroll Up"
 ; Shift + Scroll Up (Ctrl + Shift + Up)
 ;
-global scrollUp_keyActive := false
+global shift_scrollUp_keyActive := false
 ~+WheelUp::  ; ">" represents Shift, "^" represents Ctrl
-if (GetKeyState("Alt", "P")) {
+if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
 }
-if (SubStr(currentGame, 1, 3) = "wow")
+if (InStr(currentGame, "wow"))
+{
+    if (!shift_scrollUp_keyActive) {
+        shift_scrollUp_keyActive := true
+
+        handleKey("s👆")
+        ; SendEvent {Blind}{WheelUp}
+        SetTimer, shift_scrollUp_StopKey, -400
+    }
+} else {
+    SendEvent {Blind}{WheelUp}
+}
+return
+;
+;
+shift_scrollUp_StopKey:
+shift_scrollUp_keyActive := false
+SetTimer, shift_scrollUp_StopKey, Off
+return
+
+
+
+;* WHEN:
+;? "Scroll Up"
+;
+global scrollUp_keyActive := false
+$WheelUp::  ; ">" represents Shift, "^" represents Ctrl
+; if (GetKeyState("Alt", "P")) {
+;     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
+; }
+if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
+    SendEvent {Alt}{WheelUp}
+    return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
+}
+if (InStr(currentGame, "wow"))
 {
     if (!scrollUp_keyActive) {
         scrollUp_keyActive := true
 
-        SendEvent {Blind}{WheelUp}
+        handleKey("👆")
+        ; SendEvent {Blind}{WheelUp}
         SetTimer, sh_scrollUp_StopKey, -400
     }
 } else {

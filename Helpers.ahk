@@ -18,6 +18,7 @@ send_keystroke(key) {
     SendEvent, % key
     return
   }
+  tooltip(key, 2000)
 
 
   ; cmd_start := ""
@@ -60,6 +61,14 @@ send_keystroke(key) {
       SendEvent, {Alt down}{%lastChar%}{Alt up}
     }
 
+  } else {
+    if (InStr(key, "👆")) {
+      SendEvent, {WheelUp}
+    } else if (InStr(key, "👇")) {
+      SendEvent, {WheelDown}
+    } else {
+      SendEvent, % lastChar
+    }
   }
   ;
 
