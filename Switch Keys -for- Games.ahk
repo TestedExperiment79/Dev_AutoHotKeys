@@ -236,12 +236,7 @@ if (currentGame = "warframe")
     SetTimer, sh_scrollD_StopKey, -400
 } else if (InStr(currentGame, "wow"))
 {
-    if (!scrollD_keyActive) {
-        scrollD_keyActive := true
-
-        SendEvent {Blind}{WheelDown}
-        SetTimer, sh_scrollD_StopKey, -400
-    }
+    handleKey("👆")
 } else {
     SendEvent {Blind}{WheelDown}
 }
@@ -260,29 +255,16 @@ return
 ;? "Shift + Scroll Up"
 ; Shift + Scroll Up (Ctrl + Shift + Up)
 ;
-global shift_scrollUp_keyActive := false
 ~+WheelUp::  ; ">" represents Shift, "^" represents Ctrl
 if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
 }
 if (InStr(currentGame, "wow"))
 {
-    if (!shift_scrollUp_keyActive) {
-        shift_scrollUp_keyActive := true
-
-        handleKey("s👆")
-        ; SendEvent {Blind}{WheelUp}
-        SetTimer, shift_scrollUp_StopKey, -400
-    }
+    handleKey("👆")
 } else {
     SendEvent {Blind}{WheelUp}
 }
-return
-;
-;
-shift_scrollUp_StopKey:
-shift_scrollUp_keyActive := false
-SetTimer, shift_scrollUp_StopKey, Off
 return
 
 
@@ -302,13 +284,7 @@ if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
 }
 if (InStr(currentGame, "wow"))
 {
-    if (!scrollUp_keyActive) {
-        scrollUp_keyActive := true
-
-        handleKey("👆")
-        ; SendEvent {Blind}{WheelUp}
-        SetTimer, sh_scrollUp_StopKey, -400
-    }
+    handleKey("👆")
 } else {
     SendEvent {Blind}{WheelUp}
 }
