@@ -48,7 +48,7 @@ frost_dk["o"] := "👆"
 
 global shaman := {}
 ; shaman["i"] := "p;o;i;co"
-shaman["👆"] := "p;o"
+shaman["👆"] := "p;i;o"
 
 
 ; --- ---
