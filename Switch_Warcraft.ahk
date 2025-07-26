@@ -65,7 +65,7 @@ shaman["👆"] := "ci;p;i;7;o"
 global warlock := {}
 ; shaman["i"] := "p;o;i;co"
 ; warlock["👆"] := "ci;p;i;7;o"
-warlock["👆"] := "sp;ci;6;o;i"
+warlock["👆"] := "sp;so;ci;6;o;i"
 
 warlock["i"] := "p"
 warlock["o"] := "si"

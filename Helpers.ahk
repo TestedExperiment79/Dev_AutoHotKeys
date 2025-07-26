@@ -33,10 +33,10 @@ send_keystroke(key) {
 
 
   if (key == "👆") {
-    SendEvent, {WheelUp}
+    SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelUp}
 
   } else if (key == "👇") {
-    SendEvent, {WheelDown}
+    SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelDown}
 
   } else if (InStr(untilLastChar, "c")) {
     ; cmd_start := cmd_start . "{Ctrl down}"
