@@ -26,7 +26,19 @@ send_keystroke(key) {
   untilLastChar := SubStr(key, 1, -1)
   lastChar := SubStr(key, 0)
 
-  if (InStr(untilLastChar, "c")) {
+  ; Release modifiers
+  Send, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}
+  ; Add other keys that get stuck (e.g., CapsLock, Enter, Space)
+  Send, {CapsLock up}
+
+
+  if (key == "👆") {
+    SendEvent, {WheelUp}
+
+  } else if (key == "👇") {
+    SendEvent, {WheelDown}
+
+  } else if (InStr(untilLastChar, "c")) {
     ; cmd_start := cmd_start . "{Ctrl down}"
     ; cmd_end := cmd_end . "{Ctrl up}"
     ; SendEvent {Ctrl down}
@@ -62,13 +74,7 @@ send_keystroke(key) {
     }
 
   } else {
-    if (InStr(key, "👆")) {
-      SendEvent, {WheelUp}
-    } else if (InStr(key, "👇")) {
-      SendEvent, {WheelDown}
-    } else {
-      SendEvent, % lastChar
-    }
+    SendEvent, % lastChar
   }
   ;
 

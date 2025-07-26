@@ -38,7 +38,18 @@ havoc["si"] := havoc[6] . ";" . havoc["i"]
 
 
 global fury := {}
-fury["i"] := "si;cp;co;ci;p;5;i;o"
+; fury["i"] := "si;cp;co;ci;p;5;i;o"
+fury["i"] := "p;5;o;👆;i"
+fury["👆"] := fury["i"]
+
+
+fury[4] := "4;c4"
+fury[5] := "c5;5"
+fury[6] := "5;c6"
+
+fury[7] := "7;c7"
+fury[8] := "8;c8"
+fury[9] := "9;c9"
 
 
 global frost_dk := {}
@@ -48,8 +59,22 @@ frost_dk["o"] := "👆"
 
 global shaman := {}
 ; shaman["i"] := "p;o;i;co"
-shaman["👆"] := "ci;p;i;o"
+shaman["👆"] := "ci;p;i;7;o"
 
+
+global warlock := {}
+; shaman["i"] := "p;o;i;co"
+; warlock["👆"] := "ci;p;i;7;o"
+warlock["👆"] := "sp;ci;6;o;i"
+
+warlock["i"] := "p"
+warlock["o"] := "si"
+
+warlock["4"] := "4"
+warlock["5"] := "a5"
+warlock["6"] := "co"
+
+warlock["si"] := warlock["6"] . ";" . warlock["👆"]
 
 ; --- ---
 
@@ -93,7 +118,10 @@ keys_warcraft(key) {
   } else if (InStr(currentGame, "shaman")) {
     temp_listKeystrokes := shaman[key]
 
-  } else {
+  } else if (InStr(currentGame, "warlock")) {
+    temp_listKeystrokes := warlock[key]
+
+  }  else {
     send_keystroke(key)
     return
   }

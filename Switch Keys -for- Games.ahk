@@ -238,6 +238,7 @@ if (currentGame = "warframe")
 {
     handleKey("👆")
 } else {
+    tooltip("shift used", 2000)
     SendEvent {Blind}{WheelDown}
 }
 return
@@ -286,6 +287,7 @@ if (InStr(currentGame, "wow"))
 {
     handleKey("👆")
 } else {
+    ; tooltip("Hello", 2000)
     SendEvent {Blind}{WheelUp}
 }
 return
