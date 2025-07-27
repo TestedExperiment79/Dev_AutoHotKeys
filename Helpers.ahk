@@ -32,10 +32,10 @@ send_keystroke(key) {
   Send, {CapsLock up}
 
 
-  if (key == "👆") {
+  if (key = "👆") {
     SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelUp}
 
-  } else if (key == "👇") {
+  } else if (key = "👇") {
     SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelDown}
 
   } else if (InStr(untilLastChar, "c")) {

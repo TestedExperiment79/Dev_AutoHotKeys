@@ -221,7 +221,7 @@ return
 ; Shift + Scroll Down (Ctrl + Shift + WheelDown)
 ;
 global scrollD_keyActive := false
-~+WheelDown::  ; ">" represents Shift, "^" represents Ctrl
+$~+WheelDown::  ; ">" represents Shift, "^" represents Ctrl
 if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
 }
@@ -256,7 +256,7 @@ return
 ;? "Shift + Scroll Up"
 ; Shift + Scroll Up (Ctrl + Shift + Up)
 ;
-~+WheelUp::  ; "+" represents Shift, "^" represents Ctrl
+$~+WheelUp::  ; "+" represents Shift, "^" represents Ctrl
 if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
 }
