@@ -69,6 +69,7 @@ global warlock := {}
 ; warlock["👆"] := "sp;so"
 ; warlock["s👆"] := "o;i"
 warlock["👆"] := "ap;ao;ci;6;o;i"
+warlock["👇"] := "👇;c👇"
 
 warlock["i"] := "p"
 warlock["o"] := "ai"
@@ -80,6 +81,7 @@ warlock["6"] := "co"
 warlock["8"] := "8;c8"
 
 warlock["si"] := warlock["6"] . ";" . warlock["👆"]
+warlock["so"] := "a9;s9"
 
 
 

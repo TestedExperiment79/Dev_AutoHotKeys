@@ -199,6 +199,7 @@ return
 $i:: handleKey("i")  ; Rotation
 $+i:: handleKey("si")  ; BIG-Rotation
 $o:: handleKey("o")  ; Poison
+$+o:: handleKey("so")  ; Weaken-Enemy
 $p:: handleKey("p")  ; AOE
 
 $4:: handleKey(4)  ; DEFENSE
@@ -273,7 +274,6 @@ return
 ;* WHEN:
 ;? "Scroll Up"
 ;
-global scrollUp_keyActive := false
 $WheelUp::  ; ">" represents Shift, "^" represents Ctrl
 ; if (GetKeyState("Alt", "P")) {
 ;     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
@@ -291,11 +291,27 @@ if (InStr(currentGame, "wow"))
     SendEvent {Blind}{WheelUp}
 }
 return
+
+
+;* WHEN:
+;? "Scroll Down"
 ;
-;
-sh_scrollUp_StopKey:
-scrollUp_keyActive := false
-SetTimer, sh_scrollUp_StopKey, Off
+$WheelDown::  ; ">" represents Shift, "^" represents Ctrl
+; if (GetKeyState("Alt", "P")) {
+;     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelDown pass through normally
+; }
+if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
+    ; SendEvent {Alt}{WheelDown}
+    handleKey("a👇")
+    return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelDown pass through normally
+}
+if (InStr(currentGame, "wow"))
+{
+    handleKey("👇")
+} else {
+    ; tooltip("Hello", 2000)
+    SendEvent {Blind}{WheelDown}
+}
 return
 
 
