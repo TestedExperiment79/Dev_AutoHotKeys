@@ -31,14 +31,66 @@ send_keystroke(key) {
   ; Add other keys that get stuck (e.g., CapsLock, Enter, Space)
   Send, {CapsLock up}
 
+  hasCtrl := InStr(untilLastChar, "c")
+  hasShift := InStr(untilLastChar, "s")
+  hasAlt := InStr(untilLastChar, "a")
 
   if (key = "👆") {
+    ; tooltip("Entered this bitch", 2000)
     SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelUp}
 
   } else if (key = "👇") {
     SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelDown}
 
-  } else if (InStr(untilLastChar, "c")) {
+  } else if (hasCtrl and hasShift and hasAlt) {
+    ; cmd_start := cmd_start . "{Ctrl down}"
+    ; cmd_end := cmd_end . "{Ctrl up}"
+    ; SendEvent {Ctrl down}
+    if (InStr(key, "👆")) {
+      SendEvent, {Ctrl down}{Alt down}{Shift down}{WheelUp}{Shift up}{Alt up}{Ctrl up}
+    } else if (InStr(key, "👇")) {
+      SendEvent, {Ctrl down}{Alt down}{Shift down}{WheelDown}{Shift up}{Alt up}{Ctrl up}
+    } else {
+      SendEvent, {Ctrl down}{Alt down}{Shift down}{%lastChar%}{Shift up}{Alt up}{Ctrl up}
+    }
+
+  } else if (hasShift and hasAlt) {
+    ; cmd_start := cmd_start . "{Ctrl down}"
+    ; cmd_end := cmd_end . "{Ctrl up}"
+    ; SendEvent {Ctrl down}
+    if (InStr(key, "👆")) {
+      SendEvent, {Alt down}{Shift down}{WheelUp}{Shift up}{Alt up}
+    } else if (InStr(key, "👇")) {
+      SendEvent, {Alt down}{Shift down}{WheelDown}{Shift up}{Alt up}
+    } else {
+      SendEvent, {Alt down}{Shift down}{%lastChar%}{Shift up}{Alt up}
+    }
+
+  } else if (hasCtrl and hasShift) {
+    ; cmd_start := cmd_start . "{Ctrl down}"
+    ; cmd_end := cmd_end . "{Ctrl up}"
+    ; SendEvent {Ctrl down}
+    if (InStr(key, "👆")) {
+      SendEvent, {Shift down}{Ctrl down}{WheelUp}{Ctrl up}{Shift up}
+    } else if (InStr(key, "👇")) {
+      SendEvent, {Shift down}{Ctrl down}{WheelDown}{Ctrl up}{Shift up}
+    } else {
+      SendEvent, {Shift down}{Ctrl down}{%lastChar%}{Ctrl up}{Shift up}
+    }
+
+  } else if (hasCtrl and hasAlt) {
+    ; cmd_start := cmd_start . "{Ctrl down}"
+    ; cmd_end := cmd_end . "{Ctrl up}"
+    ; SendEvent {Ctrl down}
+    if (InStr(key, "👆")) {
+      SendEvent, {Ctrl down}{Alt down}{WheelUp}{Alt up}{Ctrl up}
+    } else if (InStr(key, "👇")) {
+      SendEvent, {Ctrl down}{Alt down}{WheelDown}{Alt up}{Ctrl up}
+    } else {
+      SendEvent, {Ctrl down}{Alt down}{%lastChar%}{Alt up}{Ctrl up}
+    }
+
+  } else if (hasCtrl) {
     ; cmd_start := cmd_start . "{Ctrl down}"
     ; cmd_end := cmd_end . "{Ctrl up}"
     ; SendEvent {Ctrl down}
@@ -50,11 +102,12 @@ send_keystroke(key) {
       SendEvent, {Ctrl down}{%lastChar%}{Ctrl up}
     }
 
-  } else if (InStr(untilLastChar, "s")) {
+  } else if (hasShift) {
     ; cmd_start := cmd_start . "{Shift down}"
     ; cmd_end := cmd_end . "{Shift up}"
     ; SendEvent {Shift down}
     if (InStr(key, "👆")) {
+      ; tooltip("Entered this bitch", 2000)
       SendEvent, {Shift down}{WheelUp}{Shift up}
     } else if (InStr(key, "👇")) {
       SendEvent, {Shift down}{WheelDown}{Shift up}
@@ -62,7 +115,7 @@ send_keystroke(key) {
       SendEvent, {Shift down}{%lastChar%}{Shift up}
     }
 
-  } else if (InStr(untilLastChar, "a")) {
+  } else if (hasAlt) {
     ; cmd_start := cmd_start . "{Alt down}"
     ; cmd_end := cmd_end . "{Alt up}"
     if (InStr(key, "👆")) {

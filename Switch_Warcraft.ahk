@@ -3,6 +3,7 @@
 global on_global_cooldown := false
 global time_gcd := 650
 
+global stance := "human"
 
 ; --- ---
 
@@ -65,18 +66,35 @@ shaman["👆"] := "ci;p;i;7;o"
 global warlock := {}
 ; shaman["i"] := "p;o;i;co"
 ; warlock["👆"] := "ci;p;i;7;o"
-warlock["👆"] := "sp;so;ci;6;o;i"
+; warlock["👆"] := "sp;so"
+; warlock["s👆"] := "o;i"
+warlock["👆"] := "ap;ao;ci;6;o;i"
 
 warlock["i"] := "p"
-warlock["o"] := "si"
+warlock["o"] := "ai"
 
 warlock["4"] := "4"
 warlock["5"] := "a5"
 warlock["6"] := "co"
 
+warlock["8"] := "8;c8"
+
 warlock["si"] := warlock["6"] . ";" . warlock["👆"]
 
+
+
+global druid := {}
+; shaman["i"] := "p;o;i;co"
+; warlock["👆"] := "ci;p;i;7;o"
+druid_bear_👆 := "sp;so;ci;6;o;i"
+
+druid["👆"] := "sp;so;ci;6;o;i"
+
 ; --- ---
+
+handle_druid_keystroke(key) {
+
+}
 
 
 keys_warcraft(key) {
@@ -113,13 +131,18 @@ keys_warcraft(key) {
     temp_listKeystrokes := fury[key]
 
   } else if (InStr(currentGame, "frost_dk")) {
-    temp_listKeystrokes := frost_dk[key]
+    tPOemp_listKeystrokes := frost_dk[key]
 
   } else if (InStr(currentGame, "shaman")) {
     temp_listKeystrokes := shaman[key]
 
   } else if (InStr(currentGame, "warlock")) {
     temp_listKeystrokes := warlock[key]
+
+  } else if (InStr(currentGame, "druid")) {
+    ; Check Stance Change
+    if (InStr(key, "0") or key = 0)
+    temp_listKeystrokes := handle_druid_keystroke(key)
 
   }  else {
     send_keystroke(key)
