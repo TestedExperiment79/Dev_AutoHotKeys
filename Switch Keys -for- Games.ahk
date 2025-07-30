@@ -196,7 +196,7 @@ return
 ; SendEvent, {WheelUp}
 ; return
 
-$i:: handleKey("i")  ; Rotation
+$i:: handleKey("i")  ; Roller
 $+i:: handleKey("si")  ; BIG-Rotation
 $o:: handleKey("o")  ; Poison
 $+o:: handleKey("so")  ; Weaken-Enemy - (Place Debuffs)
