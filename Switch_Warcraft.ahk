@@ -74,15 +74,17 @@ warlock["👇"] := "👇;c👇"
 warlock["i"] := "p"
 warlock["o"] := "ai"
 
-warlock["4"] := "4"
-warlock["5"] := "a5"
-warlock["6"] := "co"
+warlock[4] := "4"
+warlock[5] := "a5"
+warlock[6] := "co"
 
-warlock["8"] := "8;c8"
-warlock["9"] := "8;c8"
+warlock[8] := "8;c8"
+warlock[9] := "8;c8"
 
 warlock["si"] := warlock["6"] . ";" . warlock["👆"]
-warlock["so"] := "a9;s9"
+warlock["so"] := "s9"
+
+warlock["ao"] := "a9"
 
 
 

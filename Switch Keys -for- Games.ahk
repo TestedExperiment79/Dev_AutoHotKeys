@@ -199,8 +199,10 @@ return
 $i:: handleKey("i")  ; Rotation
 $+i:: handleKey("si")  ; BIG-Rotation
 $o:: handleKey("o")  ; Poison
-$+o:: handleKey("so")  ; Weaken-Enemy
+$+o:: handleKey("so")  ; Weaken-Enemy - (Place Debuffs)
+!o:: handleKey("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
 $p:: handleKey("p")  ; AOE
+
 
 $4:: handleKey(4)  ; DEFENSE
 $+4:: handleKey("s4")  ; BIG-DEFENSE
