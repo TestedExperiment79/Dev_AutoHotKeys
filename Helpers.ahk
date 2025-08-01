@@ -35,14 +35,7 @@ send_keystroke(key) {
   hasShift := InStr(untilLastChar, "s")
   hasAlt := InStr(untilLastChar, "a")
 
-  if (key = "👆") {
-    ; tooltip("Entered this bitch", 2000)
-    SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelUp}
-
-  } else if (key = "👇") {
-    SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelDown}
-
-  } else if (hasCtrl and hasShift and hasAlt) {
+  if (hasCtrl and hasShift and hasAlt) {
     ; cmd_start := cmd_start . "{Ctrl down}"
     ; cmd_end := cmd_end . "{Ctrl up}"
     ; SendEvent {Ctrl down}
@@ -127,7 +120,22 @@ send_keystroke(key) {
     }
 
   } else {
-    SendEvent, % lastChar
+    if (key = "👆") {
+    ; tooltip("Entered this bitch", 2000)
+    SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelUp}
+
+    } else if (key = "👇") {
+      SendEvent, {Ctrl up}{Shift up}{Alt up}{LWin up}{RWin up}{WheelDown}
+
+    } else if (key = "👈") {
+      SendEvent, {XButton1}
+
+    }  else if (key = "👉") {
+      SendEvent, {XButton2}
+
+    } else {
+      SendEvent, % lastChar
+    }
   }
   ;
 
@@ -157,5 +165,14 @@ send_listOf_keystrokes(list_keys) {
 
       send_keystroke(singleKeystroke)
   }
+}
+
+
+InArray(haystack, needle) {
+  for index, value in haystack {
+    if (value = needle)  ; Case-insensitive
+      return true
+  }
+  return false
 }
 

@@ -53,11 +53,18 @@ Alt & Delete::
         StringLower, userInput, userInput
         currentGame := userInput
         tooltip(%currentGame%, 2000)
+        basic_settings()
     }
     Gosub, SwitchMouseButtons
     return
 }
 return
+
+basic_settings() {
+    if (InStr(currentGame, "wow")) {
+        ˆ := "human"
+    }
+}
 
 
 SwitchMouseButtons:
@@ -200,7 +207,8 @@ $i:: handleKey("i")  ; Roller
 $+i:: handleKey("si")  ; BIG-Rotation
 $o:: handleKey("o")  ; Poison
 $+o:: handleKey("so")  ; Weaken-Enemy - (Place Debuffs)
-!o:: handleKey("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
+; !o:: handleKey("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
+; !o:: tooltip("hello",2000)  ; Remove-Strengths-of-Enemy (Remove Buffs)
 $p:: handleKey("p")  ; AOE
 
 
@@ -208,12 +216,16 @@ $4:: handleKey(4)  ; DEFENSE
 $+4:: handleKey("s4")  ; BIG-DEFENSE
 $5:: handleKey(5)  ; HEAL
 $+5:: handleKey("s5")  ; BIG-Heal
+$^5:: handleKey("c5")
 $6:: handleKey(6)  ; Enrage
 
 $7:: handleKey(7)  ; Slow/Stun
 $8:: handleKey(8)  ; Weaken-Enemy
 $9:: handleKey(9)  ; Interrupt/Stun
-return
+
+$0:: handleKey(0)  ; Interrupt/Stun
+XButton1:: handleKey("👈") ; This is mouse button 4 (usually back)
+XButton2:: handleKey("👉") ; This is mouse button 5 (usually forth)
 
 ; !+WheelDown::SendEvent {Blind}{WheelDown}
 ; !+WheelUp::SendEvent {Blind}{WheelUp}

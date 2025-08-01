@@ -3,7 +3,7 @@
 global on_global_cooldown := false
 global time_gcd := 650
 
-global stance := "human"
+global stance := "normal"
 
 ; --- ---
 
@@ -91,14 +91,59 @@ warlock["ao"] := "a9"
 global druid := {}
 ; shaman["i"] := "p;o;i;co"
 ; warlock["👆"] := "ci;p;i;7;o"
-druid_bear_👆 := "sp;so;ci;6;o;i"
+global druid_bear_👆 := "i;o"
+global druid_cat_👆 := "i"
 
-druid["👆"] := "sp;so;ci;6;o;i"
+druid["👆"] := "cp;co;ci;6;i"
+druid["o"] := "aci" ; alt + ctrl + o
 
 ; --- ---
 
 handle_druid_keystroke(key) {
+  if (key = "👆") {
+    if (stance = "bear") {
+      return druid_bear_👆
 
+    } else if (stance = "cat") {
+      return druid_cat_👆
+
+    } else { ; Human Form
+      return druid["👆"]
+    }
+  } else {
+    return druid[key]
+  }
+}
+
+handle_druid_stance(key) {
+  ; -NEUTRAL- Keys - can't change stance
+  if (InArray(["a👆", "4", "s0"], key)) {
+    return
+  }
+
+  ; ---
+
+
+  ; -BEAR- Form
+  if (InArray(["0", "s5"], key)) {
+    stance := "bear"
+    tooltip("bear", 2000)
+
+  } ; -CAT- Form
+  else if (InArray(["👉", "s👆", "👇"], key)) {
+    stance := "cat"
+    tooltip("cat", 2000)
+
+  } ; -HUMAN- Form
+  else if (key = "👈") {
+    stance := "normal"
+    tooltip("normal", 2000)
+
+  } ; Assume -"HUMAN"- - by Default in Keys
+  else if (not InStr(key, "i") and not InStr(key, "o") and not InStr(key, "p")) {
+    stance := "normal"
+    tooltip("normal", 2000)
+  }
 }
 
 
@@ -146,13 +191,15 @@ keys_warcraft(key) {
 
   } else if (InStr(currentGame, "druid")) {
     ; Check Stance Change
-    if (InStr(key, "0") or key = 0)
+    handle_druid_stance(key)
     temp_listKeystrokes := handle_druid_keystroke(key)
 
   }  else {
     send_keystroke(key)
     return
   }
+
+  ; ---
 
   if (temp_listKeystrokes = "") {
     temp_listKeystrokes := key
