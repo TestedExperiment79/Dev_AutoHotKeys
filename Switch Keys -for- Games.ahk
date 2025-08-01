@@ -64,6 +64,7 @@ basic_settings() {
     if (InStr(currentGame, "wow")) {
         if (InStr(currentGame, "druid")) {
             stance := "human"
+            counter_druidCat_rotation := 0
 
         } else if (InStr(currentGame, "rogue")) {
             stance := "visible"
@@ -244,10 +245,16 @@ XButton2:: handleKey("👉") ; This is mouse button 5 (usually forth)
 global scrollD_keyActive := false
 ; `~` (don't block the native key event)
 ; $~+WheelDown::  ; ">" represents Shift, "^" represents Ctrl
+
 $+WheelDown::  ; ">" represents Shift, "^" represents Ctrl
-if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
-    return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
-}
+; if (!GetKeyState("Ctrl", "P") and (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P"))) {
+;     ; SendEvent {Alt}{Shift}{WheelUp}
+;     ; SendInput !+WheelUp
+;     tooltip("Down", 2000)
+;     SendEvent {Alt down}{Shift down}{WheelDown}{Shift up}{Alt up}
+;     ; SendEvent {Shift Alt down}{WheelUp}{Shift Alt up}
+;     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
+; }
 if (currentGame = "warframe")
 {
     if (scrollD_keyActive)
@@ -272,17 +279,24 @@ scrollD_keyActive := false
 SendEvent, {n Up}
 SetTimer, sh_scrollD_StopKey, Off
 return
-
+#If
 
 
 ;* WHEN:
 ;? "Shift + Scroll Up"
 ; Shift + Scroll Up (Ctrl + Shift + Up)
 ;
+; #If not (GetKeyState("Shift", "P") and GetKeyState("Alt", "P") and GetKeyState("CapsLock", "P"))
+; #If !GetKeyState("Shift", "P") and !GetKeyState("Alt", "P") and !GetKeyState("CapsLock", "P")
 $+WheelUp::  ; "+" represents Shift, "^" represents Ctrl
-if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
-    return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
-}
+; tooltip("HELLO",2000)
+; if (!GetKeyState("Ctrl", "P") and (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P"))) {
+;     ; SendEvent {Alt}{Shift}{WheelUp}
+;     ; SendInput !+WheelUp
+;     SendEvent {Alt down}{Shift down}{WheelUp}{Shift up}{Alt up}
+;     ; SendEvent {Shift Alt down}{WheelUp}{Shift Alt up}
+;     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
+; }
 if (InStr(currentGame, "wow"))
 {
     handleKey("s👆")
@@ -290,7 +304,7 @@ if (InStr(currentGame, "wow"))
     SendEvent {Blind}{WheelUp}
 }
 return
-
+#If
 
 
 ;* WHEN:

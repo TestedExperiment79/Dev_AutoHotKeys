@@ -84,6 +84,7 @@ global druid := {}
 ; warlock["👆"] := "ci;p;i;7;o"
 global druid_bear_👆 := "i;o"
 global druid_cat_👆 := "i"
+global druid_cat_👆_spender := "o;i"
 
 druid["👆"] := "cp;co;ci;6;i"
 druid["o"] := "aci" ; alt + ctrl + o

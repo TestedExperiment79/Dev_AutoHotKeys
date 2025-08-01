@@ -63,9 +63,11 @@ send_keystroke(key) {
     ; cmd_end := cmd_end . "{Ctrl up}"
     ; SendEvent {Ctrl down}
     if (InStr(key, "👆")) {
-      SendEvent, {Alt down}{Shift down}{WheelUp}{Shift up}{Alt up}
+      SendInput !+WheelUp
+      ; SendEvent, {Alt down}{Shift down}{WheelUp}{Shift up}{Alt up}
     } else if (InStr(key, "👇")) {
-      SendEvent, {Alt down}{Shift down}{WheelDown}{Shift up}{Alt up}
+      SendInput !+WheelDown
+      ; SendEvent, {Alt down}{Shift down}{WheelDown}{Shift up}{Alt up}
     } else {
       SendEvent, {Alt down}{Shift down}{%lastChar%}{Shift up}{Alt up}
     }

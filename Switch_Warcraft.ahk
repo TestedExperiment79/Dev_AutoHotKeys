@@ -12,9 +12,13 @@ global stance := "human"
 
 ; --- ---
 
+global counter_druidCat_rotation := 0
+
+; --- ---
+
 handle_druid_keystroke(key) {
   timing := 700
-  tooltip(stance, timing, on_debug)
+  ; tooltip(stance, timing, on_debug)
 
 
   if (key = "👆") {
@@ -23,8 +27,15 @@ handle_druid_keystroke(key) {
       return druid_bear_👆
 
     } else if (stance = "cat") {
+      ; counter_druidCat_rotation := counter_druidCat_rotation + 1
+      counter_druidCat_rotation++
+      if (counter_druidCat_rotation < 3) {
+        return druid_cat_👆
+      } else {
+        return druid_cat_👆_spender
+      }
+      ; tooltip(counter_druidCat_rotation, timing)
       ; tooltip("A-cat", timing, on_debug)
-      return druid_cat_👆
 
     } else { ; Human Form
       ; tooltip("A-basic", timing, on_debug)
