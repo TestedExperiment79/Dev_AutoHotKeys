@@ -18,7 +18,7 @@ global counter_druidCat_rotation := 0
 
 handle_druid_keystroke(key) {
   timing := 700
-  ; tooltip(stance, timing, on_debug)
+  tooltip(stance, timing, on_debug)
 
 
   if (key = "👆") {
