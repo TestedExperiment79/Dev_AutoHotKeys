@@ -82,12 +82,13 @@ warlock["ao"] := "a9"
 global druid := {}
 ; shaman["i"] := "p;o;i;co"
 ; warlock["👆"] := "ci;p;i;7;o"
-global druid_bear_👆 := "i;o"
-global druid_cat_👆 := "i"
+global druid_bear_👆 := "ao;ai;i;o"
+global druid_cat_👆 := "ao;ai;i"
 global druid_cat_👆_spender := "o;i"
 
-druid["👆"] := "co;ci;6;i"
+druid["👆"] := "ai;ao;i"
 druid["o"] := "aci" ; alt + ctrl + o
 
+druid["i"] := "ai;ci"
 
 
