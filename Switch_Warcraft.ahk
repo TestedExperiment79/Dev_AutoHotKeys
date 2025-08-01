@@ -1,103 +1,14 @@
+#Include %A_ScriptDir%\Switch_Wow_Variables.ahk
+
+
 ; global on_debug := false
 global on_debug := true
 
 
 global on_global_cooldown := false
-global time_gcd := 650
+global time_gcd := 700
 
 global stance := "human"
-
-; --- ---
-
-
-global shadow := {}
-shadow["i"] := "ai;o;i"
-; shadow["i"] := "ai;a;b;c"
-shadow["o"] := "si"
-shadow["p"] := "s9;sp"
-
-shadow[4] := "4"
-shadow["s4"] := "s4;a4"
-shadow[5] := "c5;5;s5;a5"
-shadow["s5"] := "s5;a5"
-shadow[6] := "c6;a6;6"
-
-shadow[8] := "8;c8;7;c7"
-shadow[9] := "9;c9;8;c8;s4;a4;4"
-
-; Needs "shadow[6]" to be created first
-shadow["si"] := shadow[6] . ";0;" . shadow["i"]
-
-
-
-global havoc := {}
-havoc["i"] := "co;ci;p;o;i"
-
-havoc[4] := "c4;4"
-havoc[5] := "5;c5"
-havoc[6] := "6"
-
-havoc["si"] := havoc[6] . ";" . havoc["i"]
-
-
-global fury := {}
-; fury["i"] := "si;cp;co;ci;p;5;i;o"
-fury["i"] := "p;5;o;👆;i"
-fury["👆"] := fury["i"]
-
-
-fury[4] := "4;c4"
-fury[5] := "c5;5"
-fury[6] := "5;c6"
-
-fury[7] := "7;c7"
-fury[8] := "8;c8"
-fury[9] := "9;c9"
-
-
-global frost_dk := {}
-frost_dk["i"] := "p;o;i;co"
-frost_dk["o"] := "👆"
-
-
-global shaman := {}
-; shaman["i"] := "p;o;i;co"
-shaman["👆"] := "ci;p;i;7;o"
-
-
-global warlock := {}
-; shaman["i"] := "p;o;i;co"
-; warlock["👆"] := "ci;p;i;7;o"
-; warlock["👆"] := "sp;so"
-; warlock["s👆"] := "o;i"
-warlock["👆"] := "ap;ao;ci;6;o;i"
-warlock["👇"] := "👇;c👇"
-
-warlock["i"] := "p"
-warlock["o"] := "ai"
-
-warlock[4] := "4"
-warlock[5] := "a5"
-warlock[6] := "co"
-
-warlock[8] := "8;c8"
-warlock[9] := "8;c8"
-
-warlock["si"] := warlock["6"] . ";" . warlock["👆"]
-warlock["so"] := "s9"
-
-warlock["ao"] := "a9"
-
-
-
-global druid := {}
-; shaman["i"] := "p;o;i;co"
-; warlock["👆"] := "ci;p;i;7;o"
-global druid_bear_👆 := "i;o"
-global druid_cat_👆 := "i"
-
-druid["👆"] := "cp;co;ci;6;i"
-druid["o"] := "aci" ; alt + ctrl + o
 
 ; --- ---
 
@@ -145,7 +56,7 @@ handle_druid_stance(key) {
     ; tooltip("cat", timing, on_debug)
 
   } ; -HUMAN- Form
-  else if (InArray(["👈", "5", "c5"], key)) {
+  else if (InArray(["👈", "5", "c5", "ai", "aci", "o"], key)) {
     stance := "human"
     ; tooltip("human", timing, on_debug)
 
