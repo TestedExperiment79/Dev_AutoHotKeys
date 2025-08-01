@@ -1,3 +1,5 @@
+; global on_debug := false
+global on_debug := true
 
 
 global on_global_cooldown := false
@@ -127,22 +129,22 @@ handle_druid_stance(key) {
   ; -BEAR- Form
   if (InArray(["0", "s5"], key)) {
     stance := "bear"
-    tooltip("bear", 2000)
+    tooltip("bear", 2000, on_debug)
 
   } ; -CAT- Form
   else if (InArray(["👉", "s👆", "👇"], key)) {
     stance := "cat"
-    tooltip("cat", 2000)
+    tooltip("cat", 2000, on_debug)
 
   } ; -HUMAN- Form
   else if (key = "👈") {
     stance := "normal"
-    tooltip("normal", 2000)
+    tooltip("normal", 2000, on_debug)
 
   } ; Assume -"HUMAN"- - by Default in Keys
   else if (not InStr(key, "i") and not InStr(key, "o") and not InStr(key, "p")) {
     stance := "normal"
-    tooltip("normal", 2000)
+    tooltip("normal", 2000, on_debug)
   }
 }
 
