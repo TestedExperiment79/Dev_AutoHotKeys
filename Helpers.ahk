@@ -11,6 +11,15 @@ tooltip(message, time, debug := true) {
 }
 
 
+InArray(haystack, needle) {
+  for _, value in haystack {
+    if (value = needle)  ; Case-insensitive
+      return true
+  }
+  return false
+}
+
+
 ; --- ---
 
 
@@ -167,14 +176,5 @@ send_listOf_keystrokes(list_keys) {
 
       send_keystroke(singleKeystroke)
   }
-}
-
-
-InArray(haystack, needle) {
-  for index, value in haystack {
-    if (value = needle)  ; Case-insensitive
-      return true
-  }
-  return false
 }
 

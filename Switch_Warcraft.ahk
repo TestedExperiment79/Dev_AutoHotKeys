@@ -5,7 +5,7 @@ global on_debug := true
 global on_global_cooldown := false
 global time_gcd := 650
 
-global stance := "normal"
+global stance := "human"
 
 ; --- ---
 
@@ -102,50 +102,58 @@ druid["o"] := "aci" ; alt + ctrl + o
 ; --- ---
 
 handle_druid_keystroke(key) {
+  timing := 700
+  tooltip(stance, timing, on_debug)
+
+
   if (key = "👆") {
     if (stance = "bear") {
+      ; tooltip("A-bear", timing, on_debug)
       return druid_bear_👆
 
     } else if (stance = "cat") {
+      ; tooltip("A-cat", timing, on_debug)
       return druid_cat_👆
 
     } else { ; Human Form
+      ; tooltip("A-basic", timing, on_debug)
       return druid["👆"]
     }
   } else {
+    ; tooltip("A-basic-2", timing, on_debug)
     return druid[key]
   }
 }
 
 handle_druid_stance(key) {
   ; -NEUTRAL- Keys - can't change stance
-  if (InArray(["a👆", "4", "s0"], key)) {
-    return
-  }
+  ; if (InArray(["a👆", "4", "s0"], key)) {
+  ;   return
+  ; }
 
   ; ---
-
+  timing := 700
 
   ; -BEAR- Form
   if (InArray(["0", "s5"], key)) {
     stance := "bear"
-    tooltip("bear", 1000, on_debug)
+    ; tooltip("bear", timing, on_debug)
 
   } ; -CAT- Form
   else if (InArray(["👉", "s👆", "👇"], key)) {
     stance := "cat"
-    tooltip("cat", 1000, on_debug)
+    ; tooltip("cat", timing, on_debug)
 
   } ; -HUMAN- Form
-  else if (key = "👈") {
-    stance := "normal"
-    tooltip("normal", 1000, on_debug)
+  else if (InArray(["👈", "5", "c5"], key)) {
+    stance := "human"
+    ; tooltip("human", timing, on_debug)
 
   } ; Assume -"HUMAN"- - by Default in Keys
-  else if (not InStr(key, "i") and not InStr(key, "o") and not InStr(key, "p")) {
-    stance := "normal"
-    tooltip("normal", 1000, on_debug)
-  }
+  ; else if (not InStr(key, "👆") and not InStr(key, "i") and not InStr(key, "o") and not InStr(key, "p")) {
+  ;   stance := "human"
+  ;   ; tooltip("human", 1000, on_debug)
+  ; }
 }
 
 
@@ -195,6 +203,7 @@ keys_warcraft(key) {
     ; Check Stance Change
     handle_druid_stance(key)
     temp_listKeystrokes := handle_druid_keystroke(key)
+    ; tooltip(stance, 1000, true)
 
   }  else {
     send_keystroke(key)

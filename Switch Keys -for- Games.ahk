@@ -62,7 +62,13 @@ return
 
 basic_settings() {
     if (InStr(currentGame, "wow")) {
-        ˆ := "human"
+        if (InStr(currentGame, "druid")) {
+            stance := "human"
+
+        } else if (InStr(currentGame, "rogue")) {
+            stance := "visible"
+
+        }
     }
 }
 
@@ -277,7 +283,7 @@ if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
 }
 if (InStr(currentGame, "wow"))
 {
-    handleKey("👆")
+    handleKey("s👆")
 } else {
     SendEvent {Blind}{WheelUp}
 }
