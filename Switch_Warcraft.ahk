@@ -129,29 +129,29 @@ handle_druid_stance(key) {
   ; -BEAR- Form
   if (InArray(["0", "s5"], key)) {
     stance := "bear"
-    tooltip("bear", 2000, on_debug)
+    tooltip("bear", 1000, on_debug)
 
   } ; -CAT- Form
   else if (InArray(["👉", "s👆", "👇"], key)) {
     stance := "cat"
-    tooltip("cat", 2000, on_debug)
+    tooltip("cat", 1000, on_debug)
 
   } ; -HUMAN- Form
   else if (key = "👈") {
     stance := "normal"
-    tooltip("normal", 2000, on_debug)
+    tooltip("normal", 1000, on_debug)
 
   } ; Assume -"HUMAN"- - by Default in Keys
   else if (not InStr(key, "i") and not InStr(key, "o") and not InStr(key, "p")) {
     stance := "normal"
-    tooltip("normal", 2000, on_debug)
+    tooltip("normal", 1000, on_debug)
   }
 }
 
 
 keys_warcraft(key) {
   ; ignore key, if ON global cooldown
-  ; tooltip(key, 2000)
+  ; tooltip(key, 2000, on_debug)
   if (on_global_cooldown) {
     return
   } else {
@@ -170,8 +170,8 @@ keys_warcraft(key) {
   ; wow_war_i()
 
 
-  ; tooltip(StrLen(key), 2000)
-  ; tooltip(key, 2000)
+  ; tooltip(StrLen(key), 2000, on_debug)
+  ; tooltip(key, 2000, on_debug)
 
   if (InStr(currentGame, "shadow")) {
     temp_listKeystrokes := shadow[key]
