@@ -33,6 +33,7 @@ global fury := {}
 ; fury["i"] := "si;cp;co;ci;p;5;i;o"
 fury["i"] := "p;5;o;👆;i"
 fury["👆"] := fury["i"]
+fury["s👆"] := "s👆;a👆"
 
 
 fury[4] := "4;c4"
