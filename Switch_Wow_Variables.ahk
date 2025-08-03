@@ -31,8 +31,8 @@ havoc["si"] := havoc[6] . ";" . havoc["i"]
 
 global fury := {}
 ; fury["i"] := "si;cp;co;ci;p;5;i;o"
-fury["i"] := "p;5;o;👆;i"
-fury["👆"] := fury["i"]
+fury["i"] := "👆"
+fury["👆"] := "👆;6;p;5;o;i"
 fury["s👆"] := "s👆;a👆"
 
 
@@ -40,7 +40,7 @@ fury[4] := "4;c4"
 fury[5] := "c5;5"
 fury[6] := "5;c6"
 
-fury[7] := "7;c7"
+fury[7] := "c7;7"
 fury[8] := "8;c8"
 fury[9] := "9;c9"
 
