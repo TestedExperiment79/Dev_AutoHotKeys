@@ -102,7 +102,9 @@ global rogue_i_aoe := "cp"
 
 rogue["👆"] := "p;o;i"
 
-rogue["i"] := "co"
+rogue["i"] := "ci"
+rogue["o"] := "co"
+rogue["p"] := "cp"
 rogue["si"] := "6;c6"
 
 rogue[4] := "4;c4"
@@ -111,5 +113,6 @@ rogue[6] := rogue["si"]
 
 ; rogue[8] := "8"
 ; rogue[9] := "9"
+rogue["s8"] := "c8"
 rogue["s9"] := "c9"
 
