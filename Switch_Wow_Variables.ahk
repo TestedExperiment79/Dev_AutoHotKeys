@@ -93,3 +93,21 @@ druid["o"] := "aci" ; alt + ctrl + o
 druid["i"] := "ai;ci"
 
 
+global rogue := {}
+; shaman["i"] := "p;o;i;co"
+; warlock["👆"] := "ci;p;i;7;o"
+global rogue_i_single := "ci"
+global rogue_i_poison := "co"
+global rogue_i_aoe := "cp"
+
+rogue["👆"] := "p;o;i"
+
+rogue["i"] := "co"
+
+rogue[4] := "4;c4"
+; rogue[5] := "5"
+; rogue[6] := "6"
+
+; rogue[8] := "8"
+rogue[9] := "9;s4"
+

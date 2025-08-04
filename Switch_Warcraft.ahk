@@ -79,6 +79,20 @@ handle_druid_stance(key) {
 }
 
 
+handle_rogue_stance(key) {
+  ; -Stance- Single-Target
+  if ("ci" = key) {
+    rogue["i"] := rogue_i_single
+  } ; -Stance- Poison
+  else if ("co" = key) {
+    rogue["i"] := rogue_i_poison
+  } ; -Stance- AOE
+  else if ("cp" = key) {
+    rogue["i"] := rogue_i_aoe
+  }
+}
+
+
 keys_warcraft(key) {
   ; ignore key, if ON global cooldown
   ; tooltip(key, 2000, on_debug)
@@ -127,7 +141,12 @@ keys_warcraft(key) {
     temp_listKeystrokes := handle_druid_keystroke(key)
     ; tooltip(stance, 1000, true)
 
-  }  else {
+  } else if (InStr(currentGame, "rogue")) {
+    ; Check Stance Change
+    handle_rogue_stance(key)
+    temp_listKeystrokes := rogue[key]
+
+  } else {
     send_keystroke(key)
     return
   }
