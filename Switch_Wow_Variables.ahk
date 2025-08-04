@@ -103,6 +103,7 @@ global rogue_i_aoe := "cp"
 rogue["👆"] := "p;o;i"
 
 rogue["i"] := "co"
+rogue["si"] := "6"
 
 rogue[4] := "4;c4"
 ; rogue[5] := "5"
