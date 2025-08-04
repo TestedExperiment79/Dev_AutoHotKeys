@@ -234,6 +234,7 @@ $6:: handleKey(6)  ; Enrage
 $7:: handleKey(7)  ; Slow/Stun
 $8:: handleKey(8)  ; Weaken-Enemy
 $9:: handleKey(9)  ; Interrupt/Stun
+$+9:: handleKey("s9")  ; Interrupt/Stun
 
 $0:: handleKey(0)  ; Interrupt/Stun
 XButton1:: handleKey("👈") ; This is mouse button 4 (usually back)
