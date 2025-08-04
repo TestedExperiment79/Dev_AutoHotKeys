@@ -111,8 +111,7 @@ rogue[4] := "4;c4"
 ; rogue[5] := "5"
 rogue[6] := rogue["si"]
 
-; rogue[8] := "8"
-; rogue[9] := "9"
+
 rogue["s8"] := "c8"
 rogue["s9"] := "c9"
 
