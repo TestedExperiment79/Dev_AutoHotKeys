@@ -46,20 +46,29 @@ fury[9] := "9;c9"
 
 global max_fury := {}
 ; fury["i"] := "si;cp;co;ci;p;5;i;o"
-max_fury["👆"] := "👈;👆;6;p;5;o;i"
-max_fury["c👆"] := "👈;c👆;aci"
-max_fury["i"] := "👈;👆"
+; max_fury["👆"] := "👈;👆;cp;co;ci;p;o;5;i"
+max_fury["j"] := "👈;asi;cp;co;ci;p;o;5;i"
+max_fury["p"] := "👈;aci;aco"
 
-max_fury["s👆"] := "s👆;a👆"
+max_fury["k"] := "👈;k;ck"
+; max_fury["i"] := "👈;i"
+
+; max_fury["s👆"] := "s👆;a👆"
 
 
 max_fury[8] := "8;c8"
 
 
 global frost_dk := {}
-frost_dk["👆"] := "ci;p;o;i;co"
+frost_dk["👆"] := "0;ci;p;o;i;co"
 
 frost_dk["o"] := "👆"
+
+frost_dk["5"] := "c5;5"
+
+frost_dk["7"] := "7;c7"
+;
+frost_dk["9"] := "9;c9"
 
 
 global shaman := {}

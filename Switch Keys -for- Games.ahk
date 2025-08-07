@@ -238,6 +238,9 @@ $+8:: handleKey("s8")  ; Weaken-Enemy
 $9:: handleKey(9)  ; Interrupt/Stun
 $+9:: handleKey("s9")  ; Interrupt/Stun
 
+$j:: handleKey("j")  ; Go to Target
+$k:: handleKey("k")  ; Taunt Target
+
 $0:: handleKey(0)  ; Interrupt/Stun
 XButton1:: handleKey("👈") ; This is mouse button 4 (usually back)
 XButton2:: handleKey("👉") ; This is mouse button 5 (usually forth)
@@ -292,19 +295,7 @@ return
 
 ;* WHEN:
 ;? "Shift + Scroll Up"
-; Shift + Scroll Up (Ctrl + Shift + Up)
-;
-; #If not (GetKeyState("Shift", "P") and GetKeyState("Alt", "P") and GetKeyState("CapsLock", "P"))
-; #If !GetKeyState("Shift", "P") and !GetKeyState("Alt", "P") and !GetKeyState("CapsLock", "P")
 $+WheelUp::  ; "+" represents Shift, "^" represents Ctrl
-; tooltip("HELLO",2000)
-; if (!GetKeyState("Ctrl", "P") and (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P"))) {
-;     ; SendEvent {Alt}{Shift}{WheelUp}
-;     ; SendInput !+WheelUp
-;     SendEvent {Alt down}{Shift down}{WheelUp}{Shift up}{Alt up}
-;     ; SendEvent {Shift Alt down}{WheelUp}{Shift Alt up}
-;     return  ; Do nothing if Alt is pressed - let Shift+Alt+WheelUp pass through normally
-; }
 if (InStr(currentGame, "wow"))
 {
     handleKey("s👆")
@@ -312,7 +303,6 @@ if (InStr(currentGame, "wow"))
     SendEvent {Blind}{WheelUp}
 }
 return
-#If
 
 
 ;* WHEN:
