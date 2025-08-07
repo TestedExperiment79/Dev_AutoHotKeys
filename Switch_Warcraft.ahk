@@ -117,31 +117,38 @@ keys_warcraft(key) {
   ; tooltip(StrLen(key), 2000, on_debug)
   ; tooltip(key, 2000, on_debug)
 
-  if (InStr(currentGame, "shadow")) {
+  ;! MAXed Classes HAVE TO BE AT THE TOP
+  ; because if they are lower then the others, the other's will be picked up first
+  if (InStr(currentGame, "max_fury")) {
+    temp_listKeystrokes := max_fury[key]
+
+  }
+  ; ---------------------------------------------------
+  else if (InStr(currentGame, "wow_shadow")) {
     temp_listKeystrokes := shadow[key]
 
-  } else if (InStr(currentGame, "havoc")) {
+  } else if (InStr(currentGame, "wow_havoc")) {
     temp_listKeystrokes := havoc[key]
 
-  } else if (InStr(currentGame, "fury")) {
+  } else if (InStr(currentGame, "wow_fury")) {
     temp_listKeystrokes := fury[key]
 
-  } else if (InStr(currentGame, "frost_dk")) {
+  } else if (InStr(currentGame, "wow_frost_dk")) {
     tPOemp_listKeystrokes := frost_dk[key]
 
-  } else if (InStr(currentGame, "shaman")) {
+  } else if (InStr(currentGame, "wow_shaman")) {
     temp_listKeystrokes := shaman[key]
 
-  } else if (InStr(currentGame, "warlock")) {
+  } else if (InStr(currentGame, "wow_warlock")) {
     temp_listKeystrokes := warlock[key]
 
-  } else if (InStr(currentGame, "druid")) {
+  } else if (InStr(currentGame, "wow_druid")) {
     ; Check Stance Change
     handle_druid_stance(key)
     temp_listKeystrokes := handle_druid_keystroke(key)
     ; tooltip(stance, 1000, true)
 
-  } else if (InStr(currentGame, "rogue")) {
+  } else if (InStr(currentGame, "wow_rogue")) {
     ; Check Stance Change
     handle_rogue_stance(key)
     temp_listKeystrokes := rogue[key]

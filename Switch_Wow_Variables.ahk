@@ -44,9 +44,21 @@ fury[7] := "c7;7"
 fury[8] := "8;c8"
 fury[9] := "9;c9"
 
+global max_fury := {}
+; fury["i"] := "si;cp;co;ci;p;5;i;o"
+max_fury["👆"] := "👈;👆;6;p;5;o;i"
+max_fury["c👆"] := "👈;c👆;aci"
+max_fury["i"] := "👈;👆"
+
+max_fury["s👆"] := "s👆;a👆"
+
+
+max_fury[8] := "8;c8"
+
 
 global frost_dk := {}
-frost_dk["i"] := "p;o;i;co"
+frost_dk["👆"] := "p;o;i;co"
+
 frost_dk["o"] := "👆"
 
 
