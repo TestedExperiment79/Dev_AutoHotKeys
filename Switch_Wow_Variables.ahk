@@ -57,7 +57,7 @@ max_fury[8] := "8;c8"
 
 
 global frost_dk := {}
-frost_dk["👆"] := "p;o;i;co"
+frost_dk["👆"] := "ci;p;o;i;co"
 
 frost_dk["o"] := "👆"
 
