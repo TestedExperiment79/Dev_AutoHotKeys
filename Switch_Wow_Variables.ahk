@@ -48,6 +48,8 @@ global max_fury := {}
 ; fury["i"] := "si;cp;co;ci;p;5;i;o"
 ; max_fury["👆"] := "👈;👆;cp;co;ci;p;o;5;i"
 max_fury["j"] := "👈;asi;cp;co;ci;p;o;5;i"
+
+max_fury["i"] := "👈;asi"
 max_fury["p"] := "👈;aci;aco"
 
 max_fury["k"] := "👈;k;ck"

@@ -277,7 +277,11 @@ if (currentGame = "warframe")
     SetTimer, sh_scrollD_StopKey, -400
 } else if (InStr(currentGame, "wow"))
 {
-    handleKey("👆")
+    if ((GetKeyState("CapsLock", "P") or GetKeyState("Alt", "P")) and GetKeyState("Shift", "P")) {
+        SendEvent {Blind}{WheelDown}
+    } else {
+        handleKey("s👇")
+    }
 } else {
     ; tooltip("shift used", 2000)
     SendEvent {Blind}{WheelDown}
@@ -290,7 +294,7 @@ scrollD_keyActive := false
 SendEvent, {n Up}
 SetTimer, sh_scrollD_StopKey, Off
 return
-#If
+
 
 
 ;* WHEN:
@@ -298,7 +302,11 @@ return
 $+WheelUp::  ; "+" represents Shift, "^" represents Ctrl
 if (InStr(currentGame, "wow"))
 {
-    handleKey("s👆")
+    if ((GetKeyState("CapsLock", "P") or GetKeyState("Alt", "P")) and GetKeyState("Shift", "P")) {
+        SendEvent {Blind}{WheelUp}
+    } else {
+        handleKey("s👆")
+    }
 } else {
     SendEvent {Blind}{WheelUp}
 }
