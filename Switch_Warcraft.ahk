@@ -134,7 +134,7 @@ keys_warcraft(key) {
     temp_listKeystrokes := fury[key]
 
   } else if (InStr(currentGame, "wow_frost_dk")) {
-    tPOemp_listKeystrokes := frost_dk[key]
+    temp_listKeystrokes := frost_dk[key]
 
   } else if (InStr(currentGame, "wow_shaman")) {
     temp_listKeystrokes := shaman[key]
