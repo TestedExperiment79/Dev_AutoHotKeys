@@ -59,11 +59,20 @@ popup_image(position = "bottomLeft"
 ; }
 
 ; Close the GUI with Escape
+ClosePopup_center() {
+  Gui, img_center:Destroy
+}
 ClosePopup_bottomLeft() {
   Gui, img_bottomLeft:Destroy
 }
 ClosePopup_bottomRight() {
   Gui, img_bottomRight:Destroy
+}
+ClosePopup_topLeft() {
+  Gui, img_topLeft:Destroy
+}
+ClosePopup_topRight() {
+  Gui, img_topRight:Destroy
 }
 
 
