@@ -80,6 +80,7 @@ global shaman := {}
 shaman["👆"] := "6;c6;0;1;p;o;i;7"
 
 shaman["i"] := "s5"
+shaman["k"] := "k;ck;2"
 
 shaman[4] := "c4;4"
 shaman[5] := "c5;5;s5;a5"
