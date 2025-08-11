@@ -130,7 +130,8 @@ keys_warcraft(key) {
   } else if (InStr(currentGame, "wow_havoc")) {
     temp_listKeystrokes := havoc[key]
 
-  } else if (InStr(currentGame, "wow_fury")) {
+  } else if (InStr(currentGame, "wow_fury")
+            or InStr(currentGame, "wow_horseman_death")) {
     temp_listKeystrokes := fury[key]
 
   } else if (InStr(currentGame, "wow_frost_dk")) {
