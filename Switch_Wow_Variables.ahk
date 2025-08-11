@@ -20,7 +20,7 @@ shadow["si"] := shadow[6] . ";0;" . shadow["i"]
 
 
 global havoc := {}
-havoc["i"] := "co;ci;p;o;i"
+havoc["👆"] := "3;2;1;p;o;i;👆;y"
 
 havoc[4] := "c4;4"
 havoc[5] := "5;c5"
@@ -47,10 +47,12 @@ fury[9] := "9;c9"
 global max_fury := {}
 ; fury["i"] := "si;cp;co;ci;p;5;i;o"
 ; max_fury["👆"] := "👈;👆;cp;co;ci;p;o;5;i"
-max_fury["j"] := "👈;asi;cp;co;ci;p;o;5;i"
+max_fury["👆"] := "👈;y;3;2;1;p;o;i"
 
-max_fury["i"] := "👈;asi"
-max_fury["p"] := "👈;aci;aco"
+; max_fury["i"] := "👈;i"
+max_fury["p"] := "👈;b;n"
+
+max_fury["5"] := "👈;5;c5;s5"
 
 max_fury["k"] := "👈;k;ck"
 ; max_fury["i"] := "👈;i"
@@ -62,7 +64,7 @@ max_fury[8] := "8;c8"
 
 
 global frost_dk := {}
-frost_dk["👆"] := "0;ci;p;o;i;co"
+frost_dk["👆"] := "0;p;o;i;2;3"
 
 frost_dk["o"] := "👆"
 
