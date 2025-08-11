@@ -30,7 +30,10 @@ popup_image(position = "bottomLeft"
 
     gui_name := "img_" . position
     Gui, %gui_name%:New  ; Create a new GUI window
-    Gui, +AlwaysOnTop -Caption +LastFound  ; +LastFound for WinSet commands
+    Gui, +AlwaysOnTop -Caption -Border +LastFound  ; +LastFound for WinSet commands
+    ; Remove Image white-borders
+    Gui, Margin, 0, 0
+    ; Shape Size of Image
     Gui, Add, Picture, w1000 h-1, %img_url%  ; Adjust width/height as needed
     ; Gui, Show, Center, Image Popup  ; Show centered with title
 
@@ -51,6 +54,14 @@ popup_image(position = "bottomLeft"
     SetTimer, %func_closePopup%, % -time
 }
 
+; NEW FUNCTION FOR ROUNDED CORNERS
+RoundWindow(Width, Height, CornerRadius := 15) {
+    ; Create a rounded rectangle region
+    hRgn := DllCall("CreateRoundRectRgn", "Int", 0, "Int", 0, "Int", Width, "Int", Height, "Int", CornerRadius, "Int", CornerRadius)
+
+    ; Apply it to the window
+    DllCall("SetWindowRgn", "Ptr", WinExist(), "Ptr", hRgn, "Int", 1)
+}
 
 ; Close the GUI with Escape
 ; ClosePopup(gui_name = "hey") {
@@ -103,6 +114,8 @@ img_show(location) {
   Gui, Show, Hide
   ; Get image dimensions while hidden
   WinGetPos,,, width, height
+  ; Adjust 15 for more/less rounding
+  RoundWindow(Width, Height, 15)
   ; Screen dimensions (excludes taskbar)
   SysGet, screen, MonitorWorkArea
 
