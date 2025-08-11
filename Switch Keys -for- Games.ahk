@@ -59,22 +59,10 @@ Alt & Delete::
     return
 }
 return
-
 F2::
-    MouseGetPos, xPos, yPos  ; Get current mouse position
-    xPos += 20  ; Offset from cursor
-
-    Gui, MyImage:New
-    Gui, Add, Picture, w200, C:\Users\RJ\Development\Utils\AutoHotkeys\test.png
-    Gui, +AlwaysOnTop -Caption +ToolWindow
-    Gui, Show, x%xPos% y%yPos% NoActivate
-    SetTimer, ClosePopup, 1000  ; Auto-close after 3 seconds
+    popup_image()
 Return
 
-ClosePopup:
-    SetTimer, ClosePopup, Off
-    Gui, MyImage:Destroy
-Return
 
 basic_settings() {
     if (InStr(currentGame, "wow")) {

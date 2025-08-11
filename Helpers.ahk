@@ -19,6 +19,27 @@ InArray(haystack, needle) {
   return false
 }
 
+popup_image(time = 1500
+, file_name = "test.png"
+, location = "C:\Users\RJ\Development\Utils\AutoHotkeys\")
+{
+    img_url := location . file_name
+
+    Gui, MyImage:New  ; Create a new GUI window
+    Gui, Add, Picture, w1000 h-1, %img_url%  ; Adjust width/height as needed
+    Gui, +AlwaysOnTop -Caption +LastFound  ; +LastFound for WinSet commands
+    ; Gui, Show, Center, Image Popup  ; Show centered with title
+    Gui, Show, Center, Image Popup  ; Show centered with title
+    ; WinSet, Transparent, 170 ; 0-255 - Alpha of Transparency - Image
+    SetTimer, ClosePopup, %time%  ; Auto-close after 3 seconds
+}
+
+; Close the GUI with Escape
+ClosePopup:
+    SetTimer, ClosePopup, Off
+    Gui, MyImage:Destroy
+Return
+
 
 ; --- ---
 
