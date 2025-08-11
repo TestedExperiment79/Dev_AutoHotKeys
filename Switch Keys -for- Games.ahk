@@ -80,7 +80,8 @@ basic_settings() {
     if (InStr(currentGame, "wow_horseman_death")) {
         popup_image("bottomLeft", "death_horseman_1.png")
         popup_image("bottomRight", "death_horseman_2.png")
-        popup_image("topRight", "death_horseman_2.png")
+        ; popup_image("topRight", "death_horseman_2.png")
+        ; popup_image("center", "death_horseman_1.png")
     }
 }
 
