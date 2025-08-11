@@ -52,7 +52,7 @@ max_fury["👆"] := "👈;y;3;2;1;p;o;i"
 ; max_fury["i"] := "👈;i"
 max_fury["p"] := "👈;b;n"
 
-max_fury["5"] := "👈;5;c5;s5"
+max_fury[5] := "👈;5;c5;s5"
 
 max_fury["k"] := "👈;k;ck"
 ; max_fury["i"] := "👈;i"
@@ -77,7 +77,12 @@ frost_dk["9"] := "9;c9"
 
 global shaman := {}
 ; shaman["i"] := "p;o;i;co"
-shaman["👆"] := "ci;p;i;7;o"
+shaman["👆"] := "6;c6;0;1;p;o;i;7"
+
+shaman["i"] := "s5"
+
+shaman[4] := "c4;4"
+shaman[5] := "c5;5;s5;a5"
 
 
 global warlock := {}
