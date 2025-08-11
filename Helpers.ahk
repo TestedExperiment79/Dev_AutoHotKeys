@@ -19,26 +19,117 @@ InArray(haystack, needle) {
   return false
 }
 
-popup_image(time = 1500
-, file_name = "test.png"
-, location = "C:\Users\RJ\Development\Utils\AutoHotkeys\")
+
+
+popup_image(position = "bottomLeft"
+, file_name = "death_horseman_1.png"
+, time = 1600
+, location = "C:\Users\RJ\Development\Utils\AutoHotkeys\images\")
 {
     img_url := location . file_name
 
-    Gui, MyImage:New  ; Create a new GUI window
-    Gui, Add, Picture, w1000 h-1, %img_url%  ; Adjust width/height as needed
+    gui_name := "img_" . position
+    Gui, %gui_name%:New  ; Create a new GUI window
     Gui, +AlwaysOnTop -Caption +LastFound  ; +LastFound for WinSet commands
+    Gui, Add, Picture, w1000 h-1, %img_url%  ; Adjust width/height as needed
     ; Gui, Show, Center, Image Popup  ; Show centered with title
-    Gui, Show, Center, Image Popup  ; Show centered with title
-    ; WinSet, Transparent, 170 ; 0-255 - Alpha of Transparency - Image
-    SetTimer, ClosePopup, %time%  ; Auto-close after 3 seconds
+
+    ; img_show("topLeft")
+    ; img_show("bottomLeft")
+    ; img_show("bottomRight")
+    ; img_show("topRight")
+    ; -------
+    img_show(position)
+    img_show_transparent(200)
+    img_show_clickThrough()
+
+
+    func_closePopup := "ClosePopup_" . position
+    ; SetTimer, ClosePopup, % -time  ; Negative runs once; Set self-destruct timer
+    ; SetTimer, % Func("ClosePopup").Bind(gui_name), % -time
+    ; SetTimer, % Func("ClosePopup"), % -time
+    SetTimer, %func_closePopup%, % -time
 }
 
+
 ; Close the GUI with Escape
-ClosePopup:
-    SetTimer, ClosePopup, Off
-    Gui, MyImage:Destroy
-Return
+; ClosePopup(gui_name = "hey") {
+;   ; SetTimer, ClosePopup, Off
+;   Gui, %gui_name%:Destroy
+; }
+
+; Close the GUI with Escape
+ClosePopup_bottomLeft() {
+  Gui, img_bottomLeft:Destroy
+}
+ClosePopup_bottomRight() {
+  Gui, img_bottomRight:Destroy
+}
+
+
+
+img_show_transparent(transparent = 200) {
+  ; 0-255 - Alpha of Transparency - Image
+  WinSet, Transparent, 200
+}
+
+img_show_clickThrough() {
+    ; Add click-through AFTER setting transparency
+    WinSet, ExStyle, +0x20  ; Make click-through after transparency is applied
+}
+
+img_show_center() {
+    Gui, Show, Center, Image Popup  ; Show centered with title
+}
+
+
+img_show(location) {
+  ; Default TOP position
+  posX := 0
+  ; Default RIGHT position
+  posY := 0
+
+
+  ; Show hidden to get dimensions
+  Gui, Show, Hide
+  ; Get image dimensions while hidden
+  WinGetPos,,, width, height
+  ; Screen dimensions (excludes taskbar)
+  SysGet, screen, MonitorWorkArea
+
+
+  ; CENTER
+  if (InStr(location, "center")) {
+    Gui, Show, Center, Image Popup  ; Show centered with title
+    return
+  }
+
+  ; Calculate BOTTOM position
+  if (InStr(location, "bottom"))
+    posY := screenBottom - height
+
+  ; Calculate RIGHT position
+  if (InStr(location, "Right"))
+    posX := screenRight - width
+
+
+  ; Show at final position
+  Gui, Show, x%posX% y%posY% NoActivate
+}
+
+; img_show_bottomLeft() {
+;     Gui, Show, Hide  ; Show hidden to get dimensions
+;     WinGetPos,,, width, height  ; Get image dimensions while hidden
+
+;     ; Calculate bottom-left position
+;     SysGet, screen, MonitorWorkArea  ; Screen dimensions (excludes taskbar)
+;     posX := 0
+;     posY := screenBottom - height
+
+;     ; Show at final position
+;     Gui, Show, x%posX% y%posY% NoActivate
+; }
+
 
 
 ; --- ---

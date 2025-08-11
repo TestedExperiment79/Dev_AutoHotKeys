@@ -59,9 +59,10 @@ Alt & Delete::
     return
 }
 return
-F2::
-    popup_image()
-Return
+; F3::
+;     popup_image("bottomLeft", "death_horseman_1.png")
+;     popup_image("bottomRight", "death_horseman_2.png")
+; Return
 
 
 basic_settings() {
@@ -77,6 +78,8 @@ basic_settings() {
     }
 
     if (InStr(currentGame, "wow_horseman_death")) {
+        popup_image("bottomLeft", "death_horseman_1.png")
+        popup_image("bottomRight", "death_horseman_2.png")
     }
 }
 
