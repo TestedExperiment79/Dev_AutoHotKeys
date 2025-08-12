@@ -77,7 +77,8 @@ basic_settings() {
         }
     }
 
-    if (InStr(currentGame, "wow_horserider_death")) {
+    if (InStr(currentGame, "wow_horserider_death")
+        or InStr(currentGame, "wow_death_rider")) {
         popup_image("topLeft", "death_horseman_4.jpg", "w-1 h520")
         popup_image("bottomLeft", "death_horseman_1.png")
         popup_image("bottomRight", "death_horseman_2.png")
@@ -86,7 +87,7 @@ basic_settings() {
         ; popup_image("topRight", "death_horseman_2.png")
         ; popup_image("center", "death_horseman_1.png")
     } else if (InStr(currentGame, "odin")) {
-        play_audio("odin_4_i_am.mp3")
+        play_audio("odin_4_iam_2.mp3")
 
         popup_image("bottomLeft", "odin_1_american_gods_s1.png", time = 2000)
         popup_image("bottomRight", "odin_2.jpeg", "w620 h-1", 2000)
