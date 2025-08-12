@@ -23,6 +23,7 @@ InArray(haystack, needle) {
 
 popup_image(position = "bottomLeft"
 , file_name = "death_horseman_1.png"
+, img_size = "w1000 h-1"
 , time = 1600
 , location = "C:\Users\RJ\Development\Utils\AutoHotkeys\images\")
 {
@@ -34,7 +35,7 @@ popup_image(position = "bottomLeft"
     ; Remove Image white-borders
     Gui, Margin, 0, 0
     ; Shape Size of Image
-    Gui, Add, Picture, w1000 h-1, %img_url%  ; Adjust width/height as needed
+    Gui, Add, Picture, %img_size%, %img_url%  ; Adjust width/height as needed
     ; Gui, Show, Center, Image Popup  ; Show centered with title
 
     ; img_show("topLeft")

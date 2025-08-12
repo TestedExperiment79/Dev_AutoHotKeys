@@ -78,12 +78,19 @@ basic_settings() {
     }
 
     if (InStr(currentGame, "wow_horseman_death")) {
+        popup_image("topLeft", "death_horseman_4.jpg", "w-1 h520")
         popup_image("bottomLeft", "death_horseman_1.png")
         popup_image("bottomRight", "death_horseman_2.png")
         ; popup_image("topRight", "death_horseman_2.png")
         ; popup_image("center", "death_horseman_1.png")
     }
 }
+
+
+; F2::
+; Menu, MySubmenu, Add, Item1
+; Menu, Tray, Add, This menu item is a submenu, :MySubmenu
+; return
 
 
 SwitchMouseButtons:
