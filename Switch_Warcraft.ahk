@@ -144,8 +144,8 @@ keys_warcraft(key) {
   } else if (InStr(currentGame, "wow_warlock")) {
     temp_listKeystrokes := warlock[key]
 
-  } else if (InStr(currentGame, "wow_druid"
-            or InStr(currentGame, "wow_odin"))) {
+  } else if (InStr(currentGame, "wow_druid")
+            or InStr(currentGame, "wow_odin")) {
     ; Check Stance Change
     handle_druid_stance(key)
     temp_listKeystrokes := handle_druid_keystroke(key)
