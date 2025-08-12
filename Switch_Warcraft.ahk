@@ -153,8 +153,8 @@ keys_warcraft(key) {
   } else if (InStr(currentGame, "wow_druid")
             or InStr(currentGame, "wow_odin")) {
     ; Check Stance Change
-    handle_druid_stance(key)
     temp_listKeystrokes := handle_druid_keystroke(key)
+    handle_druid_stance(key)
     ; tooltip(stance, 1000, true)
 
   } else if (InStr(currentGame, "wow_rogue")) {
