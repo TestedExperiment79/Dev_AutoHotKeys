@@ -82,6 +82,8 @@ handle_druid_stance(key) {
   ;   stance := "human"
   ;   ; tooltip("human", 1000, on_debug)
   ; }
+
+  ; tooltip(stance, 1000, true)
 }
 
 
@@ -153,9 +155,9 @@ keys_warcraft(key) {
   } else if (InStr(currentGame, "wow_druid")
             or InStr(currentGame, "wow_odin")) {
     ; Check Stance Change
-    temp_listKeystrokes := handle_druid_keystroke(key)
-    handle_druid_stance(key)
-    ; tooltip(stance, 1000, true)
+    temp_listKeystrokes := druid[key]
+    ; temp_listKeystrokes := handle_druid_keystroke(key)
+    ; handle_druid_stance(key)
 
   } else if (InStr(currentGame, "wow_rogue")) {
     ; Check Stance Change
