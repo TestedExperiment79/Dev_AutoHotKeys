@@ -117,14 +117,20 @@ warlock["ao"] := "a9"
 global druid := {}
 ; shaman["i"] := "p;o;i;co"
 ; warlock["👆"] := "ci;p;i;7;o"
-global druid_bear_👆 := "y;t;i;o"
-global druid_cat_👆 := "y;t;i"
-global druid_cat_👆_spender := "o;i"
 
-druid["👆"] := "y;t;0;2;i;p"
+druid["👆"] := "y;t;0;2;i;o;p"
+
+global druid_bear_👆 := druid["👆"]
+global druid_cat_👆 := druid["👆"]
+global druid_cat_👆_spender := druid["👆"]
+; global druid_bear_👆 := "y;t;i;o"
+; global druid_cat_👆 := "y;t;i"
+; global druid_cat_👆_spender := "o;i"
+
 
 druid["i"] := "s5"
 druid["o"] := "b;o" ; alt + ctrl + o
+druid["p"] := "o;p"
 
 druid[5] := "c5;5;s5" ; alt + ctrl + o
 
