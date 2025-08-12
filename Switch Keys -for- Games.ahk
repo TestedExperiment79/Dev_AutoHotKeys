@@ -85,10 +85,10 @@ basic_settings() {
         ; popup_image("topRight", "death_horseman_2.png")
         ; popup_image("center", "death_horseman_1.png")
     } else if (InStr(currentGame, "odin")) {
-        ; popup_image("topLeft", "death_horseman_4.jpg", "w-1 h520")
-        play_audio()
-        popup_image("bottomLeft", "odin_1_american_gods_s1.png")
-        popup_image("bottomRight", "odin_2.jpeg")
+        play_audio("odin_4_i_am.mp3")
+
+        popup_image("bottomLeft", "odin_1_american_gods_s1.png", time = 2000)
+        popup_image("bottomRight", "odin_2.jpeg", "w620 h-1", 2000)
     }
 }
 
