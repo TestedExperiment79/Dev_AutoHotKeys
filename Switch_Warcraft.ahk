@@ -62,7 +62,7 @@ handle_druid_stance(key) {
     ; tooltip("bear", timing, on_debug)
 
   } ; -CAT- Form
-  else if (InArray(["👉", "s👆", "👇"], key)) {
+  else if (InArray(["👉", "a👆", "👇"], key)) {
     stance := "cat"
     ; tooltip("cat", timing, on_debug)
 
