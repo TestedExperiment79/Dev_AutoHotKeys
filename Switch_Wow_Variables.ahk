@@ -121,10 +121,10 @@ global druid_bear_👆 := "y;t;i;o"
 global druid_cat_👆 := "y;t;i"
 global druid_cat_👆_spender := "o;i"
 
-druid["👆"] := "y;t;i"
+druid["👆"] := "y;t;👈"
 druid["o"] := "b" ; alt + ctrl + o
 
-druid["i"] := "y;t"
+druid["i"] := "m"
 
 
 global rogue := {}

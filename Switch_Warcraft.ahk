@@ -56,6 +56,12 @@ handle_druid_stance(key) {
   ; ---
   timing := 700
 
+  ; -CAT- if Human tries to Attack
+  if (stance = "human" and key = "👆") {
+    stance := "cat"
+  }
+
+
   ; -BEAR- Form
   if (InArray(["0", "s5"], key)) {
     stance := "bear"
