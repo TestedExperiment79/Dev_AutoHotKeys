@@ -123,7 +123,7 @@ global druid_cat_👆_spender := "o;i"
 
 druid["👆"] := "y;t;0;2;i;p"
 
-druid["i"] := "m"
+druid["i"] := "s5"
 druid["o"] := "b;o" ; alt + ctrl + o
 
 druid[5] := "c5;5;s5" ; alt + ctrl + o
