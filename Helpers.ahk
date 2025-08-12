@@ -111,7 +111,7 @@ img_show_clickThrough() {
 }
 
 img_show_center() {
-    Gui, Show, Center, Image Popup  ; Show centered with title
+    Gui, Show, Center NoActivate, Image NoActivate  ; Show centered with title
 }
 
 
@@ -123,7 +123,7 @@ img_show(location) {
 
 
   ; Show hidden to get dimensions
-  Gui, Show, Hide
+  Gui, Show, Hide, NoActivate
   ; Get image dimensions while hidden
   WinGetPos,,, width, height
   ; Adjust 15 for more/less rounding
@@ -134,7 +134,7 @@ img_show(location) {
 
   ; CENTER
   if (InStr(location, "center")) {
-    Gui, Show, Center, Image Popup  ; Show centered with title
+    Gui, Show, Center NoActivate, Image NoActivate  ; Show centered with title
     return
   }
 
