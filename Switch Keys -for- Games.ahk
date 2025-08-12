@@ -156,6 +156,7 @@ global u_keyActive := false
 ; Good for "Warframe" + "General"
 ; *U::
 ; Good for "Warcraft"
+#If (currentGame = "warframe") || WinActive("ahk_class warframe")
 ~*U::
 ; `~` (don't block the native key event)
 ; `*` (fire the hotkey even if extra modifiers are held)
@@ -211,6 +212,8 @@ return
     ; SendEvent, {Blind}{u Up}
     u_keyActive := false
 return
+
+#If ; end of conditional compilation
 
 
 
