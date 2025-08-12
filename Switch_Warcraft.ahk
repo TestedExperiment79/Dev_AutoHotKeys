@@ -131,7 +131,7 @@ keys_warcraft(key) {
     temp_listKeystrokes := havoc[key]
 
   } else if (InStr(currentGame, "wow_fury")
-            or InStr(currentGame, "wow_horseman_death")) {
+            or InStr(currentGame, "wow_horserider_death")) {
     temp_listKeystrokes := fury[key]
 
   } else if (InStr(currentGame, "wow_frost_dk")) {
@@ -143,7 +143,8 @@ keys_warcraft(key) {
   } else if (InStr(currentGame, "wow_warlock")) {
     temp_listKeystrokes := warlock[key]
 
-  } else if (InStr(currentGame, "wow_druid")) {
+  } else if (InStr(currentGame, "wow_druid"
+            or InStr(currentGame, "wow_odin"))) {
     ; Check Stance Change
     handle_druid_stance(key)
     temp_listKeystrokes := handle_druid_keystroke(key)

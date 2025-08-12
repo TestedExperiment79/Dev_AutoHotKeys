@@ -77,7 +77,7 @@ basic_settings() {
         }
     }
 
-    if (InStr(currentGame, "wow_horseman_death")) {
+    if (InStr(currentGame, "wow_horserider_death")) {
         popup_image("topLeft", "death_horseman_4.jpg", "w-1 h520")
         popup_image("bottomLeft", "death_horseman_1.png")
         popup_image("bottomRight", "death_horseman_2.png")
