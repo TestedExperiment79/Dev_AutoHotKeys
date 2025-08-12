@@ -225,7 +225,9 @@ return
 handleKey(key) {
     if (InStr(currentGame, "wow"))
         keys_warcraft(key)
-    else
+
+    else ; Writing Normally
+
         ; Shift + Number
         if (InStr(key, "s") and RegExMatch(key, "\d")) {
             lastChar := SubStr(key, 0)
