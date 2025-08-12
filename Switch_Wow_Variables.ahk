@@ -118,7 +118,7 @@ global druid := {}
 ; shaman["i"] := "p;o;i;co"
 ; warlock["👆"] := "ci;p;i;7;o"
 
-druid["👆"] := "y;t;0;2;i;o;p"
+druid["👆"] := "y;t;0;2;o;i;p"
 
 global druid_bear_👆 := druid["👆"]
 global druid_cat_👆 := druid["👆"]
