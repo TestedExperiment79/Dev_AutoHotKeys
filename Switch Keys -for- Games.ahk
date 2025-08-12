@@ -209,14 +209,6 @@ return
 ; ----------
 
 
-handleKey(key) {
-    if (InStr(currentGame, "wow"))
-        keys_warcraft(key)
-    else
-        send_keystroke(key)
-}
-return
-
 
 ; lastChar := {WheelUp}
 ; command1 := "{Shift down}" . lastChar . "{Shift up}"
@@ -228,6 +220,44 @@ return
 
 ; SendEvent, {WheelUp}
 ; return
+
+
+handleKey(key) {
+    if (InStr(currentGame, "wow"))
+        keys_warcraft(key)
+    else
+        ; Shift + Number
+        if (InStr(key, "s") and RegExMatch(key, "\d")) {
+            lastChar := SubStr(key, 0)
+            SendEvent {Blind}{%lastChar%}
+
+        } ; Number
+        else if (RegExMatch(key, "\d")) {
+            SendEvent {Blind}{%key%}
+
+        } ; Shift + CapsLock
+        else if (InStr(key, "s") and GetKeyState("CapsLock", "T")) {
+            lastChar := SubStr(key, 0)
+            SendEvent {%lastChar%}
+
+
+        } ; Shift + NO-CapsLock
+        else if (GetKeyState("CapsLock", "T")) {
+            lastChar := SubStr(key, 0)
+            SendEvent {LShift down}{%lastChar%}{LShift up}
+
+        } ; Shift + Letter
+        else if (InStr(key, "s")) {
+            lastChar := SubStr(key, 0)
+            SendEvent {Blind}{%lastChar%}
+
+        } ; Default - just send the key
+        else {
+            send_keystroke(key)
+        }
+}
+return
+
 
 $i:: handleKey("i")  ; Roller
 $+i:: handleKey("si")  ; Stance - Single-target
