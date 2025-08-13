@@ -52,7 +52,7 @@ max_fury["👆"] := "👈;y;3;2;1;p;o;i"
 ; max_fury["i"] := "👈;i"
 max_fury["p"] := "👈;b;n"
 
-max_fury[5] := "👈;5;c5;s5"
+max_fury[5] := "👈;5;s5;a5"
 
 max_fury["k"] := "👈;k;ck"
 ; max_fury["i"] := "👈;i"
