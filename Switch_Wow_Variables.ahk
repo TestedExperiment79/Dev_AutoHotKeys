@@ -119,7 +119,7 @@ global druid := {}
 ; warlock["👆"] := "ci;p;i;7;o"
 
 ; Assuming "Bear Form" - but with Extra Damage from Human in extra Bars - "Starsurge" (Human Ability)
-druid["👆"] := "y;t;0;1;o;i;p"
+druid["👆"] := "y;a4;0;1;o;i;p"
 
 global druid_bear_👆 := druid["👆"]
 global druid_cat_👆 := druid["👆"]
