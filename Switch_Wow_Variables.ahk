@@ -119,7 +119,7 @@ global druid := {}
 ; warlock["👆"] := "ci;p;i;7;o"
 
 ; Assuming "Bear Form" - but with Extra Damage from Human in extra Bars - "Starsurge" (Human Ability)
-druid["👆"] := "y;t;0;2;o;i;p"
+druid["👆"] := "y;t;0;1;o;i;p"
 
 global druid_bear_👆 := druid["👆"]
 global druid_cat_👆 := druid["👆"]
@@ -131,7 +131,7 @@ global druid_cat_👆_spender := druid["👆"]
 ; "s5" on "i" - to use "Instant Heal - when Possible"
 druid["i"] := "s5"
 ; "b" - to go Human to start the Fight
-druid["o"] := "b;o"
+druid["o"] := "b;1;o"
 ; AOE - Assuming "Bear Form"
 druid["p"] := "o;p"
 
