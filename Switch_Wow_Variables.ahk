@@ -132,7 +132,7 @@ druid["i"] := "s5"
 druid["o"] := "b;o" ; alt + ctrl + o
 druid["p"] := "o;p"
 
-druid[5] := "c5;5;s5" ; alt + ctrl + o
+druid[5] := "a5;5;s5" ; alt + ctrl + o
 
 
 global rogue := {}
