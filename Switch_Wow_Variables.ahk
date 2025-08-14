@@ -136,9 +136,9 @@ druid["o"] := "b;1;o"
 druid["p"] := "o;p"
 
 ; Heal -NO- Heal-Potion
-; druid[5] := "a5;5;s5"
+druid[5] := "a5;5;s5"
 ; "C5" - Heal -with- Heal-Potion
-druid[5] := "a5;5;c5;s5"
+; druid[5] := "a5;5;c5;s5"
 
 
 global rogue := {}
