@@ -150,7 +150,8 @@ keys_warcraft(key) {
   } else if (InStr(currentGame, "wow_frost_dk")) {
     temp_listKeystrokes := frost_dk[key]
 
-  } else if (InStr(currentGame, "wow_shaman")) {
+  } else if (InStr(currentGame, "wow_shaman")
+            or InStr(currentGame, "wow_thor")) {
     temp_listKeystrokes := shaman[key]
 
   } else if (InStr(currentGame, "wow_warlock")) {
