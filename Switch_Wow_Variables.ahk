@@ -91,14 +91,17 @@ max_shaman["si"] := max_shaman[6] . ";" . max_shaman["👆"]
 
 global shaman := {}
 ; shaman["i"] := "p;o;i;co"
-shaman["👆"] := "6;c6;0;y;p;o;i;7"
+shaman["👆"] := "6;c6;0;y;o;i;7"
 
-shaman["i"] := "3;s5"
-shaman["k"] := "k;ck;2"
+shaman["i"] := "s5"
+shaman["k"] := "k;ck"
 
 shaman[4] := "4;c4;s4"
-shaman[5] := "c5;5;s5;a5"
-shaman[6] := "6;c6;s6"
+; shaman[5] := "c5;5;s5;a5"
+shaman[5] := "5;s5;a5"
+; shaman[6] := "6;c6;s6"
+shaman[6] := "6;s6"
+
 
 shaman["si"] := shaman[6] . ";" . shaman["👆"]
 
