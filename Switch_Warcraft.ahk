@@ -131,6 +131,10 @@ keys_warcraft(key) {
     temp_listKeystrokes := max_fury[key]
 
   }
+  else if (InStr(currentGame, "max_shaman")) {
+    temp_listKeystrokes := max_shaman[key]
+
+  }
   ; ---------------------------------------------------
   else if (InStr(currentGame, "wow_shadow")) {
     temp_listKeystrokes := shadow[key]

@@ -75,6 +75,20 @@ frost_dk["7"] := "7;c7"
 frost_dk["9"] := "9;c9"
 
 
+global max_shaman := {}
+; max_shaman["i"] := "p;o;i;co"
+max_shaman["👆"] := "6;c6;0;y;p;o;i;7"
+
+max_shaman["i"] := "3;s5"
+max_shaman["k"] := "k;ck;2"
+
+max_shaman[4] := "4;c4;s4"
+max_shaman[5] := "c5;5;s5;a5"
+max_shaman[6] := "6;c6;s6"
+
+max_shaman["si"] := max_shaman[6] . ";" . max_shaman["👆"]
+
+
 global shaman := {}
 ; shaman["i"] := "p;o;i;co"
 shaman["👆"] := "6;c6;0;y;p;o;i;7"
@@ -90,7 +104,7 @@ shaman["si"] := shaman[6] . ";" . shaman["👆"]
 
 
 global warlock := {}
-; shaman["i"] := "p;o;i;co"
+; max_shaman["i"] := "p;o;i;co"
 ; warlock["👆"] := "ci;p;i;7;o"
 ; warlock["👆"] := "sp;so"
 ; warlock["s👆"] := "o;i"
@@ -115,7 +129,7 @@ warlock["ao"] := "a9"
 
 
 global druid := {}
-; shaman["i"] := "p;o;i;co"
+; max_shaman["i"] := "p;o;i;co"
 ; warlock["👆"] := "ci;p;i;7;o"
 
 ; Assuming "Bear Form" - but with Extra Damage from Human in extra Bars - "Starsurge" (Human Ability)
@@ -143,7 +157,7 @@ druid[5] := "a5;5;s5"
 
 
 global rogue := {}
-; shaman["i"] := "p;o;i;co"
+; max_shaman["i"] := "p;o;i;co"
 ; warlock["👆"] := "ci;p;i;7;o"
 global rogue_i_single := "ci"
 global rogue_i_poison := "co"
