@@ -151,7 +151,7 @@ druid["i"] := "s5"
 ; "b" - to go Human to start the Fight
 druid["o"] := "b;1;o"
 ; AOE - Assuming "Bear Form"
-druid["p"] := "o;p"
+druid["p"] := "3"
 
 ; Heal -NO- Heal-Potion
 druid[5] := "a5;5;s5"
