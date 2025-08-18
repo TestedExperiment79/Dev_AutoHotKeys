@@ -272,18 +272,33 @@ handleKey(key) {
 return
 
 
-$i:: handleKey("i")  ; Roller
-$+i:: handleKey("si")  ; Stance - Single-target
-; $^i:: handleKey("ci")  ; BIG-Rotation
+; $i:: handleKey("i")  ; Roller
+; $+i:: handleKey("si")  ; Stance - Single-target
+; ; $^i:: handleKey("ci")  ; BIG-Rotation
 
-$o:: handleKey("o")  ; Poison
-$+o:: handleKey("so")  ; Weaken-Enemy - (Place Debuffs)
-; $^o:: handleKey("co")  ; Stance - Poison
+; $o:: handleKey("o")  ; Poison
+; $+o:: handleKey("so")  ; Weaken-Enemy - (Place Debuffs)
+; ; $^o:: handleKey("co")  ; Stance - Poison
 
-; !o:: handleKey("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
-; !o:: tooltip("hello",2000)  ; Remove-Strengths-of-Enemy (Remove Buffs)
-$p:: handleKey("p")  ; AOE
-; $^p:: handleKey("cp")  ; Stance - AOE
+; ; !o:: handleKey("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
+; ; !o:: tooltip("hello",2000)  ; Remove-Strengths-of-Enemy (Remove Buffs)
+; $p:: handleKey("p")  ; AOE
+; ; $^p:: handleKey("cp")  ; Stance - AOE
+
+; ---
+
+$1:: handleKey("i")  ; Roller
+$+1:: handleKey("si")  ; Stance - Single-target
+; $^1:: handleKey("ci")  ; BIG-Rotation
+
+$2:: handleKey("o")  ; Poison
+$+2:: handleKey("so")  ; Weaken-Enemy - (Place Debuffs)
+; $^2:: handleKey("co")  ; Stance - Poison
+
+; !2:: handleKey("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
+; !2:: tooltip("hello",2000)  ; Remove-Strengths-of-Enemy (Remove Buffs)
+$3:: handleKey("p")  ; AOE
+; $^3:: handleKey("cp")  ; Stance - AOE
 
 
 $4:: handleKey(4)  ; DEFENSE
