@@ -101,6 +101,8 @@ basic_settings() {
     ;
     ;! MAXed Classes HAVE TO BE AT THE TOP
     ; because if they are lower then the others, the other's will be picked up first
+    wow_spec := {}
+    ; ---------
     if (InStr(currentGame, "max_fury")) {
         wow_spec := max_fury
     }
@@ -321,26 +323,66 @@ handleKey(key) {
 }
 return
 
+change_ahk_stance(key) {
+    if (InStr(currentGame, "wow")) {
 
-$i:: handleKey("i")  ; Roller
-$+i:: handleKey("si")  ; Stance - Single-target
-; $^i:: handleKey("ci")  ; BIG-Rotation
+        if (!wow_spec[key]
+        or wow_spec[key] = "") { ; Just Send key -if- not in wow
 
-$o:: handleKey("o")  ; Poison
-$+o:: handleKey("so")  ; Weaken-Enemy - (Place Debuffs)
-; $^o:: handleKey("co")  ; Stance - Poison
+            handleKey(key)
 
-; !o:: handleKey("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
-; !o:: tooltip("hello",2000)  ; Remove-Strengths-of-Enemy (Remove Buffs)
-$p:: handleKey("p")  ; AOE
-; $^p:: handleKey("cp")  ; Stance - AOE
+        } else { ; Change AHK-WOW stance
+            wow_spec["👆"] := wow_spec[key]
+
+
+            ; Warning -of- Stance Change
+            if (key == "i")
+                tooltip("target")
+
+            else if (key == "o")
+                tooltip("poison")
+
+            else if (key == "p")
+                tooltip("aoe")
+
+            ; ---------
+            else if (key == "si")
+                tooltip("BIG-Dick")
+
+            else if (key == "so")
+                tooltip("Weaken-Target")
+
+            ; ---------
+            else if (key == "ao")
+                tooltip("Purge-Enrage-Effects")
+        }
+    }
+    else {
+        handleKey(key)
+    }
+}
+
+
+$i:: change_ahk_stance("i")  ; Stance - Single-target
+$+i:: change_ahk_stance("si")  ; BIG-Rotation
+;// $^i:: change_ahk_stance("ci")  ;
+
+$o:: change_ahk_stance("o")  ; Poison
+$+o:: change_ahk_stance("so")  ; Weaken-Enemy - (Place Debuffs)
+;// $!o:: change_ahk_stance("ao")  ; Purge-Enrage Effects
+;// $^o:: change_ahk_stance("co")  ; Purge-Enrage Effects
+
+;// !o:: change_ahk_stance("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
+;// !o:: tooltip("hello",2000)  ; Remove-Strengths-of-Enemy (Remove Buffs)
+$p:: change_ahk_stance("p")  ; AOE
+;// $^p:: change_ahk_stance("cp")  ; Stance - AOE
 
 
 $4:: handleKey(4)  ; DEFENSE
 $+4:: handleKey("s4")  ; BIG-DEFENSE
 $5:: handleKey(5)  ; HEAL
 $+5:: handleKey("s5")  ; BIG-Heal
-$^5:: handleKey("c5")
+;// $^5:: handleKey("c5")
 $6:: handleKey(6)  ; Enrage
 
 $7:: handleKey(7)  ; Slow/Stun
@@ -357,8 +399,9 @@ $0:: handleKey(0)  ; Interrupt/Stun
 XButton1:: handleKey("👈") ; This is mouse button 4 (usually back)
 XButton2:: handleKey("👉") ; This is mouse button 5 (usually forth)
 
-; !+WheelDown::SendEvent {Blind}{WheelDown}
-; !+WheelUp::SendEvent {Blind}{WheelUp}
+
+;// !+WheelDown::SendEvent {Blind}{WheelDown}
+;// !+WheelUp::SendEvent {Blind}{WheelUp}
 
 
 ;* WHEN:

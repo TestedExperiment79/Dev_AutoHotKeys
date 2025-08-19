@@ -132,7 +132,8 @@ keys_warcraft(key) {
   temp_listKeystrokes := wow_spec[key]
 
   ; Sending Single Keystroke
-  if (temp_listKeystrokes = "") {
+  if (!temp_listKeystrokes
+    or temp_listKeystrokes = "") {
     send_keystroke(key)
 
   } else { ; Sending ALL Keystrokes

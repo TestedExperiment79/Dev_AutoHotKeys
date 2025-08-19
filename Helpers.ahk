@@ -3,7 +3,7 @@ RemoveToolTip:
 ToolTip
 return
 
-tooltip(message, time, debug := true) {
+tooltip(message, time = 2000, debug = true) {
   if (debug) {
     ToolTip, %message%
     SetTimer, RemoveToolTip, -%time% ; Tooltip disappears after 2 seconds
