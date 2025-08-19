@@ -339,21 +339,27 @@ change_ahk_stance(key) {
             if (key == "i")
                 tooltip("target")
 
-            else if (key == "o")
-                tooltip("poison")
+            ; else if (key == "o")
+            ;     tooltip("poison")
 
-            else if (key == "p")
-                tooltip("aoe")
+            ; else if (key == "p")
+            ;     tooltip("aoe")
 
             ; ---------
             else if (key == "si")
                 tooltip("BIG-Dick")
 
             else if (key == "so")
-                tooltip("Weaken-Target")
+                tooltip("Poison")
+
+            else if (key == "sp")
+                tooltip("AOE")
 
             ; ---------
             else if (key == "ao")
+                tooltip("Weaken-Target")
+
+            else if (key == "co")
                 tooltip("Purge-Enrage-Effects")
         }
     }
