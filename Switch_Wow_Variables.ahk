@@ -153,10 +153,10 @@ global druid := {}
 druid["i"] := "y;a4;0;1;o;i;p"
 ; "b" - to go Human to start the Fight
 druid["o"] := "b;1;o"
-druid["so"] := druid["so"]
+druid["so"] := druid["o"]
 ; AOE - Assuming "Bear Form"
 druid["p"] := "2;p"
-druid["sp"] := druid["sp"]
+druid["sp"] := druid["p"]
 
 druid["👆"] := druid["i"]
 
