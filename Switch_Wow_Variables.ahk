@@ -145,21 +145,26 @@ global druid := {}
 
 ; Assuming "Bear Form" - but with Extra Damage from Human in extra Bars - "Starsurge" (Human Ability)
 ; "a4" - "Iron Fur" every 7 Seconds
-druid["👆"] := "y;a4;0;1;o;i;p"
-
-global druid_bear_👆 := druid["👆"]
-global druid_cat_👆 := druid["👆"]
-global druid_cat_👆_spender := druid["👆"]
 ; global druid_bear_👆 := "y;t;i;o"
 ; global druid_cat_👆 := "y;t;i"
 ; global druid_cat_👆_spender := "o;i"
 
 ; "s5" on "i" - to use "Instant Heal - when Possible"
-druid["i"] := "s5"
+druid["i"] := "y;a4;0;1;o;i;p"
 ; "b" - to go Human to start the Fight
 druid["o"] := "b;1;o"
+druid["so"] := druid["so"]
 ; AOE - Assuming "Bear Form"
 druid["p"] := "2;p"
+druid["sp"] := druid["sp"]
+
+druid["👆"] := druid["i"]
+
+
+global druid_bear_👆 := druid["i"]
+global druid_cat_👆 := druid["i"]
+global druid_cat_👆_spender := druid["i"]
+
 
 ; Heal -NO- Heal-Potion
 druid[5] := "a5;5;s5"
@@ -168,6 +173,7 @@ druid[5] := "a5;5;s5"
 
 druid[8] := "c8;8"
 druid[9] := "9;c9"
+
 
 
 global rogue := {}

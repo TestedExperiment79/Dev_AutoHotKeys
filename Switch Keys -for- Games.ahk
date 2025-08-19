@@ -367,14 +367,15 @@ $i:: change_ahk_stance("i")  ; Stance - Single-target
 $+i:: change_ahk_stance("si")  ; BIG-Rotation
 ;// $^i:: change_ahk_stance("ci")  ;
 
-$o:: change_ahk_stance("o")  ; Poison
+$o:: handleKey("o")  ; Poison
 $+o:: change_ahk_stance("so")  ; Weaken-Enemy - (Place Debuffs)
-;// $!o:: change_ahk_stance("ao")  ; Purge-Enrage Effects
-;// $^o:: change_ahk_stance("co")  ; Purge-Enrage Effects
+;// $!o:: handleKey("ao")  ; Purge-Enrage Effects
+;// $^o:: handleKey("co")  ; Purge-Enrage Effects
 
 ;// !o:: change_ahk_stance("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
 ;// !o:: tooltip("hello",2000)  ; Remove-Strengths-of-Enemy (Remove Buffs)
-$p:: change_ahk_stance("p")  ; AOE
+$p:: handleKey("p")  ; AOE
+$+p:: change_ahk_stance("sp")  ; AOE
 ;// $^p:: change_ahk_stance("cp")  ; Stance - AOE
 
 
