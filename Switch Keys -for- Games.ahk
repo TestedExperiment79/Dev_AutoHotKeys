@@ -323,6 +323,7 @@ handleKey(key) {
 }
 return
 
+
 change_ahk_stance(key) {
     if (InStr(currentGame, "wow")) {
 
