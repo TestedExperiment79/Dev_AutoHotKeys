@@ -165,7 +165,6 @@ img_show(location) {
 ; }
 
 
-
 ; --- ---
 
 

@@ -105,9 +105,9 @@ keys_warcraft(key) {
   ; ignore key, if ON global cooldown
   ; tooltip(key, 2000, on_debug)
   if (on_global_cooldown) {
-    return
+    return ; Exit / Still Inside-GCD
   } else {
-    ; start global cooldown
+    ; Start global cooldown
     on_global_cooldown := true
     ; Sync - Wait-for - Global Cooldown
     SetTimer, timer_global_cooldown, -%time_gcd%
@@ -125,61 +125,20 @@ keys_warcraft(key) {
   ; tooltip(StrLen(key), 2000, on_debug)
   ; tooltip(key, 2000, on_debug)
 
-  ;! MAXed Classes HAVE TO BE AT THE TOP
-  ; because if they are lower then the others, the other's will be picked up first
-  if (InStr(currentGame, "max_fury")) {
-    temp_listKeystrokes := max_fury[key]
-
-  }
-  else if (InStr(currentGame, "max_shaman")) {
-    temp_listKeystrokes := max_shaman[key]
-
-  }
-  ; ---------------------------------------------------
-  else if (InStr(currentGame, "wow_shadow")) {
-    temp_listKeystrokes := shadow[key]
-
-  } else if (InStr(currentGame, "wow_havoc")) {
-    temp_listKeystrokes := havoc[key]
-
-  } else if (InStr(currentGame, "wow_fury")
-            or InStr(currentGame, "wow_horserider_death")
-            or InStr(currentGame, "wow_death_rider")) {
-    temp_listKeystrokes := fury[key]
-
-  } else if (InStr(currentGame, "wow_frost_dk")) {
-    temp_listKeystrokes := frost_dk[key]
-
-  } else if (InStr(currentGame, "wow_shaman")
-            or InStr(currentGame, "wow_thor")) {
-    temp_listKeystrokes := shaman[key]
-
-  } else if (InStr(currentGame, "wow_warlock")) {
-    temp_listKeystrokes := warlock[key]
-
-  } else if (InStr(currentGame, "wow_druid")
-            or InStr(currentGame, "wow_odin")) {
-    ; Check Stance Change
-    temp_listKeystrokes := druid[key]
-    ; temp_listKeystrokes := handle_druid_keystroke(key)
-    ; handle_druid_stance(key)
-
-  } else if (InStr(currentGame, "wow_rogue")) {
-    ; Check Stance Change
-    handle_rogue_stance(key)
-    temp_listKeystrokes := rogue[key]
-
-  } else {
-    send_keystroke(key)
-    return
-  }
 
   ; ---
 
+  ; Getting - list of keystrokes to send
+  temp_listKeystrokes := wow_spec[key]
+
+  ; Sending Single Keystroke
   if (temp_listKeystrokes = "") {
-    temp_listKeystrokes := key
+    send_keystroke(key)
+
+  } else { ; Sending ALL Keystrokes
+
+    send_listOf_keystrokes(temp_listKeystrokes)
   }
-  send_listOf_keystrokes(temp_listKeystrokes)
 
   ; func_name := currentGame . "_" . key
   ; func_to_execute := Func(func_name)

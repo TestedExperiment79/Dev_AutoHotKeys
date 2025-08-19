@@ -1,4 +1,10 @@
 
+global wow_spec := {}
+
+
+; --- --- ---
+
+
 global shadow := {}
 shadow["i"] := "ai;o;i"
 ; shadow["i"] := "ai;a;b;c"
@@ -26,7 +32,7 @@ havoc[4] := "c4;4"
 havoc[5] := "5;c5"
 havoc[6] := "6"
 
-havoc["si"] := havoc[6] . ";" . havoc["i"]
+havoc["si"] := havoc[6] . ";" . havoc["👆"]
 
 
 global fury := {}

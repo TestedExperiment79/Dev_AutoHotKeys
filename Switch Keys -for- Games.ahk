@@ -66,6 +66,7 @@ return
 
 
 basic_settings() {
+    ;$ Stances // Forms
     if (InStr(currentGame, "wow")) {
         if (InStr(currentGame, "druid")) {
             stance := "human"
@@ -77,6 +78,8 @@ basic_settings() {
         }
     }
 
+
+    ;$ Remembering the Great!!!
     if (InStr(currentGame, "wow_horserider_death")
         or InStr(currentGame, "wow_death_rider")) {
         popup_image("topLeft", "death_horseman_4.jpg", "w-1 h520")
@@ -91,6 +94,53 @@ basic_settings() {
 
         popup_image("bottomLeft", "odin_1_american_gods_s1.png", time = 2000)
         popup_image("bottomRight", "odin_2.jpeg", "w620 h-1", 2000)
+    }
+
+
+    ;$ Swapping Main Variables of Class:
+    ;
+    ;! MAXed Classes HAVE TO BE AT THE TOP
+    ; because if they are lower then the others, the other's will be picked up first
+    if (InStr(currentGame, "max_fury")) {
+        wow_spec := max_fury
+    }
+    else if (InStr(currentGame, "max_shaman")) {
+        wow_spec := max_shaman
+    }
+    ; ---------------------------------------------------
+    else if (InStr(currentGame, "wow_shadow")) {
+        wow_spec := shadow
+
+    } else if (InStr(currentGame, "wow_havoc")) {
+        wow_spec := havoc
+
+    } else if (InStr(currentGame, "wow_fury")
+                or InStr(currentGame, "wow_horserider_death")
+                or InStr(currentGame, "wow_death_rider")) {
+        wow_spec := fury
+
+    } else if (InStr(currentGame, "wow_frost_dk")) {
+        wow_spec := frost_dk
+
+    } else if (InStr(currentGame, "wow_shaman")
+                or InStr(currentGame, "wow_thor")) {
+        wow_spec := shaman
+
+    } else if (InStr(currentGame, "wow_warlock")) {
+        wow_spec := warlock
+
+    } else if (InStr(currentGame, "wow_druid")
+                or InStr(currentGame, "wow_odin")) {
+        ; Check Stance Change
+        wow_spec := druid
+        ; temp_listKeystrokes := handle_druid_keystroke(key)
+        ; handle_druid_stance(key)
+
+    } else if (InStr(currentGame, "wow_rogue")) {
+        ; Check Stance Change
+        handle_rogue_stance(key)
+        wow_spec := rogue
+
     }
 }
 
