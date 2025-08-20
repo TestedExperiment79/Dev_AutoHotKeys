@@ -186,7 +186,7 @@ druid[5] := "a5;5;s5"
 ; druid[5] := "a5;5;c5;s5"
 
 druid[8] := "c8;8"
-druid[9] := "9;c9"
+druid[9] := "9;c9" . ";" . druid[8]
 
 
 
