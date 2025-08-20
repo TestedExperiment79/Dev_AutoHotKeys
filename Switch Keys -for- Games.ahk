@@ -105,9 +105,13 @@ basic_settings() {
     ; ---------
     if (InStr(currentGame, "max_fury")) {
         wow_spec := max_fury
-    }
-    else if (InStr(currentGame, "max_shaman")) {
+
+    } else if (InStr(currentGame, "max_shaman")) {
         wow_spec := max_shaman
+
+    } else if (InStr(currentGame, "max_shadow")) {
+        wow_spec := max_shadow
+
     }
     ; ---------------------------------------------------
     else if (InStr(currentGame, "wow_shadow")) {

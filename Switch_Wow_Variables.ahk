@@ -5,25 +5,35 @@ global wow_spec := {}
 ; --- --- ---
 
 
+global max_shadow := {}
+max_shadow["i"] := "ai;o;i"
+; max_shadow["i"] := "ai;a;b;c"
+max_shadow["o"] := "si"
+max_shadow["p"] := "s9;sp"
+
+max_shadow[4] := "4"
+max_shadow["s4"] := "s4;a4"
+max_shadow[5] := "c5;5;s5;a5"
+max_shadow["s5"] := "s5;a5"
+max_shadow[6] := "c6;a6;6"
+
+max_shadow[8] := "8;c8;7;c7"
+max_shadow[9] := "9;c9;8;c8;s4;a4;4"
+
+; Needs "max_shadow[6]" to be created first
+max_shadow["si"] := max_shadow[6] . ";0;" . max_shadow["i"]
+
+
 global shadow := {}
-shadow["i"] := "ai;o;i"
-; shadow["i"] := "ai;a;b;c"
-shadow["o"] := "si"
-shadow["p"] := "s9;sp"
+shadow["i"] := "2;i"
+; max_shadow["i"] := "ai;a;b;c"
+shadow["o"] := "2;o"
+; shadow["p"] := "s9;sp"
 
-shadow[4] := "4"
-shadow["s4"] := "s4;a4"
-shadow[5] := "c5;5;s5;a5"
-shadow["s5"] := "s5;a5"
-shadow[6] := "c6;a6;6"
-
-shadow[8] := "8;c8;7;c7"
-shadow[9] := "9;c9;8;c8;s4;a4;4"
-
-; Needs "shadow[6]" to be created first
-shadow["si"] := shadow[6] . ";0;" . shadow["i"]
+shadow["👆"] := shadow["i"]
 
 
+; ----
 
 global havoc := {}
 havoc["i"] := "3;2;1;p;o;i;👆;y"
