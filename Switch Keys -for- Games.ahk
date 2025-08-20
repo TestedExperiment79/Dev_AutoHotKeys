@@ -374,19 +374,20 @@ change_ahk_stance(key) {
 }
 
 
-$i:: change_ahk_stance("i")  ; Stance - Single-target
-$+i:: change_ahk_stance("si")  ; BIG-Rotation
+$i:: handleKey("i") ; BIG-Rotation
+$+i:: change_ahk_stance("si")  ; Stance - BIG-Rotation
+$!i:: change_ahk_stance("ai")  ; Stance - Single-target
 ;// $^i:: change_ahk_stance("ci")  ;
 
 $o:: handleKey("o")  ; Poison
-$+o:: change_ahk_stance("so")  ; Weaken-Enemy - (Place Debuffs)
-;// $!o:: handleKey("ao")  ; Purge-Enrage Effects
-;// $^o:: handleKey("co")  ; Purge-Enrage Effects
+$+o:: change_ahk_stance("so")  ; Stance - Poison
+;// $!o:: handleKey("ao")  ; Stance - Weaken-Enemy - (Place Debuffs)
+;// $^o:: handleKey("co")  ; Stance - Purge-Enrage Effects
 
 ;// !o:: change_ahk_stance("ao")  ; Remove-Strengths-of-Enemy (Remove Buffs)
 ;// !o:: tooltip("hello",2000)  ; Remove-Strengths-of-Enemy (Remove Buffs)
 $p:: handleKey("p")  ; AOE
-$+p:: change_ahk_stance("sp")  ; AOE
+$+p:: change_ahk_stance("sp")  ; Stance - AOE
 ;// $^p:: change_ahk_stance("cp")  ; Stance - AOE
 
 

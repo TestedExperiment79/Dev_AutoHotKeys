@@ -25,12 +25,16 @@ max_shadow["si"] := max_shadow[6] . ";0;" . max_shadow["i"]
 
 
 global shadow := {}
-shadow["i"] := "2;i"
+shadow["ai"] := "2;i"
+
+shadow["i"] := "0;" . shadow["ai"]
+shadow["si"] := shadow["i"]
+
 ; max_shadow["i"] := "ai;a;b;c"
 shadow["o"] := "2;o"
 ; shadow["p"] := "s9;sp"
 
-shadow["👆"] := shadow["i"]
+shadow["👆"] := shadow["ai"]
 
 
 ; ----
