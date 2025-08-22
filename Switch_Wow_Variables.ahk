@@ -53,10 +53,8 @@ havoc["si"] := havoc[6] . ";" . havoc["i"]
 
 global protection := {}
 ; protection["i"] := "si;cp;co;ci;p;5;i;o"
-protection["i"] := "👆"
-protection["👆"] := "👆;6;1;p;5;o;i"
-protection["s👆"] := "s👆;a👆"
-
+protection["ai"] := "👆;6;1;p;5;o;i"
+protection["👆"] := ["ai"]
 
 protection[4] := "4;c4"
 protection[5] := "c5;5"
