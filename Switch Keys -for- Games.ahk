@@ -142,7 +142,8 @@ basic_settings() {
         ; temp_listKeystrokes := handle_druid_keystroke(key)
         ; handle_druid_stance(key)
 
-    } else if (InStr(currentGame, "wow_rogue")) {
+    } else if (InStr(currentGame, "wow_rogue")
+                or InStr(currentGame, "wow_shredder")) {
         ; Check Stance Change
         handle_rogue_stance(key)
         wow_spec := rogue
