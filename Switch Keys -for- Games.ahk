@@ -125,6 +125,10 @@ basic_settings() {
                 or InStr(currentGame, "wow_death_rider")) {
         wow_spec := fury
 
+    } else if (InStr(currentGame, "wow_protection")
+                or InStr(currentGame, "wow_gladiator_hulk")) {
+        wow_spec := protection
+
     } else if (InStr(currentGame, "wow_frost_dk")) {
         wow_spec := frost_dk
 

@@ -51,6 +51,22 @@ havoc[6] := "6"
 havoc["si"] := havoc[6] . ";" . havoc["i"]
 
 
+global protection := {}
+; protection["i"] := "si;cp;co;ci;p;5;i;o"
+protection["i"] := "👆"
+protection["👆"] := "👆;6;1;p;5;o;i"
+protection["s👆"] := "s👆;a👆"
+
+
+protection[4] := "4;c4"
+protection[5] := "c5;5"
+protection[6] := "5;c6"
+
+protection[7] := "c7;7"
+protection[8] := "8;c8"
+protection[9] := "9;c9"
+
+
 global fury := {}
 ; fury["i"] := "si;cp;co;ci;p;5;i;o"
 fury["i"] := "👆"
