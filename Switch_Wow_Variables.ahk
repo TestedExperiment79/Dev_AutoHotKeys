@@ -164,7 +164,7 @@ global druid := {}
 ; global druid_cat_👆_spender := "o;i"
 
 ; "s5" on "i" - to use "Instant Heal - when Possible"
-druid["i"] := "y;a4;0;1;o;i;p"
+druid["ai"] := "y;a4;0;1;o;i;p"
 ; "b" - to go Human to start the Fight
 druid["o"] := "b;1;o"
 druid["so"] := druid["o"]
@@ -172,12 +172,12 @@ druid["so"] := druid["o"]
 druid["p"] := "2;p"
 druid["sp"] := druid["p"]
 
-druid["👆"] := druid["i"]
+druid["👆"] := druid["ai"]
 
 
-global druid_bear_👆 := druid["i"]
-global druid_cat_👆 := druid["i"]
-global druid_cat_👆_spender := druid["i"]
+global druid_bear_👆 := druid["ai"]
+global druid_cat_👆 := druid["ai"]
+global druid_cat_👆_spender := druid["ai"]
 
 
 ; Heal -NO- Heal-Potion
@@ -197,18 +197,20 @@ global rogue_i_single := "ci"
 global rogue_i_poison := "co"
 global rogue_i_aoe := "cp"
 
-rogue["👆"] := "p;o;i"
 
-rogue["i"] := "ci"
-rogue["o"] := "co"
-rogue["p"] := "cp"
-rogue["si"] := "6;c6"
 
-rogue[4] := "4;c4"
+rogue["ai"] := "p;o;i"
+; rogue["si"] := "6;c6"
+; rogue["o"] := "co"
+; rogue["p"] := "cp"
+
+rogue["👆"] := rogue["ai"]
+
+; rogue[4] := "4;c4"
 ; rogue[5] := "5"
-rogue[6] := rogue["si"]
+; rogue[6] := rogue["si"]
 
 
-rogue["s8"] := "c8"
-rogue["s9"] := "c9"
+; rogue["s8"] := "c8"
+; rogue["s9"] := "c9"
 
