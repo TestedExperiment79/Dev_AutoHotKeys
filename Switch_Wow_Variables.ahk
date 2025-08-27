@@ -220,7 +220,7 @@ rogue["ai"] := "p;o;i"
 
 rogue["👆"] := rogue["ai"]
 
-; rogue[4] := "4;c4"
+rogue[4] := "4;c4"
 ; rogue[5] := "5"
 ; rogue[6] := rogue["si"]
 
