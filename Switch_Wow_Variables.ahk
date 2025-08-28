@@ -79,6 +79,7 @@ fury[7] := "c7;7"
 fury[8] := "8;c8"
 fury[9] := "9;c9"
 
+
 global max_fury := {}
 ; fury["i"] := "si;cp;co;ci;p;5;i;o"
 ; max_fury["👆"] := "👈;👆;cp;co;ci;p;o;5;i"
