@@ -113,30 +113,31 @@ frost_dk["9"] := "9;c9"
 
 global max_shaman := {}
 ; max_shaman["i"] := "p;o;i;co"
-max_shaman["👆"] := "6;c6;0;y;p;o;i;7"
+max_shaman["ai"] := "6;s6;0;y;p;o;i;7"
+max_shaman["👆"] := "6;s6;0;y;p;o;i;7"
 
-max_shaman["i"] := "3;s5"
 max_shaman["k"] := "k;ck;2"
 
 max_shaman[4] := "4;c4;s4"
-max_shaman[5] := "c5;5;s5;a5"
-max_shaman[6] := "6;c6;s6"
+max_shaman[5] := "5;s5;a5"
+max_shaman[6] := "6;s6;a6&"
 
 max_shaman["si"] := max_shaman[6] . ";" . max_shaman["👆"]
 
 
-global shaman := {}
-; shaman["i"] := "p;o;i;co"
-shaman["👆"] := "6;c6;0;y;o;i;k;7"
+global shaman := max_shaman
+; global shaman := {}
+; ; shaman["i"] := "p;o;i;co"
+; shaman["👆"] := "6;c6;0;y;o;i;k;7"
 
-shaman["i"] := "s5"
-shaman["k"] := "k;ck"
+; shaman["i"] := "s5"
+; shaman["k"] := "k;ck"
 
-shaman[4] := "4;c4;s4"
-; shaman[5] := "c5;5;s5;a5"
-shaman[5] := "5;s5;a5"
-; shaman[6] := "6;c6;s6"
-shaman[6] := "6;s6"
+; shaman[4] := "4;c4;s4"
+; ; shaman[5] := "c5;5;s5;a5"
+; shaman[5] := "5;s5;a5"
+; ; shaman[6] := "6;c6;s6"
+; shaman[6] := "6;s6"
 
 
 shaman["si"] := shaman[6] . ";" . shaman["👆"]
