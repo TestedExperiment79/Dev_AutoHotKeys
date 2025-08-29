@@ -67,7 +67,7 @@ protection[9] := "9;c9"
 
 global fury := {}
 ; fury["i"] := "si;cp;co;ci;p;5;i;o"
-fury["ai"] := "👆;6;p;5;o;i"
+fury["ai"] := "6;p;5;o;i"
 ; fury["s👆"] := "s👆;a👆"
 fury["👆"] := fury["ai"]
 
