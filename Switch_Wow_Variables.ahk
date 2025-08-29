@@ -115,12 +115,13 @@ global max_shaman := {}
 max_shaman["ai"] := "6;s6;0;y;p;o;i;7"
 max_shaman["👆"] := max_shaman["ai"]
 
-
 max_shaman["k"] := "k;ck"
+
 
 max_shaman[4] := "4;c4;s4;a4"
 max_shaman[5] := "5;s5;a5"
 max_shaman[6] := "6;s6;a6"
+
 
 max_shaman[8] := "8;s8;c8;a8"
 max_shaman[7] := "7;c7;s7;a7" . ";" . max_shaman[8]
