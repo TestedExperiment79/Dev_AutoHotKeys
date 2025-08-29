@@ -114,7 +114,7 @@ frost_dk["9"] := "9;c9"
 global max_shaman := {}
 ; max_shaman["i"] := "p;o;i;co"
 max_shaman["ai"] := "6;s6;0;y;p;o;i;7"
-max_shaman["👆"] := "6;s6;0;y;p;o;i;7"
+max_shaman["👆"] := max_shaman["ai"]
 
 max_shaman["k"] := "k;ck;2"
 
