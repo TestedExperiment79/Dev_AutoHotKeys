@@ -73,11 +73,11 @@ fury["👆"] := fury["ai"]
 
 fury[4] := "4;c4"
 fury[5] := "c5;5"
-fury[6] := "5;c6"
+fury[6] := "6;c6"
 
-fury[7] := "c7;7"
 fury[8] := "8;c8"
-fury[9] := "9;c9"
+fury[7] := "c7;7" . ";" . fury[8]
+fury[9] := "9;c9" . ";" . fury[8]
 
 
 global max_fury := {}
