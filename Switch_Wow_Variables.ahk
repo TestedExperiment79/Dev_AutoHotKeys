@@ -61,7 +61,7 @@ protection[5] := "c5;5"
 protection[6] := "5;c6"
 
 protection[7] := "c7;7"
-protection[8] := "8;c8;s8;a8"
+protection[8] := "8;c8"
 protection[9] := "9;c9"
 
 
@@ -75,7 +75,7 @@ fury[4] := "4;c4"
 fury[5] := "c5;5"
 fury[6] := "6;c6"
 
-fury[8] := "8;c8"
+fury[8] := "8;c8;s8;a8"
 fury[7] := "c7;7" . ";" . fury[8]
 fury[9] := "9;c9" . ";" . fury[8]
 
