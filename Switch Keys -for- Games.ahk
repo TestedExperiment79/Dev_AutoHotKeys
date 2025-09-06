@@ -480,6 +480,10 @@ if (InStr(currentGame, "wow"))
     } else {
         handleKey("s👆")
     }
+} else if (InStr(currentGame, "warframe"))
+{
+    ; handleKey("e")
+    SendEvent {e}
 } else {
     SendEvent {Blind}{WheelUp}
 }
