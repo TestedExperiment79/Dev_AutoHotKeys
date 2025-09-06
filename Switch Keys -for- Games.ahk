@@ -480,7 +480,7 @@ if (InStr(currentGame, "wow"))
     } else {
         handleKey("s👆")
     }
-} else if (InStr(currentGame, "warframe"))
+} else if (InStr(currentGame, "warframe_excalibur"))
 {
     ; handleKey("e")
     SendEvent {e}
@@ -505,7 +505,7 @@ if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
 if (InStr(currentGame, "wow"))
 {
     handleKey("👆")
-} else if (InStr(currentGame, "warframe"))
+} else if (InStr(currentGame, "warframe_excalibur"))
 {
     ; handleKey("e")
     SendEvent {e}
