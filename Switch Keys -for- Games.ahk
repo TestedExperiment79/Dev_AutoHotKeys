@@ -501,6 +501,10 @@ if (GetKeyState("Alt", "P") or GetKeyState("CapsLock", "P")) {
 if (InStr(currentGame, "wow"))
 {
     handleKey("👆")
+} else if (InStr(currentGame, "warframe"))
+{
+    ; handleKey("e")
+    SendEvent {e}
 } else {
     ; tooltip("Hello", 2000)
     SendEvent {Blind}{WheelUp}
