@@ -15,9 +15,11 @@ if not A_IsAdmin
 
 global currentGame := ""
 global keyTimer := 100
+global WarframePID := 0
 
 ; Basic Window in Black
 ^+z::SendEvent, ^{y}
+
 
 
 ~F4::  ; RESET Keyboard State
@@ -38,10 +40,20 @@ global keyTimer := 100
     TrayTip, Keyboard Reset, All keys released., 1, 17
     tooltip("KEYS have been reset", 1000)
 
+    ; Close Secondary Scripts:
+    closeScript_warframe()
+
     ;$ Reloads the ENTIRE Script
     Reload
 }
 return
+
+
+closeScript_warframe() {
+    ; tooltip(WarframePID, 2000)
+    Process, Close, %WarframePID%
+    PostMessage, 0x5555, 0, 0,, ahk_pid %WarframePID%
+}
 
 
 ; Alt & F5::
@@ -103,7 +115,12 @@ basic_settings() {
     ; because if they are lower then the others, the other's will be picked up first
     wow_spec := {}
     ; ---------
-    if (InStr(currentGame, "max_fury")) {
+    if (InStr(currentGame, "warframe")) {
+
+        ; Run, %A_ScriptDir%\Switch_Warframe.ahk
+        Run, %A_ScriptDir%\Switch_Warframe.ahk,,, WarframePID
+
+    } else if (InStr(currentGame, "max_fury")) {
         wow_spec := max_fury
 
     } else if (InStr(currentGame, "max_shaman")) {
@@ -196,85 +213,6 @@ F1::
 return
 
 
-;! Possible Key Detection:
-; the "P" in GetKeyState("LControl", "P") or whatever
-; is not the "P" key, is just part of the command
-; ---
-; GetKeyState("LControl", "P") || GetKeyState("RControl", "P")
-; GetKeyState("LAlt", "P") || GetKeyState("RAlt", "P")
-; GetKeyState("LShift", "P") || GetKeyState("RShift", "P")
-; GetKeyState("CapsLock", "P")
-; GetKeyState("LWin", "P") || GetKeyState("RWin", "P")
-;
-;
-;* WHEN:
-;? "U"
-global u_keyActive := false
-; ???
-; *$U::
-; $*U::
-
-; Good for "Warframe" + "General"
-; *U::
-; Good for "Warcraft"
-#If (currentGame = "warframe") || WinActive("ahk_class warframe")
-~*U::
-; `~` (don't block the native key event)
-; `*` (fire the hotkey even if extra modifiers are held)
-; `$` (block script-loops of this key / block script from triggering itself)
-; `U` (the u key)
-; Remove individual modifier hotkeys and handle everything in main U hotkey
-if (currentGame = "warframe")
-{
-    if (GetKeyState("CapsLock", "P") || GetKeyState("RAlt", "P")) {
-        SendEvent, {CapsLock up}
-        SendEvent, {RControl up}
-        SendEvent, h
-
-    } else if (GetKeyState("LControl", "P")) {
-        SendEvent, {LControl up}
-        SendEvent, j
-
-    } else if (GetKeyState("LWin", "P") || GetKeyState("RControl", "P")) {
-        SendEvent, {LWin up}
-        SendEvent, {RControl up}
-        SendEvent, b
-
-    } else if (u_keyActive == false) {
-        u_keyActive := true
-        SendEvent, {Blind}{u down}
-        ; SetTimer, u_StopKey, Off
-    }
-} else if (SubStr(currentGame, 1, 3) = "wow") {
-    return
-} else {
-    ; if (u_keyActive == false) {
-    ;     u_keyActive := true
-    ;     SendEvent, {Blind}{u down}
-    ;     ; SetTimer, u_StopKey, Off
-    ; }
-    return
-    ; SetTimer, u_StopKey, Off
-} ; Otherwise, do nothing and let Windows handle "U" normally
-; SetTimer, u_StopKey, -%keyTimer%
-;
-return
-;
-;
-
-; u_StopKey:
-; if (!GetKeyState("U", "P")) {
-;     u_keyActive := false
-;     SendEvent, {u Up}
-;     SetTimer, u_StopKey, Off
-; }
-*u up::
-    SendEvent, {u Up}
-    ; SendEvent, {Blind}{u Up}
-    u_keyActive := false
-return
-
-#If ; end of conditional compilation
 
 
 
