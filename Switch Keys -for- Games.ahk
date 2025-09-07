@@ -82,6 +82,7 @@ basic_settings() {
         Run, microsoft-edge:https://www.photopea.com/
         Run, microsoft-edge:https://convertico.com/
         Run, microsoft-edge:https://ezgif.com/webp-to-png
+        Run, microsoft-edge:https://round-corner.imageonline.co/
     }
 
 
