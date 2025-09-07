@@ -78,6 +78,14 @@ return
 
 
 basic_settings() {
+    if (InStr(currentGame, "create_icon")) {
+        Run, microsoft-edge:https://www.photopea.com/
+        Run, microsoft-edge:https://convertico.com/
+        Run, microsoft-edge:https://ezgif.com/webp-to-png
+    }
+
+
+
     ;$ Stances // Forms
     if (InStr(currentGame, "wow")) {
         if (InStr(currentGame, "druid")) {
