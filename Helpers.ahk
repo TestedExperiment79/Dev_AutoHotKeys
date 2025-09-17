@@ -23,7 +23,7 @@ InArray(haystack, needle) {
 play_audio(file_name = "odin_3_ravens_wolves.mp3"
 , location = "") {
     if (location = "")  ; if caller didn't pass location
-        location := A_UserProfile "\Verse\Development\AutoHotkeys\game_assets\sounds\"
+        location := "C:\Users\" A_UserName "\Verse\Development\AutoHotkeys\__Assets\Sounds\"
 
 
     sound_url := location . file_name
@@ -43,7 +43,7 @@ popup_image(position = "bottomLeft"
 , location = "")
 {
     if (location = "")  ; if caller didn't pass location
-        location := A_UserProfile "\Verse\Development\AutoHotkeys\game_assets\sounds\"
+        location := "C:\Users\" A_UserName "\Verse\Development\AutoHotkeys\__Assets\Images\"
 
 
     img_url := location . file_name

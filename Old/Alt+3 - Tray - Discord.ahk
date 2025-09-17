@@ -2,7 +2,7 @@
 DetectHiddenWindows, On
 
 
-I_Icon = %A_ScriptDir%\assets\icon_google_translate_1.ico
+I_Icon = %A_ScriptDir%\__Assets\Icons\icon_google_translate_1.ico
 IfExist, %I_Icon%
 Menu, Tray, Icon, %I_Icon%
 
