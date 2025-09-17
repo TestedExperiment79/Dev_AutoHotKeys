@@ -21,7 +21,7 @@ InArray(haystack, needle) {
 
 
 play_audio(file_name = "odin_3_ravens_wolves.mp3"
-, location = "C:\Users\RJ\Development\Utils\AutoHotkeys\game_assets\sounds\") {
+, location = A_UserProfile "\Verse\Development\AutoHotkeys\game_assets\sounds\") {
     sound_url := location . file_name
 
     ; Waits for audio to finish
@@ -36,7 +36,7 @@ popup_image(position = "bottomLeft"
 , file_name = "death_horseman_1.png"
 , img_size = "w1000 h-1"
 , time = 1600
-, location = "C:\Users\RJ\Development\Utils\AutoHotkeys\game_assets\images\")
+, location = A_UserProfile "\Verse\Development\AutoHotkeys\game_assets\images\")
 {
     img_url := location . file_name
 
