@@ -4,7 +4,7 @@ Return
 
 CheckTriggers:
     GetKeyState, Z, JoyZ  ; Check the Z-axis value (adjust if needed)
-    
+
     if (Z < 40) ; R2 pressed
     {
         ; ToolTip, R2 Trigger Pressed! (Value: %Z%)

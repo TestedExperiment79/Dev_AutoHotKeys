@@ -1,0 +1,21 @@
+# root = true  - says that this is the TOP Most EditorConfig File
+# https://editorconfig.org/
+root = true
+
+# Target All files
+[*]
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+indent_style = space
+indent_size = 4
+
+
+# Files such as "package.json"
+[*.json]
+indent_style = space
+indent_size = 2
+
+
+
