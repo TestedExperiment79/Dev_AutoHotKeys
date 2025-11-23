@@ -151,6 +151,10 @@ basic_settings() {
                 or InStr(currentGame, "wow_death_rider")) {
         wow_spec := fury
 
+    } else if (InStr(currentGame, "wow_arms")
+                or InStr(currentGame, "wow_knull")) {
+        wow_spec := arms
+
     } else if (InStr(currentGame, "wow_protection")
                 or InStr(currentGame, "wow_gladiator_hulk")) {
         wow_spec := protection

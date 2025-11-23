@@ -65,6 +65,21 @@ protection[8] := "8;c8"
 protection[9] := "9;c9"
 
 
+global arms := {}
+; arms["i"] := "si;cp;co;ci;p;5;i;o"
+arms["ai"] := "6;c6;2;1;p;5;o;i"
+; arms["s👆"] := "s👆;a👆"
+arms["👆"] := arms["ai"]
+
+arms[4] := "4;c4"
+arms[5] := "c5;5"
+arms[6] := "6;c6"
+
+arms[8] := "8;c8;s8;a8"
+arms[7] := "c7;7" . ";" . arms[8]
+arms[9] := "9;c9" . ";" . arms[8]
+
+
 global fury := {}
 ; fury["i"] := "si;cp;co;ci;p;5;i;o"
 fury["ai"] := "6;c6;2;p;5;o;i"
