@@ -77,7 +77,7 @@ arms[6] := "6;c6"
 
 arms[8] := "8;c8;s8;a8"
 arms[7] := "c7;7" . ";" . arms[8]
-arms[9] := "9;c9" . ";" . arms[8]
+arms[9] := "9;c9"
 
 
 global fury := {}
