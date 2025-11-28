@@ -72,7 +72,7 @@ arms["ai"] := "6;c6;2;1;p;5;o;i"
 arms["👆"] := arms["ai"]
 
 arms[4] := "4;c4"
-arms[5] := "c5;5"
+arms[5] := "5;s5;a5"
 arms[6] := "6;c6"
 
 arms[8] := "8;c8;s8;a8"
