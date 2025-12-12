@@ -166,7 +166,8 @@ basic_settings() {
                 or InStr(currentGame, "wow_thor")) {
         wow_spec := shaman
 
-    } else if (InStr(currentGame, "wow_warlock")) {
+    } else if (InStr(currentGame, "wow_warlock")
+                or InStr(currentGame, "wow_dracula")) {
         wow_spec := warlock
 
     } else if (InStr(currentGame, "wow_druid")
