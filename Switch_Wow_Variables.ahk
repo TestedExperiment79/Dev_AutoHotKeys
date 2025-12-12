@@ -170,7 +170,7 @@ global warlock := {}
 ; warlock["👆"] := "ci;p;i;7;o"
 ; warlock["👆"] := "sp;so"
 ; warlock["s👆"] := "o;i"
-warlock["ai"] := "b;1;p;g;t;y"
+warlock["ai"] := "b;1;p;g;t;3;y;2;l;i"
 warlock["👆"] := warlock["ai"]
 warlock["👇"] := "👇;c👇"
 
