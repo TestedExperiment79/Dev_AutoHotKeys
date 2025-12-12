@@ -170,23 +170,24 @@ global warlock := {}
 ; warlock["👆"] := "ci;p;i;7;o"
 ; warlock["👆"] := "sp;so"
 ; warlock["s👆"] := "o;i"
-warlock["👆"] := "ap;ao;ci;6;o;i"
+warlock["ai"] := "1;p;g;t;y"
+warlock["👆"] := warlock["ai"]
 warlock["👇"] := "👇;c👇"
 
-warlock["i"] := "p"
-warlock["o"] := "ai"
+; warlock["i"] := "p"
+; warlock["o"] := "ai"
 
-warlock[4] := "4"
-warlock[5] := "a5"
-warlock[6] := "co"
+; warlock[4] := "4"
+; warlock[5] := "a5"
+; warlock[6] := "co"
 
-warlock[8] := "8;c8"
-warlock[9] := "8;c8"
+warlock[8] := "8;c8;s8"
+warlock[9] := warlock[8]
 
-warlock["si"] := warlock["6"] . ";" . warlock["👆"]
-warlock["so"] := "s9"
+; warlock["si"] := warlock["6"] . ";" . warlock["👆"]
+; warlock["so"] := "s9"
 
-warlock["ao"] := "a9"
+; warlock["ao"] := "a9"
 
 
 
