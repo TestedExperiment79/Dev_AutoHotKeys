@@ -72,7 +72,7 @@ arms["ai"] := "6;o;3;1;g;p;y;2;t"
 ; arms["s👆"] := "s👆;a👆"
 arms["👆"] := arms["ai"]
 
-arms["i"] := "6;p"
+; arms["i"] := "6;p"
 
 arms[4] := "4;c4"
 arms[5] := "5;s5;a5"
