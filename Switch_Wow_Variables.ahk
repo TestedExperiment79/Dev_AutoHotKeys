@@ -74,13 +74,13 @@ arms["👆"] := arms["ai"]
 
 ; arms["i"] := "6;p"
 
-arms[4] := "4;c4"
+; arms[4] := "4;c4"
 arms[5] := "5;s5;a5"
-arms[6] := "6;c6"
+; arms[6] := "6;c6"
 
-arms[8] := "8;c8;s8;a8"
-arms[7] := "c7;7" . ";" . arms[8]
-arms[9] := "9"
+; arms[8] := "8"
+arms[7] := "7" . ";" . "8"
+; arms[9] := "9"
 
 
 global fury := {}
