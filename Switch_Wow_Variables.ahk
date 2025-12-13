@@ -68,7 +68,7 @@ protection[9] := "9;c9"
 global arms := {}
 ; arms["i"] := "si;cp;co;ci;p;5;i;o"
 ; arms["ai"] := "6;c6;3;2;1;p;5;o;i"
-arms["ai"] := "6;o;3;1;i;p;y;2;t"
+arms["ai"] := "6;o;3;1;g;p;y;2;t"
 ; arms["s👆"] := "s👆;a👆"
 arms["👆"] := arms["ai"]
 
