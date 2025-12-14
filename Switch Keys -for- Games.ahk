@@ -159,6 +159,9 @@ basic_settings() {
                 or InStr(currentGame, "wow_gladiator_hulk")) {
         wow_spec := protection
 
+    } else if (InStr(currentGame, "wow_fire")) {
+        wow_spec := fire
+
     } else if (InStr(currentGame, "wow_frost_dk")) {
         wow_spec := frost_dk
 
