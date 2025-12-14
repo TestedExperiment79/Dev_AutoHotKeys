@@ -56,9 +56,9 @@ havoc["si"] := havoc[6] . ";" . havoc["i"]
 global fire := {}
 ; fire["i"] := "si;cp;co;ci;p;5;i;o"
 ; fire["ai"] := "6;c6;3;2;1;p;5;o;i"
-; fire["ai"] := "6;o;3;1;g;p;y;2;t"
+fire["ai"] := "b;n"
 ; fire["s👆"] := "s👆;a👆"
-; fire["👆"] := fire["ai"]
+fire["👆"] := fire["ai"]
 
 ; fire["i"] := "6;p"
 
