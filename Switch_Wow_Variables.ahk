@@ -64,7 +64,7 @@ global fire := {}
 
 ; fire[4] := "4;c4"
 ; fire[5] := "5;s5;a5"
-fire[6] := "6;c6;s6"
+fire[6] := "6;c6;s6;a6"
 
 ; fire[8] := "8"
 fire[7] := "7" . ";" . "8"
