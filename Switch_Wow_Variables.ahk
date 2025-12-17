@@ -142,11 +142,23 @@ frost_dk["👆"] := "0;p;o;i;2;3"
 
 frost_dk["o"] := "👆"
 
-frost_dk["5"] := "c5;5"
+frost_dk[5] := "c5;5"
 
-frost_dk["7"] := "7;c7"
+frost_dk[7] := "7;c7"
 ;
-frost_dk["9"] := "9;c9"
+frost_dk[9] := "9;c9"
+
+
+global affliction_dk := {}
+affliction_dk["👆"] := "0;p;i;1"
+
+; affliction_dk["o"] := "👆"
+
+; affliction_dk[5] := "c5;5"
+
+; affliction_dk[7] := "7;c7"
+
+; affliction_dk[9] := "9;c9"
 
 
 global max_shaman := {}
