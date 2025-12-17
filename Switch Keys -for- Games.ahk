@@ -165,7 +165,8 @@ basic_settings() {
     } else if (InStr(currentGame, "wow_frost_dk")) {
         wow_spec := frost_dk
 
-    } else if (InStr(currentGame, "wow_affliction_dk")) {
+    } else if (InStr(currentGame, "wow_affliction_dk")
+                or InStr(currentGame, "wow_afflict_dk")) {
         wow_spec := affliction_dk
 
     } else if (InStr(currentGame, "wow_shaman")
