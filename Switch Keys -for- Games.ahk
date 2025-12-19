@@ -170,7 +170,7 @@ basic_settings() {
         wow_spec := affliction_dk
 
     } else if (InStr(currentGame, "wow_shaman")
-                or InStr(currentGame, "wow_thor")) {
+                or InStr(currentGame, "wow_odin")) {
         wow_spec := shaman
 
     } else if (InStr(currentGame, "wow_warlock")
@@ -178,7 +178,7 @@ basic_settings() {
         wow_spec := warlock
 
     } else if (InStr(currentGame, "wow_druid")
-                or InStr(currentGame, "wow_odin")) {
+                or InStr(currentGame, "wow_godyr")) {
         ; Check Stance Change
         wow_spec := druid
         ; temp_listKeystrokes := handle_druid_keystroke(key)
