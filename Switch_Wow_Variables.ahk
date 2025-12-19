@@ -150,7 +150,7 @@ frost_dk[9] := "9;c9"
 
 
 global affliction_dk := {}
-affliction_dk["👆"] := "0;l;p;i;1"
+affliction_dk["👆"] := "y;0;l;p;i;1"
 
 ; affliction_dk["o"] := "👆"
 
